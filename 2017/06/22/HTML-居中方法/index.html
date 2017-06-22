@@ -93,12 +93,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎,来到LGF博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="小编今天总结了：九种关于盒子居中的方法，并且兼容性非常好，代码如下： 页面骨架如下:123456789101112&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;bod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML-九种盒子居中方法">
+<meta property="og:url" content="http://yoursite.com/2017/06/22/HTML-居中方法/index.html">
 <meta property="og:site_name" content="欢迎,来到LGF博客">
+<meta property="og:description" content="小编今天总结了：九种关于盒子居中的方法，并且兼容性非常好，代码如下： 页面骨架如下:123456789101112&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;bod">
+<meta property="og:updated_time" content="2017-06-22T16:24:03.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎,来到LGF博客">
+<meta name="twitter:title" content="HTML-九种盒子居中方法">
+<meta name="twitter:description" content="小编今天总结了：九种关于盒子居中的方法，并且兼容性非常好，代码如下： 页面骨架如下:123456789101112&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;bod">
 
 
 
@@ -126,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/22/HTML-居中方法/"/>
 
 
 
 
 
-  <title>欢迎,来到LGF博客</title>
+  <title>HTML-九种盒子居中方法 | 欢迎,来到LGF博客</title>
   
 
 
@@ -157,9 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,9 +244,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -270,9 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/22/HTML-居中方法/" itemprop="url">HTML-九种盒子居中方法</a></h1>
+          <h1 class="post-title" itemprop="name headline">HTML-九种盒子居中方法</h1>
         
 
         <div class="post-meta">
@@ -319,9 +319,7 @@
       
 
       
-        
-          
-            <p>小编今天总结了：九种关于盒子居中的方法，并且兼容性非常好，代码如下：</p>
+        <p>小编今天总结了：九种关于盒子居中的方法，并且兼容性非常好，代码如下：</p>
 <h3 id="页面骨架如下"><a href="#页面骨架如下" class="headerlink" title="页面骨架如下:"></a>页面骨架如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=<span class="string">"parent"</span>&gt;</div><div class="line">    &lt;div class=<span class="string">"child"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <h3 id="第一种居中方法如下"><a href="#第一种居中方法如下" class="headerlink" title="第一种居中方法如下:"></a>第一种居中方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">	 width: 400px;</div><div class="line">	 height: 200px;</div><div class="line">	 background: red;</div><div class="line">	 padding:50px 100px;</div><div class="line">	 box-sizing: border-box; //这句话是关键，加上它，可以保证盒子的宽，高，不增加</div><div class="line">   &#125;</div><div class="line"> .child&#123;</div><div class="line">   	width: 200px;</div><div class="line">	height: 100px;</div><div class="line">	background: <span class="comment">#2433ff;</span></div><div class="line">     </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <h3 id="第二种居中方法如下"><a href="#第二种居中方法如下" class="headerlink" title="第二种居中方法如下:"></a>第二种居中方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//该方法只在子元素宽高已知的情况下用</div><div class="line">.child&#123; </div><div class="line">	width: 200px;</div><div class="line">	height: 100px;</div><div class="line">	background: <span class="comment">#2433ff;</span></div><div class="line">	 position: relative;</div><div class="line">        left:100px;</div><div class="line">        top:50px;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
@@ -332,20 +330,27 @@
 <h3 id="第七种居中方法如下"><a href="#第七种居中方法如下" class="headerlink" title="第七种居中方法如下:"></a>第七种居中方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">         width: 400px;</div><div class="line">		 height: 200px;</div><div class="line">		 background: red;</div><div class="line">         display:flex;</div><div class="line">       &#125;</div><div class="line"> .child&#123;</div><div class="line">        width: 200px;</div><div class="line">		height: 100px;</div><div class="line">		background: <span class="comment">#2433ff;</span></div><div class="line">		margin: auto;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <h3 id="第八种居中方法如下"><a href="#第八种居中方法如下" class="headerlink" title="第八种居中方法如下:"></a>第八种居中方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  //注意:这个方法,有兼容问题</div><div class="line">.parent&#123;</div><div class="line">         width: 400px;</div><div class="line">		 height: 200px;</div><div class="line">		 background: red;</div><div class="line">         display:flex;</div><div class="line">         justify-content: center;</div><div class="line">         align-items: center;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
 <h3 id="第九种居中方法如下"><a href="#第九种居中方法如下" class="headerlink" title="第九种居中方法如下:"></a>第九种居中方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">         width: 400px;</div><div class="line">		 height: 200px;</div><div class="line">		 background: red;</div><div class="line">         position: relative;</div><div class="line">       &#125;</div><div class="line"> .child&#123;</div><div class="line">         width: 200px;</div><div class="line">		 height: 100px;</div><div class="line">		 background: <span class="comment">#2433ff;</span></div><div class="line">		 position: absolute;</div><div class="line">         top:50%;</div><div class="line">         left:50%;</div><div class="line">         transform: translate(-50%,-50%);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -353,21 +358,22 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -375,6 +381,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -394,8 +404,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -439,6 +458,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面骨架如下"><span class="nav-number">1.</span> <span class="nav-text">页面骨架如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种居中方法如下"><span class="nav-number">2.</span> <span class="nav-text">第一种居中方法如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种居中方法如下"><span class="nav-number">3.</span> <span class="nav-text">第二种居中方法如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种居中方法如下"><span class="nav-number">4.</span> <span class="nav-text">第三种居中方法如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四种居中方法如下"><span class="nav-number">5.</span> <span class="nav-text">第四种居中方法如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五种居中方法如下"><span class="nav-number">6.</span> <span class="nav-text">第五种居中方法如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六种居中方法如下"><span class="nav-number">7.</span> <span class="nav-text">第六种居中方法如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七种居中方法如下"><span class="nav-number">8.</span> <span class="nav-text">第七种居中方法如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八种居中方法如下"><span class="nav-number">9.</span> <span class="nav-text">第八种居中方法如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九种居中方法如下"><span class="nav-number">10.</span> <span class="nav-text">第九种居中方法如下:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -541,10 +576,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
