@@ -4,19 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>欢迎,来到LGF博客</title>
+    <title>HTML-七中浮动方法 | 欢迎,来到LGF博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="LGF">
     
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="欢迎,来到LGF博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="在前端开发中,清除浮动技术是每个前端工程师必需要掌握的,因此小编总结了清除浮动的几种方法,代码如下: 页面骨架如下:12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Tit">
+<meta name="keywords" content="HTML-浮动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML-七中浮动方法">
+<meta property="og:url" content="http://yoursite.com/2017/06/25/HTML-清除浮动方法/index.html">
 <meta property="og:site_name" content="欢迎,来到LGF博客">
+<meta property="og:description" content="在前端开发中,清除浮动技术是每个前端工程师必需要掌握的,因此小编总结了清除浮动的几种方法,代码如下: 页面骨架如下:12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Tit">
+<meta property="og:updated_time" content="2017-06-25T12:19:54.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎,来到LGF博客">
+<meta name="twitter:title" content="HTML-七中浮动方法">
+<meta name="twitter:description" content="在前端开发中,清除浮动技术是每个前端工程师必需要掌握的,因此小编总结了清除浮动的几种方法,代码如下: 页面骨架如下:12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Tit">
 
     
     <link rel="alternative" href="/atom.xml" title="欢迎,来到LGF博客" type="application/atom+xml">
@@ -70,12 +75,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand [layout]" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="[layout]" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2017/06/25/HTML-清除浮动方法/" title="HTML-七中浮动方法" itemprop="url">HTML-七中浮动方法</a>
@@ -89,9 +92,9 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>在前端开发中,清除浮动技术是每个前端工程师必需要掌握的,因此小编总结了清除浮动的几种方法,代码如下:</p>
+	<div class="article-content">
+		
+		<p>在前端开发中,清除浮动技术是每个前端工程师必需要掌握的,因此小编总结了清除浮动的几种方法,代码如下:</p>
 <h3 id="页面骨架如下"><a href="#页面骨架如下" class="headerlink" title="页面骨架如下:"></a>页面骨架如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">	&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">	/*公共的css样式*/</div><div class="line">	 .big&#123;border: 1px solid red;&#125;</div><div class="line">	 .small&#123;width: 100px;height: 100px;background: blue;<span class="built_in">float</span>: left;&#125;</div><div class="line">     .small2&#123;background: pink;height: 100px;width: 100px;<span class="built_in">float</span>: left;&#125;</div><div class="line">     .main&#123;width: 300px;height: 100px;background: black;&#125;</div><div class="line">     .clear&#123;clear: both;&#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=<span class="string">"big"</span>&gt;</div><div class="line">	&lt;div class=<span class="string">"small"</span>&gt;我是1&lt;/div&gt;</div><div class="line">	&lt;div class=<span class="string">"small2"</span>&gt;我是2&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"main"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <h3 id="第一种清除浮动方法如下"><a href="#第一种清除浮动方法如下" class="headerlink" title="第一种清除浮动方法如下:"></a>第一种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  /*只需在.big中加height就行*/</div><div class="line">.big&#123;</div><div class="line">	  border: 1px solid red;</div><div class="line">	  height: 100px;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <h3 id="第二种清除浮动方法如下"><a href="#第二种清除浮动方法如下" class="headerlink" title="第二种清除浮动方法如下:"></a>第二种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/*第二种方法叫,内墙法,就是在.big里面加个div,并加class为clear*/</div><div class="line">&lt;div class=<span class="string">"big"</span>&gt;</div><div class="line">		&lt;div class=<span class="string">"small"</span>&gt;我是1&lt;/div&gt;</div><div class="line">		&lt;div class=<span class="string">"small2"</span>&gt;我是2&lt;/div&gt;</div><div class="line">		&lt;div class=<span class="string">"clear"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
@@ -101,14 +104,9 @@
 <h3 id="第六种清除浮动方法如下"><a href="#第六种清除浮动方法如下" class="headerlink" title="第六种清除浮动方法如下:"></a>第六种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/*也就是前面第五种的加强版*/</div><div class="line">.big&#123;</div><div class="line">      border: 1px solid red;</div><div class="line">      *zoom: 1;  /*  由于伪元素清除浮动不兼容IE6,IE7,所以用这句代码来触发 hasLayout */</div><div class="line">    &#125;</div><div class="line">.big:after&#123;</div><div class="line">      content: <span class="string">"\200B"</span>; /*200B表示空格的意思,而且这种方法不用加 visibility: hidden;*/</div><div class="line">      display: block;;</div><div class="line">      height: 0px;</div><div class="line">      clear: both;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
 <h3 id="第七种清除浮动方法如下"><a href="#第七种清除浮动方法如下" class="headerlink" title="第七种清除浮动方法如下:"></a>第七种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/*第七种方法叫:闭合清除法,也叫双伪元素清除法*/</div><div class="line">.big&#123;</div><div class="line">       border: 1px solid red;</div><div class="line">	   *zoom: 1;  /*由于伪元素清除浮动不兼容IE6，IE7，所以用这句代码来触发 hasLayout */</div><div class="line">    &#125;</div><div class="line">.big:before,.big:after&#123; </div><div class="line">           content:<span class="string">""</span>;</div><div class="line">           display:table;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">.big:after&#123;</div><div class="line">            clear: both;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <p>总结:这七中方法中,第三种方法是不能将盒子的高撑开的,在企业开发中第一种方法到第四种方法,是不推荐使用的,在企业开发中用的最多的是,第六种方法和第七种方法,并且国类的大型网站,最喜欢用第六种方法和第七种方法,因此强烈推荐使用后面两种方法.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -121,27 +119,59 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"e.g. 2176287895 Your weibo id,It will be used in share button."},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+e.g. 1889330 your jiathis ID." charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
 
 </footer>
 
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
 
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
-
+<div class="next">
+<a href="/2017/06/22/HTML-居中方法/"  title="HTML-九种盒子居中方法">
+ <strong>下一篇：</strong><br/> 
+ <span>HTML-九种盒子居中方法
+</span>
+</a>
 </div>
+
+</nav>
+
+	
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
@@ -310,6 +340,32 @@ $(document).ready(function(){
       o.css('display', 'none');
         
     }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
   });
 });
 </script>
