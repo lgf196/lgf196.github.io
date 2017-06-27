@@ -4,19 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>欢迎,来到LGF博客</title>
+    <title>HTML-清除默认样式 | 欢迎,来到LGF博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="LGF">
     
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="欢迎,来到LGF博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="在前端开发:首先要做的一件事情就是清除默认样式,为什么要清除默认样式呢,原因很简单,能尽量减少各浏览器之间的兼容性问题!因此我也将国类几个大型网站的css初始样式,在这里介绍下,代码如下: 腾讯初始样式:123456789body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select&amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML-清除默认样式">
+<meta property="og:url" content="http://yoursite.com/2017/06/27/HTML-清除默认样式/index.html">
 <meta property="og:site_name" content="欢迎,来到LGF博客">
+<meta property="og:description" content="在前端开发:首先要做的一件事情就是清除默认样式,为什么要清除默认样式呢,原因很简单,能尽量减少各浏览器之间的兼容性问题!因此我也将国类几个大型网站的css初始样式,在这里介绍下,代码如下: 腾讯初始样式:123456789body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select&amp;#12">
+<meta property="og:updated_time" content="2017-06-27T09:46:00.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎,来到LGF博客">
+<meta name="twitter:title" content="HTML-清除默认样式">
+<meta name="twitter:description" content="在前端开发:首先要做的一件事情就是清除默认样式,为什么要清除默认样式呢,原因很简单,能尽量减少各浏览器之间的兼容性问题!因此我也将国类几个大型网站的css初始样式,在这里介绍下,代码如下: 腾讯初始样式:123456789body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select&amp;#12">
 
     
     <link rel="alternative" href="/atom.xml" title="欢迎,来到LGF博客" type="application/atom+xml">
@@ -70,12 +74,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand [layout]" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="[layout]" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2017/06/27/HTML-清除默认样式/" title="HTML-清除默认样式" itemprop="url">HTML-清除默认样式</a>
@@ -89,22 +91,24 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>在前端开发:首先要做的一件事情就是清除默认样式,为什么要清除默认样式呢,原因很简单,能尽量减少各浏览器之间的兼容性问题!因此我也将国类几个大型网站的css初始样式,在这里介绍下,代码如下:</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#腾讯初始样式"><span class="toc-number">1.</span> <span class="toc-text">腾讯初始样式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新浪官网样式初始化"><span class="toc-number">2.</span> <span class="toc-text">新浪官网样式初始化:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#淘宝官网样式初始化"><span class="toc-number">3.</span> <span class="toc-text">淘宝官网样式初始化:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网易官网样式初始化"><span class="toc-number">4.</span> <span class="toc-text">网易官网样式初始化:</span></a></li></ol>
+		
+		</div>
+		
+		<p>在前端开发:首先要做的一件事情就是清除默认样式,为什么要清除默认样式呢,原因很简单,能尽量减少各浏览器之间的兼容性问题!因此我也将国类几个大型网站的css初始样式,在这里介绍下,代码如下:</p>
 <h3 id="腾讯初始样式"><a href="#腾讯初始样式" class="headerlink" title="腾讯初始样式:"></a>腾讯初始样式:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select&#123;margin:0;padding:0&#125; </div><div class="line">body&#123;font:12px <span class="string">"宋体"</span>,<span class="string">"Arial Narrow"</span>,HELVETICA;background:<span class="comment">#fff;-webkit-text-size-adjust:100%;&#125; </span></div><div class="line">a&#123;color:<span class="comment">#2d374b;text-decoration:none&#125; </span></div><div class="line">a:hover&#123;color:<span class="comment">#cd0200;text-decoration:underline&#125; </span></div><div class="line">em&#123;font-style:normal&#125; </div><div class="line">li&#123;list-style:none&#125; </div><div class="line">img&#123;border:0;vertical-align:middle&#125; </div><div class="line">table&#123;border-collapse:collapse;border-spacing:0&#125; </div><div class="line">p&#123;word-wrap:<span class="built_in">break</span>-word&#125;</div></pre></td></tr></table></figure>
 <h3 id="新浪官网样式初始化"><a href="#新浪官网样式初始化" class="headerlink" title="新浪官网样式初始化:"></a>新浪官网样式初始化:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div&#123;margin:0;padding:0;border:0;&#125; </div><div class="line">body&#123;background:<span class="comment">#fff;color:#333;font-size:12px; margin-top:5px;font-family:"SimSun","宋体","Arial Narrow";&#125; </span></div><div class="line">ul,ol&#123;list-style-type:none;&#125; </div><div class="line">select,input,img,select&#123;vertical-align:middle;&#125; </div><div class="line">a&#123;text-decoration:none;&#125; </div><div class="line">a:link&#123;color:<span class="comment">#009;&#125; </span></div><div class="line">a:visited&#123;color:<span class="comment">#800080;&#125; </span></div><div class="line">a:hover,a:active,a:focus&#123;color:<span class="comment">#c00;text-decoration:underline;&#125;</span></div></pre></td></tr></table></figure>
 <h3 id="淘宝官网样式初始化"><a href="#淘宝官网样式初始化" class="headerlink" title="淘宝官网样式初始化:"></a>淘宝官网样式初始化:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td &#123; margin:0; padding:0; &#125; </div><div class="line">body, button, input, select, textarea &#123; font:12px/1.5tahoma, arial, \5b8b\4f53; &#125; </div><div class="line">h1, h2, h3, h4, h5, h6&#123; font-size:100%; &#125; </div><div class="line">address, cite, dfn, em, var &#123; font-style:normal; &#125; </div><div class="line">code, kbd, pre, samp &#123; font-family:couriernew, courier, monospace; &#125; </div><div class="line">small&#123; font-size:12px; &#125; </div><div class="line">ul, ol &#123; list-style:none; &#125; </div><div class="line">a &#123; text-decoration:none; &#125; </div><div class="line">a:hover &#123; text-decoration:underline; &#125; </div><div class="line">sup &#123; vertical-align:text-top; &#125; </div><div class="line">sub&#123; vertical-align:text-bottom; &#125; </div><div class="line">legend &#123; color:<span class="comment">#000; &#125; </span></div><div class="line">fieldset, img &#123; border:0; &#125; </div><div class="line">button, input, select, textarea &#123; font-size:100%; &#125; </div><div class="line">table &#123; border-collapse:collapse; border-spacing:0; &#125;</div></pre></td></tr></table></figure>
 <h3 id="网易官网样式初始化"><a href="#网易官网样式初始化" class="headerlink" title="网易官网样式初始化:"></a>网易官网样式初始化:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">html &#123;overflow-y:scroll;&#125; </div><div class="line">body &#123;margin:0; padding:29px00; font:12px<span class="string">"\5B8B\4F53"</span>,sans-serif;background:<span class="comment">#ffffff;&#125; </span></div><div class="line">div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p&#123;padding:0; margin:0;&#125; </div><div class="line">table,td,tr,th&#123;font-size:12px;&#125; </div><div class="line">li&#123;list-style-type:none;&#125; </div><div class="line">img&#123;vertical-align:top;border:0;&#125; </div><div class="line">ol,ul &#123;list-style:none;&#125; </div><div class="line">h1,h2,h3,h4,h5,h6&#123;font-size:12px; font-weight:normal;&#125; </div><div class="line">address,cite,code,em,th &#123;font-weight:normal; font-style:normal;&#125;</div></pre></td></tr></table></figure>
 <p>总结:上面几个网站的初始样式,大家可以随机选择他们的样式用到自已的项目中去,因此小编我呢,也将自已的css初始化代码写出来代码如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td &#123; margin:0; padding:0; &#125; </div><div class="line">body, button, input, select, textarea &#123; font:14px <span class="string">"微软雅黑"</span>,tahoma, arial, \5b8b\4f53; &#125; </div><div class="line">h1, h2, h3, h4, h5, h6&#123; font-size:100%; &#125; </div><div class="line">address, cite, dfn, em, var &#123; font-style:normal; &#125; </div><div class="line">code, kbd, pre, samp &#123; font-family:couriernew, courier, monospace; &#125; </div><div class="line">small&#123; font-size:12px; &#125; </div><div class="line">ul, ol &#123; list-style:none; &#125; </div><div class="line">a&#123; text-decoration:none;color:<span class="comment">#999;&#125; </span></div><div class="line">a:hover &#123; text-decoration:none; &#125; </div><div class="line">sup &#123; vertical-align:text-top; &#125; </div><div class="line">sub&#123; vertical-align:text-bottom; &#125; </div><div class="line">legend &#123; color:<span class="comment">#000; &#125; </span></div><div class="line">fieldset, img &#123; border:0; &#125; </div><div class="line">button, input, select, textarea &#123; font-size:100%;outline:none;&#125; </div><div class="line">table &#123; border-collapse:collapse; border-spacing:0; &#125;</div><div class="line">.clearfix&#123;*zoom:1;&#125;</div><div class="line">.clearfix:after&#123;display:block; overflow:hidden; clear:both; height:0; visibility:hidden; content:<span class="string">"."</span>;&#125;</div><div class="line">img&#123;border:0;&#125;</div></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -117,27 +121,58 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2137502" charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
 
 </footer>
 
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
 
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
-
+<div class="next">
+<a href="/2017/06/25/HTML-清除浮动方法/"  title="HTML-七中浮动方法">
+ <strong>下一篇：</strong><br/> 
+ <span>HTML-七中浮动方法
+</span>
+</a>
 </div>
+
+</nav>
+
+	
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
@@ -305,6 +340,11 @@ $(document).ready(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
   
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
   $(window).resize(function(){
     getSize(); 
     if (myWidth >= 1024) {
@@ -313,8 +353,36 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
   });
 });
 </script>
