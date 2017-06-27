@@ -392,7 +392,7 @@ body >header {
   width: 100%;
   -webkit-box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
   box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
-  background: url("../") center #2ca6cb;
+  background: url("../") center #c7ffec;
   color: #fff;
   padding: 1em 0 0.8em;
 }
@@ -546,7 +546,7 @@ header nav ul li a {
   }
 }
 header nav ul li a:hover {
-  background: #1b7f9e;
+  background: #4effc8;
   color: #e9cd4c;
 }
 .shownav {
@@ -639,7 +639,7 @@ header nav ul li a:hover {
   }
 }
 #main section.post a:hover {
-  border-left: 0.5em solid #2ca6cb;
+  border-left: 0.5em solid #c7ffec;
 }
 #main section.post a h1 {
   color: #2ca6cb;
@@ -688,7 +688,7 @@ header nav ul li a:hover {
   text-decoration: none;
 }
 #main article.post-expand .article-more-link a:hover {
-  background: #2ca6cb;
+  background: #c7ffec;
   color: #fff;
   text-decoration: none;
 }
@@ -708,7 +708,7 @@ header nav ul li a:hover {
   border-left: 0.5em solid #ccc;
 }
 .unexpand .prev:hover {
-  border-left: 0.5em solid #2ca6cb;
+  border-left: 0.5em solid #c7ffec;
 }
 #page-nav {
   background: #fafafa;
@@ -724,7 +724,7 @@ header nav ul li a:hover {
 }
 #page-nav a:hover {
   background: #ccc;
-  color: #2ca6cb;
+  color: #c7ffec;
 }
 #page-nav .prev {
   float: left;
@@ -821,7 +821,7 @@ header nav ul li a:hover {
   transition: color 0.5s;
 }
 .archive-title a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
   -webkit-transition: color 0.5s;
   -moz-transition: color 0.5s;
   -o-transition: color 0.5s;
@@ -901,7 +901,7 @@ article header.article-info >h1 {
   word-break: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  border-left: 5px solid #2ca6cb;
+  border-left: 5px solid #c7ffec;
 }
 @media only screen and (min-width: 1024px) {
   article header.article-info >h1 {
@@ -1016,7 +1016,7 @@ article .article-content abbr {
   border-bottom: 1px dotted;
 }
 article .article-content blockquote {
-  border-left: 0.2em solid #2ca6cb;
+  border-left: 0.2em solid #c7ffec;
   margin: 0.65em 0 0.65em 1%;
   padding-left: 1%;
   line-height: 1.5;
@@ -1552,7 +1552,7 @@ section.comment {
   transition: color 1s ease-out;
 }
 #toc.toc-aside a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
   -webkit-transition: color 0.3s ease-out;
   -moz-transition: color 0.3s ease-out;
   -o-transition: color 0.3s ease-out;
@@ -1560,7 +1560,7 @@ section.comment {
   transition: color 0.3s ease-out;
 }
 .active {
-  color: #2ca6cb !important;
+  color: #c7ffec !important;
 }
 .openaside {
   display: none;
@@ -1573,7 +1573,7 @@ section.comment {
   color: #fff;
   border: 1px solid #fff;
   border-radius: 5px;
-  background: #2ca6cb;
+  background: #c7ffec;
   padding: 0.2em 0.55em;
 }
 .openaside a::before {
@@ -1586,7 +1586,7 @@ section.comment {
   display: none;
 }
 .closeaside a {
-  color: #2ca6cb;
+  color: #c7ffec;
 }
 .closeaside a:hover {
   color: #2ca6cb;
@@ -1628,7 +1628,7 @@ section.comment {
   color: #2ca6cb;
 }
 .asidetitle a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
   -webkit-transition: color 0.5s;
   -moz-transition: color 0.5s;
   -o-transition: color 0.5s;
@@ -1657,7 +1657,7 @@ section.comment {
   padding: 0.5em 5%;
 }
 .categorieslist li a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
 }
 .tagslist {
   margin: 1em 0 0;
@@ -1689,11 +1689,11 @@ section.comment {
   background: #dbdbdb;
 }
 .tagslist ul li a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
   background: #e6e6e6;
 }
 .rsspart {
-  background: #2ca6cb;
+  background: #c7ffec;
   width: 100%;
 }
 @media only screen and (min-width: 768px) {
@@ -1717,7 +1717,7 @@ section.comment {
   text-align: center;
 }
 .rsspart a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
   background: #fafafa;
 }
 .rsspart a::before {
@@ -1745,7 +1745,7 @@ section.comment {
   padding: 0.5em;
 }
 .archiveslist li a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
   -webkit-transition: color 0.25s;
   -moz-transition: color 0.25s;
   -o-transition: color 0.25s;
@@ -1793,7 +1793,7 @@ section.comment {
   float: left;
 }
 .tagcloudlist .tagcloudlist a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
   -webkit-transition: color 0.25s;
   -moz-transition: color 0.25s;
   -o-transition: color 0.25s;
@@ -1827,7 +1827,7 @@ section.comment {
   padding: 0 3%;
 }
 .linkslist ul a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
   -webkit-transition: color 0.25s;
   -moz-transition: color 0.25s;
   -o-transition: color 0.25s;
@@ -2226,7 +2226,7 @@ footer {
   font-weight: normal;
 }
 .article-content .gist .gist-file .gist-meta a:hover {
-  color: #2ca6cb;
+  color: #c7ffec;
 }
 pre .comment,
 pre .title {
