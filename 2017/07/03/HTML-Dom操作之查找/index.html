@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Welcome to the LGF blog</title>
+    <title>HTML-Dom操作之查找 | Welcome to the LGF blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="LGF">
     
 
     
-    <meta name="description" content="此博客专门为web开发人员打造">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to the LGF blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="前面一篇我们说了如何获取节点元素,那么我们这篇说的是,如何查找节点,查找节点也是非常的重要的 公共样式代码12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;	&amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML-Dom操作之查找">
+<meta property="og:url" content="http://yoursite.com/2017/07/03/HTML-Dom操作之查找/index.html">
 <meta property="og:site_name" content="Welcome to the LGF blog">
-<meta property="og:description" content="此博客专门为web开发人员打造">
+<meta property="og:description" content="前面一篇我们说了如何获取节点元素,那么我们这篇说的是,如何查找节点,查找节点也是非常的重要的 公共样式代码12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;	&amp;lt">
+<meta property="og:updated_time" content="2017-07-04T15:14:39.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to the LGF blog">
-<meta name="twitter:description" content="此博客专门为web开发人员打造">
+<meta name="twitter:title" content="HTML-Dom操作之查找">
+<meta name="twitter:description" content="前面一篇我们说了如何获取节点元素,那么我们这篇说的是,如何查找节点,查找节点也是非常的重要的 公共样式代码12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;	&amp;lt">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the LGF blog" type="application/atom+xml">
@@ -71,12 +72,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2017/07/03/HTML-Dom操作之查找/" title="HTML-Dom操作之查找" itemprop="url">HTML-Dom操作之查找</a>
@@ -90,21 +89,23 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>前面一篇我们说了如何获取节点元素,那么我们这篇说的是,如何查找节点,查找节点也是非常的重要的</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#公共样式代码"><span class="toc-number">1.</span> <span class="toc-text">公共样式代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#节点查找"><span class="toc-number">2.</span> <span class="toc-text">节点查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#节点元素查找"><span class="toc-number">3.</span> <span class="toc-text">节点元素查找</span></a></li></ol>
+		
+		</div>
+		
+		<p>前面一篇我们说了如何获取节点元素,那么我们这篇说的是,如何查找节点,查找节点也是非常的重要的</p>
 <h2 id="公共样式代码"><a href="#公共样式代码" class="headerlink" title="公共样式代码"></a>公共样式代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;span id=&quot;span&quot;&gt;我是span标签&lt;/span&gt;</div><div class="line">	&lt;p&gt;我是p标签&lt;/p&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <h2 id="节点查找"><a href="#节点查找" class="headerlink" title="节点查找"></a>节点查找</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	//var span=document.body.firstChild;</div><div class="line">	//注意:前面这样写是找找不到的,找到的是空格</div><div class="line">	//var len=document.body.childNodes.length;</div><div class="line">	//len的长度为6,原因是他将空格也一同算近去了,所以长度为6,这也是我前面为什么获取不到的原因</div><div class="line">	var span2=document.body.firstChild.nextSibling;</div><div class="line">	console.log(span2)//这样是可以获取到span标签的</div><div class="line">	var span3=document.body.childNodes[1];</div><div class="line">	console.log(span3)//这样是可以获取到span标签的</div><div class="line">	//前面的span2,span3他们都能获取到元素,但是这样做太不友好了,原因是含有空格,要想获取我想要的元素我还必须知道哪些是空格,太麻烦了,因此演变出了节点元素</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <h2 id="节点元素查找"><a href="#节点元素查找" class="headerlink" title="节点元素查找"></a>节点元素查找</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	//var len=document.body.children.length;</div><div class="line">	//len返回的长度为3, 他只计算节点元素,不是节点</div><div class="line">	var span=document.body.firstElementChild;</div><div class="line">	console.log(span);//他可以获取到span元素标签</div><div class="line">	var span2=document.body.children[0];//可以获取到span标签元素</div><div class="line">	</div><div class="line">	/*</div><div class="line">	注意:children,firstElementChild,parentElement,lastElementChild,previousElementSibling,nextElementSibling等</div><div class="line">	这些元素是可以直接获取节点元素的,他和前面的节点查找有区别,节点查找,是找的是节点树上的节点,包括空格,而节点元素查找</div><div class="line">	则可以不用看空格,直接找节点元素</div><div class="line">	*/</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p><strong>总结:节点查找,节点元素查找,这两种关键是看你怎么运用,哪些场景适合他们,关键还是看个人,一般来说,节点元素查找用的多点</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -117,28 +118,66 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2137502" charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
 
 </footer>
 
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
 
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
-
+<div class="next">
+<a href="/2017/07/02/HTML-Dom操作/"  title="HTM-Dom操作">
+ <strong>下一篇：</strong><br/> 
+ <span>HTM-Dom操作
+</span>
+</a>
 </div>
+
+</nav>
+
+	
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#公共样式代码"><span class="toc-number">1.</span> <span class="toc-text">公共样式代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#节点查找"><span class="toc-number">2.</span> <span class="toc-text">节点查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#节点元素查找"><span class="toc-number">3.</span> <span class="toc-text">节点元素查找</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -311,6 +350,11 @@ $(document).ready(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
   
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
   $(window).resize(function(){
     getSize(); 
     if (myWidth >= 1024) {
@@ -319,8 +363,36 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
   });
 });
 </script>
@@ -395,4 +467,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>

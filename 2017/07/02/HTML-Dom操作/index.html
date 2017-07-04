@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Welcome to the LGF blog</title>
+    <title>HTM-Dom操作 | Welcome to the LGF blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="LGF">
     
 
     
-    <meta name="description" content="此博客专门为web开发人员打造">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to the LGF blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+    <meta name="description" content="JavaScript中的Dom操作一直以来都是JavaScript的重点,那么今天我就来写下如何获取节点对象 共有样式部分123456789101112&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;      &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;/&amp;gt;	  &amp;lt;style type=&amp;quot;text/css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTM-Dom操作">
+<meta property="og:url" content="http://yoursite.com/2017/07/02/HTML-Dom操作/index.html">
 <meta property="og:site_name" content="Welcome to the LGF blog">
-<meta property="og:description" content="此博客专门为web开发人员打造">
+<meta property="og:description" content="JavaScript中的Dom操作一直以来都是JavaScript的重点,那么今天我就来写下如何获取节点对象 共有样式部分123456789101112&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;      &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;/&amp;gt;	  &amp;lt;style type=&amp;quot;text/css">
+<meta property="og:updated_time" content="2017-07-04T14:09:36.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to the LGF blog">
-<meta name="twitter:description" content="此博客专门为web开发人员打造">
+<meta name="twitter:title" content="HTM-Dom操作">
+<meta name="twitter:description" content="JavaScript中的Dom操作一直以来都是JavaScript的重点,那么今天我就来写下如何获取节点对象 共有样式部分123456789101112&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;      &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;/&amp;gt;	  &amp;lt;style type=&amp;quot;text/css">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the LGF blog" type="application/atom+xml">
@@ -71,12 +72,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2017/07/02/HTML-Dom操作/" title="HTM-Dom操作" itemprop="url">HTM-Dom操作</a>
@@ -90,9 +89,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>JavaScript中的Dom操作一直以来都是JavaScript的重点,那么今天我就来写下如何获取节点对象</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#共有样式部分"><span class="toc-number">1.</span> <span class="toc-text">共有样式部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementById"><span class="toc-number">2.</span> <span class="toc-text">document.getElementById()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementByName"><span class="toc-number">3.</span> <span class="toc-text">document.getElementByName()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementsByTagName"><span class="toc-number">4.</span> <span class="toc-text">document.getElementsByTagName()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementsByClassName"><span class="toc-number">5.</span> <span class="toc-text">document.getElementsByClassName()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-querySelector"><span class="toc-number">6.</span> <span class="toc-text">document.querySelector()</span></a></li></ol>
+		
+		</div>
+		
+		<p>JavaScript中的Dom操作一直以来都是JavaScript的重点,那么今天我就来写下如何获取节点对象</p>
 <h2 id="共有样式部分"><a href="#共有样式部分" class="headerlink" title="共有样式部分"></a>共有样式部分</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">      &lt;meta charset=&quot;utf-8&quot;/&gt;</div><div class="line">	  &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	     div&#123;width:200px;height:200px;background:red;&#125;</div><div class="line">	  &lt;/style&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">      &lt;div id=&quot;id_div&quot; class=&quot;class_div&quot; name=&quot;name_div&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <h2 id="document-getElementById"><a href="#document-getElementById" class="headerlink" title="document.getElementById()"></a>document.getElementById()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementById(&quot;id_div&quot;).onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过id来访问的</div><div class="line">//注意:这个方法是属于document下的方法,只能在document下访问</div></pre></td></tr></table></figure>
 <h2 id="document-getElementByName"><a href="#document-getElementByName" class="headerlink" title="document.getElementByName()"></a>document.getElementByName()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementByName(&quot;name_div&quot;)[0].onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过neme来访问的</div><div class="line">//注意:1.这个方法是属于document下的方法,只能在document下访问</div><div class="line">       2.这个方法返回的值是一个标签元素数组列表,如果子获取一个元素的话,那么它必须加[0],这是数组的格式,如果不加数组的格式,他是获取不到的</div></pre></td></tr></table></figure>
@@ -100,14 +106,9 @@
 <h2 id="document-getElementsByClassName"><a href="#document-getElementsByClassName" class="headerlink" title="document.getElementsByClassName()"></a>document.getElementsByClassName()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementByName(&quot;class_div&quot;)[0].onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过class来访问的</div><div class="line">//注意:1.这个方法的父类既可以是document也可以是其他的父类标签元素</div><div class="line">       2.这个方法返回的值是一个标签元素数组列表,如果子获取一个元素的话,那么它必须加[0],这是数组的格式,如果不加数组的格式,他是获取不到的</div><div class="line">	   3.这个方法的兼容性非常的差,因此我写一个函数来兼容不支持的游览器代码如下:</div><div class="line">	    function getClass(cName)&#123;</div><div class="line">			if(document.getElementsByClassName) </div><div class="line">			&#123;</div><div class="line">				return document.getElementsByClassName(cName);</div><div class="line">			&#125;</div><div class="line">			else</div><div class="line">			&#123; </div><div class="line">				var allEl=document.getElementsByTagName(&quot;*&quot;); </div><div class="line">				var reg=new RegExp(&quot;\\b&quot;+cName+&quot;\\b&quot;);</div><div class="line">				var arr=[];</div><div class="line">				for(var i=0;i&lt;allEl.length;i++)&#123;</div><div class="line">					if(reg.test(allEl[i].className))&#123;</div><div class="line">						arr.push(allEl[i]);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">					return arr;</div><div class="line">			&#125;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
 <h2 id="document-querySelector"><a href="#document-querySelector" class="headerlink" title="document.querySelector()"></a>document.querySelector()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementById(&quot;#id_div&quot;).onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他可以通过id,class,name,标签名,属性选择器,以及伪类选择器等,来获取标签</div><div class="line">//css3中新出的选择器也可以用在这里,他的原理更jQuery选择器的原理是一样的,并且兼容性非常好</div></pre></td></tr></table></figure>
 <p><strong>总结:前面各个方法中用的最多的是getElementById()和getElementsByTagName(),但是现在用的最多的是querySelector(),因为最后一个实在是太好用了,他可以更jQuery一样轻松的获取元素</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -120,28 +121,74 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2137502" charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
-  </nav>
-
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/07/03/HTML-Dom操作之查找/" title="HTML-Dom操作之查找">
+  <strong>上一篇：</strong><br/>
+  <span>
+  HTML-Dom操作之查找</span>
+</a>
 </div>
+
+
+<div class="next">
+<a href="/2017/06/27/2017前端最值得学习的前端技术/"  title="2017年最值得学习的前端框架和技术">
+ <strong>下一篇：</strong><br/> 
+ <span>2017年最值得学习的前端框架和技术
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#共有样式部分"><span class="toc-number">1.</span> <span class="toc-text">共有样式部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementById"><span class="toc-number">2.</span> <span class="toc-text">document.getElementById()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementByName"><span class="toc-number">3.</span> <span class="toc-text">document.getElementByName()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementsByTagName"><span class="toc-number">4.</span> <span class="toc-text">document.getElementsByTagName()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementsByClassName"><span class="toc-number">5.</span> <span class="toc-text">document.getElementsByClassName()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-querySelector"><span class="toc-number">6.</span> <span class="toc-text">document.querySelector()</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -314,6 +361,11 @@ $(document).ready(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
   
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
   $(window).resize(function(){
     getSize(); 
     if (myWidth >= 1024) {
@@ -322,8 +374,36 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
   });
 });
 </script>
@@ -398,4 +478,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
