@@ -79,7 +79,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/06/27/JavaScript-调试技能/" title="前端工程师必备调试技能" itemprop="url">前端工程师必备调试技能</a>
+      <a href="/2017/06/27/2017前端最值得学习的前端技术/" title="2017年最值得学习的前端框架和技术" itemprop="url">2017年最值得学习的前端框架和技术</a>
   </h1>
   <p class="article-author">By
        
@@ -92,35 +92,39 @@
 </header>
     <div class="article-content">
         
-        <p>作为一名合格的web前端开发工程师,调试程序的技能必不可少,那么我今天在这你介绍一些适合,刚刚入行的前端开发人员的一些方法.</p>
-<h2 id="要会使用console对象"><a href="#要会使用console对象" class="headerlink" title="要会使用console对象"></a>要会使用console对象</h2><p>console对象有很多的方法,这里我就不依依介绍了,我就介绍几个工作中非常实用的几个方法</p>
+        <p>JavaScript 的普及造就了一个非常活跃的技术，框架和库的生态系统。 这个生态系统不断涌现多式多样的框架和技术,对许多人来说都是高度的混乱.那么你应该关注什么样的技术呢？你应该在哪里方面投入时间来获得最大收益呢？ 目前公司招聘哪些技术栈呢？ 哪些技术增长潜力最大呢？现在最重要的技术是什么？这篇文章高度概括了你需要知道的内容，你可以通过文章中的链接了解所有关于它的一些信息。</p>
+<h2 id="可选学习标记"><a href="#可选学习标记" class="headerlink" title="可选学习标记"></a>可选学习标记</h2><p>有些东西严格的说是 可选的 ，这意味着，如果您对他们感兴趣，我推荐它们，或者你的工作需要了解它们，但你不应该觉得必须去学习它们。任何标有星号的东西(例如:example<em>)都是可选的。任何没有带`</em>`的东西都应该学习，但是不要觉得要学习一切或知道一切。应该有一个很好的认知，不一定需要成为一名各个领域都出众的专家。</p>
+<h2 id="JavaScript-＆-DOM基础知识"><a href="#JavaScript-＆-DOM基础知识" class="headerlink" title="JavaScript ＆ DOM基础知识"></a>JavaScript ＆ DOM基础知识</h2><p>在尝试以 Javscript 为生，进行工作之前，您应该对 Javascript 的基础知识有深刻的了解：</p>
 <ul>
-<li><p><strong>console.log()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)&#123;</div><div class="line">    console.log(i);//1,2,3,4,5</div><div class="line">&#125;</div><div class="line">//从上面的程序可以看出来:console.log()就是可以将数值在控制台中显示出来,可以看到你想要的结果</div></pre></td></tr></table></figure>
+<li><a href="https://medium.com/javascript-scene/how-to-learn-es6-47d9a1ac2620" target="_blank" rel="external">ES6</a> 当前最新版本的 JavaScript 是 ES2016（又名 ES7 ），但很多开发人员还没有正确学习 ES6 。是时候学习是 ES6 要点 了： Arrow functions(箭头函数) ，rest(剩余参数) / spread(扩展操作符) ，default parameters(默认参数) ， concise object literals(对象字面量) ，destructuring(解构)，解构等等…</li>
+<li><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36" target="_blank" rel="external">Closures(闭包)</a> 了解 JavaScript 函数作用域的基本特性。</li>
+<li>函数和<a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976" target="_blank" rel="external">pure functions(纯函数))</a> 你可能以为你已经很好地掌握了函数，但是 JavaScript 有一些技巧，您需要了解 纯函数 来掌握函数式编程。</li>
+<li><a href="https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c#.rhe7ap36l" target="_blank" rel="external">Functional programming basics(函数式编程基础) </a> 函数式编程通过组合数学中的函数来生成一个大的程序，避免共享状态和可变数据。多年以来，我还没有看到一个大量使用函数式编程的 JavaScript 应用程序。是时候掌握基本原理了。 (愚人码头注：可以看看知乎上的这个回答：<a href="https://zhihu.com/question/28292740/answer/40336090" target="_blank" rel="external">https://zhihu.com/question/28292740/answer/40336090</a>)</li>
+<li><a href="https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8" target="_blank" rel="external">Partial application(局部应用) 和 Curry(柯里化)</a></li>
+<li>Builtin methods(内置方法) ：学习标准的数据类型 (特别是 arrays ， objects ， strings ， 和 numbers )。</li>
+<li>Callbacks(回调): 回调是一个函数，当另一个函数有结果就绪时立即执行。 就像你说，“做你的工作，做完后打电话给我。”</li>
+<li><p><a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises" target="_blank" rel="external">Promises </a> promise 是处理未来值的一种方式。当函数返回 promise 时，您可以使用 .then() 方法附加回调，这个回调将在 promise resolves时运行。resolved 值被传递到你的回调函数中，例如：<code>doSomething().then(value =&amp;gt; console.log(value));</code><br>;代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">const doSomething = (err) =&gt; new Promise((resolve, reject) =&gt; &#123;</div><div class="line">  if (err) return reject(err);</div><div class="line"> </div><div class="line">  setTimeout(() =&gt; &#123;</div><div class="line">    resolve(42);</div><div class="line">  &#125;, 1000);</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">const log = value =&gt; console.log(value);</div><div class="line"> </div><div class="line">// 使用返回的 promises</div><div class="line">doSomething().then(</div><div class="line">  //当 resolve 时:</div><div class="line">  log, // logs 42</div><div class="line">  // 当 reject 时(resolve 时不会调用)</div><div class="line">  log</div><div class="line">);</div><div class="line"> </div><div class="line">// 记得处理错误哦!</div><div class="line">doSomething(new Error(&apos;oops&apos;))</div><div class="line">  .then(log) // not called this time</div><div class="line">.catch(log); // logs &apos;Error: oops&apos;</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>console.count()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> function login()&#123; console.count(&quot;cev&quot;);&#125;</div><div class="line"> login();//1</div><div class="line"> login();//2</div><div class="line"> login();//3</div><div class="line"> login();//4</div><div class="line">//从上面的程序可以看出来:console.count()的作用就是统计一个函数调用的次数</div></pre></td></tr></table></figure>
+<li><p><a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">Ajax &amp; server API calls (Ajax 和 服务器API调用) </a> 那些有趣的应用程序最终需要与网络服务器通信。 你应该知道如何与 API 进行通信。</p>
 </li>
-<li><p><strong>console.group()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> console.group(&quot;我是第一组&quot;);</div><div class="line">    console.log(&quot;1&quot;);</div><div class="line">    console.log(&quot;2&quot;);</div><div class="line">    console.log(&quot;3&quot;);</div><div class="line">    onsole.groupEnd();</div><div class="line">    console.group(&quot;我是第二组&quot;);</div><div class="line">    console.log(&quot;1&quot;);</div><div class="line">    console.log(&quot;2&quot;);</div><div class="line">    console.log(&quot;3&quot;);</div><div class="line">    console.groupEnd();</div><div class="line">//从上面的程序可以看出来:console.group()就是分组的意思,注意它必须配合 console.groupEnd()一起使用</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.dir()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> console.dir(document)//它可以将document所有的方法显示出来</div><div class="line">//从上面的程序可以看出来:console.dir()这个方法非常的强大,他可以将一个对象的全部方法显示出来</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.time()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.time();</div><div class="line">    for(var i=0,j=0; i&lt;100000;i++)&#123;j++;&#125;</div><div class="line">console.timeEnd()</div><div class="line">//从上面的程序可以看出来:console.time()这个方法它可以检测网页的运行的速度,一般要配合console.timeEnd()使用</div></pre></td></tr></table></figure>
-</li>
+<li><a href="href=&quot;http://link.zhihu.com/?target=https%3A//medium.com/javascript-scene/introduction-to-node-express-90c431f9e6fd%23.gl2r6gcnn&quot;">Node &amp; Express</a> Node 允许你在服务端运行 JavaScript ，这意味着您的用户可以将数据存储在云中并随时随地访问。而 Express 是 Node 社区最为流行的 Web 框架。</li>
+<li><a href="http://link.zhihu.com/?target=https%3A//lodash.com/" target="_blank" rel="external">Lodash</a> 一个很好用的、模块化的 JavaScript 实用工具函数库，包含功能编程的好东西，你可以通过 <code>lodash/fp</code> 导入 <code>data-last</code> 功能模块。<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2></li>
+<li>Chrome Dev Tools：DOM inspect &amp; JS debugger:最为好的调试工具，虽然 Firefox 也有很多非常酷的工具，你也可以去体验一下。</li>
+<li><a href="https://www.npmjs.com/" target="_blank" rel="external">npm</a> JavaScript 语言公然的开源包仓库库。</li>
+<li><a href="https://babeljs.io/" target="_blank" rel="external">Babel</a> 用于将 ES6 代码转译到 ES5 以使之能够兼容老版本浏览器。</li>
+<li><a href="https://webpack.github.io/" target="_blank" rel="external">Webpack</a>  最流行的标准 Javascript打包工具，通过一个简单的配置文件，就能快速让项目运行。</li>
+<li><a href="http://eslint.org/" target="_blank" rel="external">ESLint</a>  尽早发现语法错误和代码风格问题。除了代码评审和TDD之外，这是你可以做的第三件事，尽量减少代码中的Bug</li>
+<li><a href="https://ternjs.net/" target="_blank" rel="external">Tern.js</a> 标准 JavaScript 类型的推理工具，这是我目前最喜欢的类型相关的 JavaScript 工具 – 不需要编译步骤或注释。我踢掉了其他相关工具，Tern.js 提供了大部分的功能，并且几乎没有为 JS 使用静态类型系统的成本。</li>
+<li><a href="http://jukezhang.com/" target="_blank" rel="external">Yarn</a> 类似于npm，但是安装起来更为可靠快速。<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2>React 是个专注于构建用户界面的 JavaScript 库，由 Facebook 创建。它基于单向数据流的设计思想，也就意味着对于每个更新周期：<br>1.React 接受组件的输入作为 props，并有条件地渲染 DOM 更新，如果数据已经改变了 DOM 的特定部分。在重渲染阶段发生的数据变化并不会立刻触发重渲染，而是在下一个绘制阶段的时候才会进行重渲染。<br>2.事件处理阶段 – 在渲染 DOM 之后，React 侦听和事件，将事件委托给其 DOM 树根（为了更好的性能）的单个事件侦听器。 你可以监听这些事件并更新响应中的数据。<br>3.对于数据的任何变化都会重复步骤1。<br>这种单向数据流与双向数据绑定形成对比，其中对 DOM 的改变可以直接更新数据（例如，如在 Angular 1和 Knockout 的情况下）。 使用双向绑定，在 DOM 渲染过程（称为 Angular 1 中的摘要循环）中对 DOM的 更改可能会在绘制完成之前重新触发绘图阶段，从而导致回流和重绘 – 从而降低性能。React 没有规定数据管理系统，但推荐使用基于 Flux 的方法。 React 的单向数据流方法借鉴了函数式编程和不可变数据结构的思想，改变了我们对前端框架架构的思考方式。<br>有关React＆Flux架构的更多信息，请阅读 <a href="https://medium.com/javascript-scene/the-best-way-to-learn-to-code-is-to-code-learn-app-architecture-by-building-apps-7ec029db6e00" target="_blank" rel="external">“The Best Way to Learn to Code is to Code: Learn App Architecture by Building Apps”。</a></li>
 </ul>
-<p>console对象还有一些方法,这里就不都说了,想要了解它,其他的方法请用如下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for(var i in console)&#123;</div><div class="line">        document.write(i+&quot;-&gt;&gt;&quot;+console[i]+&quot;&lt;br&gt;&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<h2 id="要记住Error对象的六大错误语法"><a href="#要记住Error对象的六大错误语法" class="headerlink" title="要记住Error对象的六大错误语法"></a>要记住Error对象的六大错误语法</h2><ul>
-<li><strong>SyntaxError:如果在控制台中出现了这个单词表示:语法错误</strong></li>
-<li><strong>ReferenceError:如果在控制台中出现了这个单词表示:引用错误 要找的变量为找到</strong></li>
-<li><strong>TypeError:如果在控制台中出现了这个单词表示:类型错误,一般包括(错误的使用了类型,错误的调用了类型的方法)</strong></li>
-<li><strong>RangeError:果在控制台中出现了这个单词表示:范围错误</strong></li>
-<li><strong>UrlError:用的少,这里就不介绍了</strong></li>
-<li><strong>EvalError:用的少,这里就不介绍了</strong></li>
+<h2 id="Angular-2"><a href="#Angular-2" class="headerlink" title="Angular 2*"></a>Angular 2*</h2><p>Angular 2 是 Google 广受欢迎的 Angular 框架的继承者。 因为它疯狂的人气，掌握它会使简历看起来很棒 —— 但我仍旧建议优先学习 React 。</p>
+<ul>
+<li>React 更简单</li>
+<li>React 很受欢迎，许多工作都需要它使用（Angular 2+也是）<br>为此，我推荐学习 React，但我认为 Angular 2+ 严格可选*。 如果你对 Angular 2+ 有强烈的偏好，那么你可以随意选择 React 或者 Angular 2+。 首先学习 Angular 2+，并考虑 React 可选。 这两种情况都会让你受益，并且在你的简历上看起来很不错。无论你选择哪一个，尽量将精力集中学习和使用你所选择的那个，至少6个月 – 1年后，再去学习另一个。 真正掌握它们需要很多实践。</li>
 </ul>
-<h2 id="要会使用try-catch-err-语句"><a href="#要会使用try-catch-err-语句" class="headerlink" title="要会使用try{}catch(err){}语句"></a>要会使用try{}catch(err){}语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">这个语句表示捕获异常的意思</div><div class="line"> var a=parseFloat(prompt(&quot;请输入小数&quot;));//输入12.56</div><div class="line"> var b=parseInt(prompt(&quot;请输入数字&quot;));//输入-1</div><div class="line"> //当我输入-1时,我下面的try语句已近捕获到了错误的信息</div><div class="line">   try&#123; </div><div class="line">       var fixd=a.toFixed(b);</div><div class="line">       document.write(fixd);</div><div class="line">   &#125;catch(err)&#123;  //这里将错误的信息显示出来</div><div class="line">       alert(err); //错误的信息为范围错误信息</div><div class="line">   &#125;</div><div class="line">   //前面虽然报错了,但是并不会影响我下面的程序运行,如果我不用try语句,他们他就报错，然后后面的语句就不执行了,短路了</div><div class="line">  document.write(&quot;我的程序是正常运行的&quot;);</div><div class="line">  </div><div class="line">  注意:try语句最好用在,你不知道错误的情况下,如果你知道你的错误情况,就不要用try,用if语句代替.</div></pre></td></tr></table></figure>
+<h2 id="观察中的框架"><a href="#观察中的框架" class="headerlink" title="观察中的框架"></a>观察中的框架</h2><p>Vue.js <em> 在 GitHub 上有大量的 stars 和 下载。如果继续下去，它将在 2017 年能做得更好，但我认为在未来的一年左右的时间里，我不认为它不会超越 React 或 Angular（两者都快速增长）。建议学习了 React 或 Angular 后学习 Vue.js 。<br>MobX </em> 是一个很棒的数据管理库，已成为 Redux 的流行替代品。它也在快速增长，我预计在 2017 年会更好。对于大多数应用来说，我更喜欢Redux，但在某些情况下，MobX是更好的选择。例如，如果页面上有成千上万个动态 DOM 对象，MobX 可能会表现得更好。另外，如果你的应用程序工作流都很简单，而且你不需要事务性的、确定性的状态，那么你可能就不需要 Redux 了。MobX 无疑是一个更简单的解决方案。建议你在学习了 Redux 之后，再学习 MobX 。<br>原文链接：<a href="https://medium.com/javascript-scene/top-javascript-frameworks-topics-to-learn-in-2017-700a397b711" target="_blank" rel="external">https://medium.com/javascript-scene/top-javascript-frameworks-topics-to-learn-in-2017-700a397b711</a><br>正文完。</p>
+
         
         
         <p class="article-more-link">
@@ -130,11 +134,11 @@
     <footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-</div>
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/前端热点/">前端热点</a>
+  </div>
 
 </div>
 
@@ -212,7 +216,7 @@
         
           <li>
             
-            	<a href="https://github" target="_blank" title="github">github</a>
+            	<a href="https://github.com" target="_blank" title="github">github</a>
             
           </li>
         
