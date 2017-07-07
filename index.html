@@ -79,24 +79,22 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/07/03/HTML-Dom操作之查找/" title="HTML-Dom操作之查找" itemprop="url">HTML-Dom操作之查找</a>
+      <a href="/2017/07/04/JavaScript-块级作用域/" title="块级作用域" itemprop="url">块级作用域</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-07-02T16:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-03</time>
+    <time datetime="2017-07-04T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-04</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>前面一篇我们说了如何获取节点元素,那么我们这篇说的是,如何查找节点,查找节点也是非常的重要的</p>
-<h2 id="公共样式代码"><a href="#公共样式代码" class="headerlink" title="公共样式代码"></a>公共样式代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;span id=&quot;span&quot;&gt;我是span标签&lt;/span&gt;</div><div class="line">	&lt;p&gt;我是p标签&lt;/p&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="节点查找"><a href="#节点查找" class="headerlink" title="节点查找"></a>节点查找</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	//var span=document.body.firstChild;</div><div class="line">	//注意:前面这样写是找找不到的,找到的是空格</div><div class="line">	//var len=document.body.childNodes.length;</div><div class="line">	//len的长度为6,原因是他将空格也一同算近去了,所以长度为6,这也是我前面为什么获取不到的原因</div><div class="line">	var span2=document.body.firstChild.nextSibling;</div><div class="line">	console.log(span2)//这样是可以获取到span标签的</div><div class="line">	var span3=document.body.childNodes[1];</div><div class="line">	console.log(span3)//这样是可以获取到span标签的</div><div class="line">	//前面的span2,span3他们都能获取到元素,但是这样做太不友好了,原因是含有空格,要想获取我想要的元素我还必须知道哪些是空格,太麻烦了,因此演变出了节点元素</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h2 id="节点元素查找"><a href="#节点元素查找" class="headerlink" title="节点元素查找"></a>节点元素查找</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	//var len=document.body.children.length;</div><div class="line">	//len返回的长度为3, 他只计算节点元素,不是节点</div><div class="line">	var span=document.body.firstElementChild;</div><div class="line">	console.log(span);//他可以获取到span元素标签</div><div class="line">	var span2=document.body.children[0];//可以获取到span标签元素</div><div class="line">	</div><div class="line">	/*</div><div class="line">	注意:children,firstElementChild,parentElement,lastElementChild,previousElementSibling,nextElementSibling等</div><div class="line">	这些元素是可以直接获取节点元素的,他和前面的节点查找有区别,节点查找,是找的是节点树上的节点,包括空格,而节点元素查找</div><div class="line">	则可以不用看空格,直接找节点元素</div><div class="line">	*/</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p><strong>总结:节点查找,节点元素查找,这两种关键是看你怎么运用,哪些场景适合他们,关键还是看个人,一般来说,节点元素查找用的多点</strong></p>
+        <p>作用域在JavaScript中是重点,但同时也是难点,难,难在他很随意,那么我今天就来说下作用域</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    //第一题</div><div class="line">	for(var i=0;i&lt;3;i++)&#123;</div><div class="line">      	var a=2;</div><div class="line">      	console.log(i);</div><div class="line">    &#125;</div><div class="line">    alert(a); //2</div><div class="line">	</div><div class="line">	//第二题</div><div class="line">	var k=5;</div><div class="line">      while(k&gt;0)&#123;</div><div class="line">      	var i=2;</div><div class="line">      	k--;</div><div class="line">      	console.log(k);</div><div class="line">    &#125;</div><div class="line">    alert(i);//2</div><div class="line">	</div><div class="line">	//第三题</div><div class="line">	var k=5</div><div class="line">    if(k&gt;2)&#123;</div><div class="line">        var i=2; </div><div class="line">    &#125;</div><div class="line">    alert(i);//2</div><div class="line">	</div><div class="line">	//第四题</div><div class="line">	function a()&#123;</div><div class="line">       	var i=2;</div><div class="line">    &#125;</div><div class="line">    a();</div><div class="line">    alert(i)//报错</div><div class="line">	</div><div class="line">	//第五题</div><div class="line">	(function()&#123;</div><div class="line">     	var i=2;</div><div class="line">    &#125;)();</div><div class="line">    alert(i);//报错</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><strong>总结:1,2,3都可以在外面访问到我在他们函数体内部定义的变量,为2,为什么原因是if,while,for等这些语句他们没有<code>块级作用域</code>,而函数类型他们含有作用域,具体什么是块级作用域请看下一篇</strong></p>
 
         
         
@@ -134,7 +132,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -153,11 +151,11 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/HTML-CSS/" title="HTML-CSS">HTML-CSS<sup>5</sup></a></li>
+			<li><a href="/categories/HTML-CSS/" title="HTML-CSS">HTML-CSS<sup>6</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>4</sup></a></li>
 		  
 		
 		</ul>

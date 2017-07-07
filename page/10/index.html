@@ -1,0 +1,403 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Welcome to the LGF blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="LGF">
+    
+
+    
+    <meta name="description" content="此博客专门为web开发人员打造">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Welcome to the LGF blog">
+<meta property="og:url" content="http://yoursite.com/page/10/index.html">
+<meta property="og:site_name" content="Welcome to the LGF blog">
+<meta property="og:description" content="此博客专门为web开发人员打造">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Welcome to the LGF blog">
+<meta name="twitter:description" content="此博客专门为web开发人员打造">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the LGF blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the LGF blog" title="Welcome to the LGF blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the LGF blog">Welcome to the LGF blog</a></h1>
+				<h2 class="blog-motto">Nothing is impossible!</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/06/25/HTML-清除浮动方法/" title="HTML-七中浮动方法" itemprop="url">HTML-七中浮动方法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
+		
+  <p class="article-time">
+    <time datetime="2017-06-25T09:04:33.000Z" itemprop="datePublished"> 发表于 2017-06-25</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>在前端开发中,清除浮动技术是每个前端工程师必需要掌握的,因此小编总结了清除浮动的几种方法,代码如下:</p>
+<h3 id="页面骨架如下"><a href="#页面骨架如下" class="headerlink" title="页面骨架如下:"></a>页面骨架如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">	&lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div><div class="line">	/*公共的css样式*/</div><div class="line">	 .big&#123;border: 1px solid red;&#125;</div><div class="line">	 .small&#123;width: 100px;height: 100px;background: blue;<span class="built_in">float</span>: left;&#125;</div><div class="line">     .small2&#123;background: pink;height: 100px;width: 100px;<span class="built_in">float</span>: left;&#125;</div><div class="line">     .main&#123;width: 300px;height: 100px;background: black;&#125;</div><div class="line">     .clear&#123;clear: both;&#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=<span class="string">"big"</span>&gt;</div><div class="line">	&lt;div class=<span class="string">"small"</span>&gt;我是1&lt;/div&gt;</div><div class="line">	&lt;div class=<span class="string">"small2"</span>&gt;我是2&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"main"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="第一种清除浮动方法如下"><a href="#第一种清除浮动方法如下" class="headerlink" title="第一种清除浮动方法如下:"></a>第一种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  /*只需在.big中加height就行*/</div><div class="line">.big&#123;</div><div class="line">	  border: 1px solid red;</div><div class="line">	  height: 100px;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="第二种清除浮动方法如下"><a href="#第二种清除浮动方法如下" class="headerlink" title="第二种清除浮动方法如下:"></a>第二种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/*第二种方法叫,内墙法,就是在.big里面加个div,并加class为clear*/</div><div class="line">&lt;div class=<span class="string">"big"</span>&gt;</div><div class="line">		&lt;div class=<span class="string">"small"</span>&gt;我是1&lt;/div&gt;</div><div class="line">		&lt;div class=<span class="string">"small2"</span>&gt;我是2&lt;/div&gt;</div><div class="line">		&lt;div class=<span class="string">"clear"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="第三种清除浮动方法如下"><a href="#第三种清除浮动方法如下" class="headerlink" title="第三种清除浮动方法如下:"></a>第三种清除浮动方法如下:</h3><p>/<em>第三种方法叫,外墙法,就是在.big后面加个div,并加class为clear</em>/<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"big"</span>&gt;</div><div class="line">		&lt;div class=<span class="string">"small"</span>&gt;我是1&lt;/div&gt;</div><div class="line">		&lt;div class=<span class="string">"small2"</span>&gt;我是2&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"clear"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="第四种清除浮动方法如下"><a href="#第四种清除浮动方法如下" class="headerlink" title="第四种清除浮动方法如下:"></a>第四种清除浮动方法如下:</h3><p>/<em>第四种方法,利用overflow属性,只需在.big里面加overflow:hiddle;</em>/<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.big&#123;</div><div class="line">      border: 1px solid red;</div><div class="line">      overflow: hidden;</div><div class="line">	  *zoom: 1;  /*由于伪元素清除浮动不兼容IE6，IE7，所以用这句代码来触发 hasLayout */</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="第五种清除浮动方法如下"><a href="#第五种清除浮动方法如下" class="headerlink" title="第五种清除浮动方法如下:"></a>第五种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/*第五种方法,利用伪元素,after来清除浮动*/</div><div class="line">.big&#123;</div><div class="line">      border: 1px solid red;</div><div class="line">      *zoom: 1;  /*  由于伪元素清除浮动不兼容IE6，IE7，所以用这句代码来触发 hasLayout */</div><div class="line">    &#125;</div><div class="line">.big:after&#123;</div><div class="line">      content: <span class="string">"."</span>; /*最好content中不要为空,最好在content中加.原因:firefox 7.0前的版本会有生成空格*/</div><div class="line">      display: block;;</div><div class="line">      height: 0px;</div><div class="line">      visibility: hidden;</div><div class="line">      clear: both;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h3 id="第六种清除浮动方法如下"><a href="#第六种清除浮动方法如下" class="headerlink" title="第六种清除浮动方法如下:"></a>第六种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/*也就是前面第五种的加强版*/</div><div class="line">.big&#123;</div><div class="line">      border: 1px solid red;</div><div class="line">      *zoom: 1;  /*  由于伪元素清除浮动不兼容IE6,IE7,所以用这句代码来触发 hasLayout */</div><div class="line">    &#125;</div><div class="line">.big:after&#123;</div><div class="line">      content: <span class="string">"\200B"</span>; /*200B表示空格的意思,而且这种方法不用加 visibility: hidden;*/</div><div class="line">      display: block;;</div><div class="line">      height: 0px;</div><div class="line">      clear: both;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h3 id="第七种清除浮动方法如下"><a href="#第七种清除浮动方法如下" class="headerlink" title="第七种清除浮动方法如下:"></a>第七种清除浮动方法如下:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/*第七种方法叫:闭合清除法,也叫双伪元素清除法*/</div><div class="line">.big&#123;</div><div class="line">       border: 1px solid red;</div><div class="line">	   *zoom: 1;  /*由于伪元素清除浮动不兼容IE6，IE7，所以用这句代码来触发 hasLayout */</div><div class="line">    &#125;</div><div class="line">.big:before,.big:after&#123; </div><div class="line">           content:<span class="string">""</span>;</div><div class="line">           display:table;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">.big:after&#123;</div><div class="line">            clear: both;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>总结:这七中方法中,第三种方法是不能将盒子的高撑开的,在企业开发中第一种方法到第四种方法,是不推荐使用的,在企业开发中用的最多的是,第六种方法和第七种方法,并且国类的大型网站,最喜欢用第六种方法和第七种方法,因此强烈推荐使用后面两种方法.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/HTML-CSS/">HTML-CSS</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/9/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/HTML-CSS/" title="HTML-CSS">HTML-CSS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>4</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com" target="_blank" title="github">github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.cnblogs.com" target="_blank" title="博客园">博客园</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.csdn.net" target="_blank" title="CSDN">CSDN</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.oschina.net" target="_blank" title="开源中国">开源中国</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.css88.com" target="_blank" title="web前端开发">web前端开发</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> If you find a path with no obstacles, it probably doesn’t lead anywhere. <br/>
+			True mastery of any skill takes a lifetime.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="LGF">LGF</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>
