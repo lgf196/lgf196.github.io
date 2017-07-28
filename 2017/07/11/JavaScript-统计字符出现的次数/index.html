@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="统计一个数组中元素出现的次数这种算法一般用在测试上面,当然有的公司喜欢拿来当做面试题,因此我就写一下这个算法 1234567891011121314var arr=[&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;e&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot">
+    <meta name="description" content="统计一个数组中元素出现的次数这种算法一般用在测试上面,当然有的公司喜欢拿来当做面试题,因此我就写一下这个算法 统计数组中字符出现的次数1234567891011121314var arr=[&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;e&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="统计字符出现的次数">
 <meta property="og:url" content="http://yoursite.com/2017/07/11/JavaScript-统计字符出现的次数/index.html">
 <meta property="og:site_name" content="Welcome to the LGF blog">
-<meta property="og:description" content="统计一个数组中元素出现的次数这种算法一般用在测试上面,当然有的公司喜欢拿来当做面试题,因此我就写一下这个算法 1234567891011121314var arr=[&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;e&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot">
-<meta property="og:updated_time" content="2017-07-18T07:46:15.658Z">
+<meta property="og:description" content="统计一个数组中元素出现的次数这种算法一般用在测试上面,当然有的公司喜欢拿来当做面试题,因此我就写一下这个算法 统计数组中字符出现的次数1234567891011121314var arr=[&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;e&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b">
+<meta property="og:updated_time" content="2017-07-25T07:21:47.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计字符出现的次数">
-<meta name="twitter:description" content="统计一个数组中元素出现的次数这种算法一般用在测试上面,当然有的公司喜欢拿来当做面试题,因此我就写一下这个算法 1234567891011121314var arr=[&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;e&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot">
+<meta name="twitter:description" content="统计一个数组中元素出现的次数这种算法一般用在测试上面,当然有的公司喜欢拿来当做面试题,因此我就写一下这个算法 统计数组中字符出现的次数1234567891011121314var arr=[&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;d&amp;quot;,&amp;quot;e&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the LGF blog" type="application/atom+xml">
@@ -94,12 +94,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#统计数组中字符出现的次数"><span class="toc-number">1.</span> <span class="toc-text">统计数组中字符出现的次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#统计字符串中出现字符的次数"><span class="toc-number">2.</span> <span class="toc-text">统计字符串中出现字符的次数</span></a></li></ol>
 		
 		</div>
 		
 		<p>统计一个数组中元素出现的次数这种算法一般用在测试上面,当然有的公司喜欢拿来当做面试题,因此我就写一下这个算法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var arr=[&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;b&quot;,&quot;b&quot;,&quot;f&quot;];</div><div class="line">   var json=&#123;&#125;;//用来存每个元素出现的次数</div><div class="line">   for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">       if(json[arr[i]])&#123; //这里运用了关联数组的写法,不要认为对象只能json.xx这样写,其实对象也可以用关联数组的形式来写</div><div class="line">           json[arr[i]]+=1;</div><div class="line">       &#125;</div><div class="line">       else&#123;</div><div class="line">           json[arr[i]]=1;//如果没有找到,就为1,切将属性和值添加到对象中去</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">   //console.log(json);</div><div class="line">   for(key in json)&#123;</div><div class="line">       console.log(key+&quot;:出现的次数为:&quot;+json[key]);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>  
+<h3 id="统计数组中字符出现的次数"><a href="#统计数组中字符出现的次数" class="headerlink" title="统计数组中字符出现的次数"></a>统计数组中字符出现的次数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var arr=[&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;b&quot;,&quot;b&quot;,&quot;f&quot;];</div><div class="line">   var json=&#123;&#125;;//用来存每个元素出现的次数</div><div class="line">   for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">       if(json[arr[i]])&#123; //这里运用了关联数组的写法,不要认为对象只能json.xx这样写,其实对象也可以用关联数组的形式来写</div><div class="line">           json[arr[i]]+=1;</div><div class="line">       &#125;</div><div class="line">       else&#123;</div><div class="line">           json[arr[i]]=1;//如果没有找到,就为1,切将属性和值添加到对象中去</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">   //console.log(json);</div><div class="line">   for(key in json)&#123;</div><div class="line">       console.log(key+&quot;:出现的次数为:&quot;+json[key]);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h3 id="统计字符串中出现字符的次数"><a href="#统计字符串中出现字符的次数" class="headerlink" title="统计字符串中出现字符的次数"></a>统计字符串中出现字符的次数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var str=&apos;abcehusjacex&apos;;</div><div class="line">  var json=&#123;&#125;;//用来存每个元素出现的次数</div><div class="line">  for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">var charAt=str.charAt(i);//返回的是string类型</div><div class="line">      if(json[charAt])&#123; //这里运用了关联数组的写法,不要认为对象只能json.xx这样写,其实对象也可以用关联数组的形式来写</div><div class="line">          json[charAt]+=1;</div><div class="line">      &#125;</div><div class="line">      else&#123;</div><div class="line">          json[charAt]=1;//如果没有找到,就为1,切将属性和值添加到对象中去</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  //console.log(json);</div><div class="line">  for(key in json)&#123;</div><div class="line">      console.log(key+&quot;:出现的次数为:&quot;+json[key]);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -151,6 +152,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/07/18/JavaScript-运动框架/" title="运动框架">
+  <strong>上一篇：</strong><br/>
+  <span>
+  运动框架</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2017/07/10/JavaScript-排序算法/"  title="排序算法">
@@ -171,7 +180,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#统计数组中字符出现的次数"><span class="toc-number">1.</span> <span class="toc-text">统计数组中字符出现的次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#统计字符串中出现字符的次数"><span class="toc-number">2.</span> <span class="toc-text">统计字符串中出现字符的次数</span></a></li></ol>
  
   </div>
 
@@ -192,7 +201,7 @@
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>9</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>11</sup></a></li>
 		  
 		
 		</ul>
