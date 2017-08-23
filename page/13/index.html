@@ -81,48 +81,31 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/06/27/JavaScript-调试技能/" title="前端工程师必备调试技能" itemprop="url">前端工程师必备调试技能</a>
+      <a href="/2017/06/29/HTML-小图标/" title="logo小图标" itemprop="url">logo小图标</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-06-27T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-06-27</time>
+    <time datetime="2017-06-29T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-06-29</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>作为一名合格的web前端开发工程师,调试程序的技能必不可少,那么我今天在这你介绍一些适合,刚刚入行的前端开发人员的一些方法.</p>
-<h2 id="要会使用console对象"><a href="#要会使用console对象" class="headerlink" title="要会使用console对象"></a>要会使用console对象</h2><p>console对象有很多的方法,这里我就不依依介绍了,我就介绍几个工作中非常实用的几个方法</p>
-<ul>
-<li><p><strong>console.log()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)&#123;</div><div class="line">    console.log(i);//1,2,3,4,5</div><div class="line">&#125;</div><div class="line">//从上面的程序可以看出来:console.log()就是可以将数值在控制台中显示出来,可以看到你想要的结果</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.count()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> function login()&#123; console.count(&quot;cev&quot;);&#125;</div><div class="line"> login();//1</div><div class="line"> login();//2</div><div class="line"> login();//3</div><div class="line"> login();//4</div><div class="line">//从上面的程序可以看出来:console.count()的作用就是统计一个函数调用的次数</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.group()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> console.group(&quot;我是第一组&quot;);</div><div class="line">    console.log(&quot;1&quot;);</div><div class="line">    console.log(&quot;2&quot;);</div><div class="line">    console.log(&quot;3&quot;);</div><div class="line">    onsole.groupEnd();</div><div class="line">    console.group(&quot;我是第二组&quot;);</div><div class="line">    console.log(&quot;1&quot;);</div><div class="line">    console.log(&quot;2&quot;);</div><div class="line">    console.log(&quot;3&quot;);</div><div class="line">    console.groupEnd();</div><div class="line">//从上面的程序可以看出来:console.group()就是分组的意思,注意它必须配合 console.groupEnd()一起使用</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.dir()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> console.dir(document)//它可以将document所有的方法显示出来</div><div class="line">//从上面的程序可以看出来:console.dir()这个方法非常的强大,他可以将一个对象的全部方法显示出来</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.time()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.time();</div><div class="line">    for(var i=0,j=0; i&lt;100000;i++)&#123;j++;&#125;</div><div class="line">console.timeEnd()</div><div class="line">//从上面的程序可以看出来:console.time()这个方法它可以检测网页的运行的速度,一般要配合console.timeEnd()使用</div></pre></td></tr></table></figure>
+        <p>基本上每个网站都有自已网站的logo小图标,那么今天我来说下logo小图标以及如何优化logo区</p>
+<h2 id="logo小图标"><a href="#logo小图标" class="headerlink" title="logo小图标"></a>logo小图标</h2><p><strong>1.如何生成小图标</strong><br>自己或者网页美工制作小图标,也可以去别的网站截图<br><strong>2.转化logo小图标,使其变成favicon.ico格式</strong><br>利用 <a href="http://www.bitbug.net/" target="_blank" rel="external">http://www.bitbug.net/</a>进行转换生成的是favicon.ico 的小图标<br><strong>3.使用小图标</strong><br>在页面的head标签下加<code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot; /&gt;</code><br>//注意:这你的路径要写正确,一般这个小图标都是更index.html,js文件夹是同级别的<br><strong>以上步骤全部完成后的结果为,看下图:</strong><br><img src="/img/logoprituce.png"></p>
+<h2 id="logo区的优化"><a href="#logo区的优化" class="headerlink" title="logo区的优化"></a>logo区的优化</h2><ul>
+<li>一般情况下，logo给的是背景图片</li>
+<li>我们继续在h1 里面放一个链接a 要和 logo盒子一样大。</li>
+<li>注意 a链接 里面要放上网站标题。（是为了优化）</li>
+<li>链接里面的文字对用户体验不好，这里不需要看见,做法:利用text-indent:-2000em</li>
+<li>给链接添加 title 提示文本 增强用户体验。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;foundleft floatL&quot;&gt;</div><div class="line">	&lt;h1&gt;</div><div class="line">		&lt;a href=&quot;#&quot;&gt;</div><div class="line">		  	欢迎来到京东</div><div class="line">		&lt;/a&gt;</div><div class="line">	&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">.foundleft a&#123;display: block;height: 172px;text-indent: -100000px;&#125;</div><div class="line">//按照上面代码的格式写,记住div加的是背景图用background加,不要用img加</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>console对象还有一些方法,这里就不都说了,想要了解它,其他的方法请用如下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for(var i in console)&#123;</div><div class="line">        document.write(i+&quot;-&gt;&gt;&quot;+console[i]+&quot;&lt;br&gt;&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<h2 id="要记住Error对象的六大错误语法"><a href="#要记住Error对象的六大错误语法" class="headerlink" title="要记住Error对象的六大错误语法"></a>要记住Error对象的六大错误语法</h2><ul>
-<li><strong>SyntaxError:如果在控制台中出现了这个单词表示:语法错误</strong></li>
-<li><strong>ReferenceError:如果在控制台中出现了这个单词表示:引用错误 要找的变量为找到</strong></li>
-<li><strong>TypeError:如果在控制台中出现了这个单词表示:类型错误,一般包括(错误的使用了类型,错误的调用了类型的方法)</strong></li>
-<li><strong>RangeError:果在控制台中出现了这个单词表示:范围错误</strong></li>
-<li><strong>UrlError:用的少,这里就不介绍了</strong></li>
-<li><strong>EvalError:用的少,这里就不介绍了</strong></li>
-</ul>
-<h2 id="要会使用try-catch-err-语句"><a href="#要会使用try-catch-err-语句" class="headerlink" title="要会使用try{}catch(err){}语句"></a>要会使用try{}catch(err){}语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">这个语句表示捕获异常的意思</div><div class="line"> var a=parseFloat(prompt(&quot;请输入小数&quot;));//输入12.56</div><div class="line"> var b=parseInt(prompt(&quot;请输入数字&quot;));//输入-1</div><div class="line"> //当我输入-1时,我下面的try语句已近捕获到了错误的信息</div><div class="line">   try&#123; </div><div class="line">       var fixd=a.toFixed(b);</div><div class="line">       document.write(fixd);</div><div class="line">   &#125;catch(err)&#123;  //这里将错误的信息显示出来</div><div class="line">       alert(err); //错误的信息为范围错误信息</div><div class="line">   &#125;</div><div class="line">   //前面虽然报错了,但是并不会影响我下面的程序运行,如果我不用try语句,他们他就报错，然后后面的语句就不执行了,短路了</div><div class="line">  document.write(&quot;我的程序是正常运行的&quot;);</div><div class="line">  </div><div class="line">  注意:try语句最好用在,你不知道错误的情况下,如果你知道你的错误情况,就不要用try,用if语句代替.</div></pre></td></tr></table></figure>
+<p><strong>以上步骤完成后的结果为,看下图:</strong><br><img src="/img/jd.png"></p>
+
         
         
         <p class="article-more-link">
@@ -134,7 +117,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  <a class="article-category-link" href="/categories/HTML-CSS/">HTML-CSS</a>
 </div>
 
 
@@ -159,7 +142,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/12/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/14/">Next<span></span></a>
   </nav>
 
 </div>
@@ -178,7 +161,15 @@
 		<ul>
 		
 		  
+			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/HTML-CSS/" title="HTML-CSS">HTML-CSS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
 		  
 		
 		  
