@@ -2061,45 +2061,6 @@ footer {
   -moz-osx-font-smoothing: grayscale;
   content: "\f142";
 }
-.copyright {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "covered_by_your_graceregular";
-  width: 100%;
-  color: #fff;
-  text-align: center;
-}
-@media only screen and (min-width: 768px) {
-  .copyright {
-    float: left;
-  }
-}
-.copyright a {
-  color: #2ca6cb;
-}
-.copyright a:hover {
-  color: #2ca6cb;
-  text-decoration: underline;
-}
-.cc-license {
-  width: 100%;
-  float: left;
-  text-align: center;
-}
-.cc-license .cc-opacity {
-  opacity: 0.7;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-  filter: alpha(opacity=70);
-  border-bottom: none;
-}
-.cc-license .cc-opacity:hover {
-  opacity: 0.9;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
-  filter: alpha(opacity=90);
-}
-.cc-license img {
-  display: inline-block;
-}
 .article-content pre,
 .article-content .highlight,
 .article-content .highlight pre {
