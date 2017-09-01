@@ -1,0 +1,661 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>html5播放器 | Welcome to the LGF blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="LGF">
+    
+
+    
+    <meta name="description" content="在很多的网站中都有视频播放的功能,并且它的那个播放器有的是他们自已单独开发的,那么我今天就自已写了一个自制播放器,功能该有的还是有的 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt;     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;     &amp;lt;title&amp;gt;Title">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5播放器">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/HTML5-播发器/index.html">
+<meta property="og:site_name" content="Welcome to the LGF blog">
+<meta property="og:description" content="在很多的网站中都有视频播放的功能,并且它的那个播放器有的是他们自已单独开发的,那么我今天就自已写了一个自制播放器,功能该有的还是有的 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt;     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;     &amp;lt;title&amp;gt;Title">
+<meta property="og:image" content="http://yoursite.com/img/play.png">
+<meta property="og:updated_time" content="2017-09-01T07:13:40.044Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5播放器">
+<meta name="twitter:description" content="在很多的网站中都有视频播放的功能,并且它的那个播放器有的是他们自已单独开发的,那么我今天就自已写了一个自制播放器,功能该有的还是有的 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt;     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;     &amp;lt;title&amp;gt;Title">
+<meta name="twitter:image" content="http://yoursite.com/img/play.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the LGF blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the LGF blog" title="Welcome to the LGF blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the LGF blog">Welcome to the LGF blog</a></h1>
+				<h2 class="blog-motto">Nothing is impossible!</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/20/HTML5-播发器/" title="html5播放器" itemprop="url">html5播放器</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-20T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#效果图如下"><span class="toc-number">1.</span> <span class="toc-text">效果图如下:</span></a></li></ol>
+		
+		</div>
+		
+		<p>在很多的网站中都有视频播放的功能,并且它的那个播放器有的是他们自已单独开发的,那么我今天就自已写了一个自制播放器,功能该有的还是有的</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/font-awesome.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/css.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3 class=&quot;playerTitle&quot;&gt;视频播放器&lt;/h3&gt;
+&lt;div class=&quot;player&quot;&gt;
+    &lt;video src=&quot;mp4/chrome.mp4&quot;&gt;&lt;/video&gt;
+    &lt;div class=&quot;slide&quot;&gt;
+        &lt;div class=&quot;slide-creat&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;controls&quot;&gt;
+        &lt;a href=&quot;javascript:;&quot; class=&quot;switch fa fa-play&quot;&gt;&lt;/a&gt;
+        &lt;a href=&quot;javascript:;&quot; class=&quot;expand fa fa-expand&quot;&gt;&lt;/a&gt;
+        &lt;！--注意这里是模仿进度条的--&gt;
+        &lt;div class=&quot;progress&quot;&gt;
+            &lt;div class=&quot;bar&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;loaded&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;elapse&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;time&quot;&gt;
+            &lt;span class=&quot;currentTime&quot;&gt;00:00:00&lt;/span&gt;
+
+            &lt;span class=&quot;totalTime&quot;&gt;00:00:00&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;sound&quot;&gt;
+             &lt;div class=&quot;sound-hide&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;sound-sound&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var video=document.querySelector(&quot;video&quot;);
+var swt= document.querySelector(&quot;.switch&quot;);
+//让视频的声音默认为0.3
+ video.volume=0.3;
+
+ swt.onclick=function(){
+     video.paused===true?video.play():video.pause();
+     toggleon();
+ }
+
+//全屏功能
+document.querySelector(&quot;.expand&quot;).onclick=function(e){
+    if(video.requestFullScreen){
+        video.requestFullScreen();
+    }
+    else if(video.webkitRequestFullScreen){
+         video.webkitRequestFullScreen();
+    }
+    else if(video.mozRequestFullScreen){
+        video.mozRequestFullScreen();
+    }
+    else if(video.msRequestFullScreen){
+        video.msRequestFullScreen();
+    }
+    e.preventDefault(); //阻止视频变大不能看其他的东西的方法
+}
+
+//动态的计算总时间,当浏览器可以播放音频/视频时
+video.oncanplay=function(){
+    setTimeout(function(){
+         video.style.display=&quot;block&quot;;
+         //获取时间的总长度
+         var addtime=video.duration; //注意他返回的是总时间秒为单位的
+        document.querySelector(&quot;.totalTime&quot;).innerText=publictime(addtime);
+    },2000);
+}
+
+//播放的动态时间也跟着变化
+video.ontimeupdate=function(){
+    var curent=video.currentTime;//返回的是当前的播放的秒数
+    document.querySelector(&quot;.currentTime&quot;).innerText=publictime(curent);
+    //时间更下面的width一起动态的运动起来
+    document.querySelector(&quot;.elapse&quot;).style.width=(curent/video.duration)*100+&quot;%&quot;;
+}
+
+//公用按钮切换函数
+function toggleon(){
+    for(var i=0;i&lt;swt.classList.length;i++){
+        if(swt.classList[i]===&quot;fa-play&quot;){
+           swt.classList.remove(&quot;fa-play&quot;);
+           swt.classList.add(&quot;fa-pause&quot;);
+        }
+        else if(swt.classList[i]===&quot;fa-pause&quot;){
+           swt.classList.remove(&quot;fa-pause&quot;);
+           swt.classList.add(&quot;fa-play&quot;);
+        }
+    }
+}
+
+//时间的公用部分
+function publictime(time){
+    var hour=Math.floor(time/3600);  //计算小时
+        hour=hour&lt;10?&quot;0&quot;+hour:hour;
+    var minute=Math.floor(time/60%60); //计算分钟
+        minute=minute&lt;10?&quot;0&quot;+minute:minute;
+    var second=Math.floor(time%60);  //计算秒数
+        second=second&lt;10?&quot;0&quot;+second:second;
+   return hour+&quot;:&quot;+minute+&quot;:&quot;+second;
+}
+
+
+//点击透明的进度条进行快进播放
+document.querySelector(&quot;.bar&quot;).onclick=function(e){
+  var remove=e.offsetX/this.offsetWidth;
+  var cur=remove*video.duration;
+  video.currentTime=cur;
+}
+
+//当播放结束的时候就将值变为默认的
+video.onended=function(){
+    video.currentTime=0;
+  swt.classList.remove(&quot;fa-pause&quot;);
+    swt.classList.add(&quot;fa-play&quot;);
+}
+
+//点击视频是也可以播放
+video.onclick=function(){
+ video.paused===true?video.play():video.pause();
+  toggleon();
+}
+
+//控制视频的声音大小
+document.querySelector(&quot;.sound-hide&quot;).onclick=function(e){
+   document.querySelector(&quot;.sound-sound&quot;).style.width=e.offsetX+&quot;px&quot;;
+   var width=document.querySelector(&quot;.sound&quot;).offsetWidth;
+    video.volume=e.offsetX/width;
+}
+
+//动画函数
+function animate(obj, target,property) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var leader = obj.offsetWidth;
+            var step = 10;
+            step = leader &lt; target ? step : -step;
+            if (Math.abs(leader - target) &gt;= Math.abs(step)) {
+                leader = leader + step;
+                obj.style[property]= leader + &quot;px&quot;;
+            } else {
+                obj.style[property] = target + &quot;px&quot;;
+                clearInterval(obj.timer);
+            }
+        }, 15);
+}
+
+//点击slide-creat按钮然他做动画
+document.querySelector(&quot;.slide-creat&quot;).onclick=function(){
+    var slide=document.querySelector(&quot;.slide&quot;);
+    if(slide.offsetWidth===0){
+        animate(slide,200,&quot;width&quot;);
+         this.style.left=&quot;-30px&quot;;
+        this.style.borderColor=&quot;transparent transparent transparent gray&quot;;
+    }
+    else{
+         this.style.left=&quot;-60px&quot;;
+        this.style.borderColor=&quot;transparent gray transparent transparent&quot;;
+         animate(slide,0,&quot;width&quot;);
+    }
+
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下:"></a>效果图如下:</h3><p><img src="/img/play.png"></p>
+<p>总结：前面的代码有几个事件函数他是HTML5中的音频事件的，如果不懂得话,可以去w3c查看下</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/HTML5/">HTML5</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2137502" charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/03/23/CSS3-3D轮播图/" title="css3写3D轮播图">
+  <strong>上一篇：</strong><br/>
+  <span>
+  css3写3D轮播图</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/03/17/HTML5-监听接口/"  title="html5监听接口">
+ <strong>下一篇：</strong><br/> 
+ <span>html5监听接口
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#效果图如下"><span class="toc-number">1.</span> <span class="toc-text">效果图如下:</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML-CSS/" title="HTML-CSS">HTML-CSS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com" target="_blank" title="github">github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.cnblogs.com" target="_blank" title="博客园">博客园</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.csdn.net" target="_blank" title="CSDN">CSDN</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.oschina.net" target="_blank" title="开源中国">开源中国</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.css88.com" target="_blank" title="web前端开发">web前端开发</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> If you find a path with no obstacles, it probably doesn’t lead anywhere. <br/>
+			True mastery of any skill takes a lifetime.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="LGF">LGF</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

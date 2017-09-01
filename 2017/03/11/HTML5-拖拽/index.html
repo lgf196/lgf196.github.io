@@ -1,0 +1,490 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>html5的拖拽 | Welcome to the LGF blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="LGF">
+    
+
+    
+    <meta name="description" content="今天我们来聊下HTML5中的拖拽方法,基本上在很多的网站上面都有拖拽的效果 拖拽1123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5的拖拽">
+<meta property="og:url" content="http://yoursite.com/2017/03/11/HTML5-拖拽/index.html">
+<meta property="og:site_name" content="Welcome to the LGF blog">
+<meta property="og:description" content="今天我们来聊下HTML5中的拖拽方法,基本上在很多的网站上面都有拖拽的效果 拖拽1123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384">
+<meta property="og:updated_time" content="2017-09-01T06:02:03.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5的拖拽">
+<meta name="twitter:description" content="今天我们来聊下HTML5中的拖拽方法,基本上在很多的网站上面都有拖拽的效果 拖拽1123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the LGF blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the LGF blog" title="Welcome to the LGF blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the LGF blog">Welcome to the LGF blog</a></h1>
+				<h2 class="blog-motto">Nothing is impossible!</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/11/HTML5-拖拽/" title="html5的拖拽" itemprop="url">html5的拖拽</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-11T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#拖拽1"><span class="toc-number">1.</span> <span class="toc-text">拖拽1</span></a></li></ol>
+		
+		</div>
+		
+		<p>今天我们来聊下HTML5中的拖拽方法,基本上在很多的网站上面都有拖拽的效果</p>
+<h3 id="拖拽1"><a href="#拖拽1" class="headerlink" title="拖拽1"></a>拖拽1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        .div1&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            border: 1px solid red;</div><div class="line">            position: relative;</div><div class="line">            margin-left:20px;</div><div class="line">            float: left;</div><div class="line">        &#125;</div><div class="line">        .div2&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            border: 1px solid blue;</div><div class="line">            position: relative;</div><div class="line">            margin-left:20px;</div><div class="line">            float: left;</div><div class="line">        &#125;</div><div class="line">        p&#123;</div><div class="line">            background-color: orange;</div><div class="line">            margin-top: 5px;</div><div class="line">            cursor:move;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div class=&quot;div1&quot; id=&quot;div1&quot;&gt;</div><div class="line">    &lt;!--在h5中，如果想拖拽元素，就必须为元素添加draggable=&quot;true&quot;. 图片和超链接默认就可以拖拽--&gt;</div><div class="line">    &lt;p id=&quot;pe&quot; draggable=&quot;true&quot;&gt;试着把我拖过去&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;div2&quot; id=&quot;div2&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">   /*</div><div class="line">   HTML5中新出来了拖拽事件，并且他有一些事件</div><div class="line">   1.被拖拽元素的事件有以下几个</div><div class="line">      ondrag: 应用于拖拽元素，整个拖拽过程都会调用--持续</div><div class="line">      ondragstart:应用于拖拽元素，当拖拽开始时调用</div><div class="line">      ondragleave: 应用于拖拽元素，当鼠标离开拖拽元素原来的地方时调用</div><div class="line">      ondragend:应用于拖拽元素，当拖拽结束时调用</div><div class="line">    2.应用于目标元素的事件</div><div class="line">      ondragenter: 应用于目标元素，当拖拽元素的鼠标箭头进入时调用</div><div class="line">      ondragover: 应用于目标元素，当鼠标箭头停留在目标元素上时调用</div><div class="line">      ondrop: 应用于目标元素，当在目标元素上松开鼠标时调用</div><div class="line">      ondragleave:应用于目标元素，当鼠标离开目标元素时调用</div><div class="line"></div><div class="line">    */</div><div class="line"></div><div class="line">   var p=document.querySelector(&quot;#pe&quot;);</div><div class="line">  /* p.ondrag=function()&#123;</div><div class="line">     console.log(&quot;ondrag&quot;);</div><div class="line">   &#125;</div><div class="line">    p.ondragstart=function()&#123;</div><div class="line">     console.log(&quot;ondragstart&quot;);</div><div class="line">   &#125;</div><div class="line">   p.ondragleave=function()&#123;</div><div class="line">     console.log(&quot;ondragleave&quot;);</div><div class="line">   &#125;</div><div class="line">    p.ondragend=function()&#123;</div><div class="line">     console.log(&quot;ondragend&quot;);</div><div class="line">   &#125;*/</div><div class="line"></div><div class="line">   var div2=document.querySelector(&quot;#div2&quot;);</div><div class="line">   var div1=document.querySelector(&quot;#div1&quot;);</div><div class="line">  /*div2.ondragenter=function()&#123;</div><div class="line">    console.log(&quot;ondragenter&quot;);</div><div class="line">  &#125;*/</div><div class="line">   div2.ondragover=function(e)&#123;</div><div class="line">    console.log(&quot;ondragover&quot;);</div><div class="line">    e.preventDefault();</div><div class="line">  &#125;</div><div class="line">div2.ondrop=function()&#123;</div><div class="line">    //注意再用ondrop时ondragover会干扰他的执行，我们要阻止ondragover的行为</div><div class="line">    //console.log(&quot;ondrop&quot;);</div><div class="line">    this.appendChild(p);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /*div2.ondragleave=function()&#123;</div><div class="line">      console.log(&quot;ondragleave&quot;);</div><div class="line">   &#125;*/</div><div class="line">div1.ondragover=function(e)&#123;</div><div class="line">    e.preventDefault();</div><div class="line">&#125;</div><div class="line">div1.ondrop=function()&#123;</div><div class="line">    this.appendChild(p);</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>总结:我们可以看到上面的代码有局限性,并不是很好,因此就有了第二种方法,请看下一章节</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/HTML5/">HTML5</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2137502" charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/03/12/HTML5-拖拽2/" title="html5的拖拽2">
+  <strong>上一篇：</strong><br/>
+  <span>
+  html5的拖拽2</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/03/09/CSS3-风车/"  title="css3实现风车效果">
+ <strong>下一篇：</strong><br/> 
+ <span>css3实现风车效果
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#拖拽1"><span class="toc-number">1.</span> <span class="toc-text">拖拽1</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML-CSS/" title="HTML-CSS">HTML-CSS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com" target="_blank" title="github">github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.cnblogs.com" target="_blank" title="博客园">博客园</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.csdn.net" target="_blank" title="CSDN">CSDN</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.oschina.net" target="_blank" title="开源中国">开源中国</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.css88.com" target="_blank" title="web前端开发">web前端开发</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> If you find a path with no obstacles, it probably doesn’t lead anywhere. <br/>
+			True mastery of any skill takes a lifetime.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="LGF">LGF</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

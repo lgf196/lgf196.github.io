@@ -81,22 +81,22 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/07/04/JavaScript-块级作用域/" title="块级作用域" itemprop="url">块级作用域</a>
+      <a href="/2017/03/30/CSS3-伸缩布局/" title="伸缩布局" itemprop="url">伸缩布局</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-07-04T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-04</time>
+    <time datetime="2017-03-30T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-30</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>作用域在JavaScript中是重点,但同时也是难点,难,难在他很随意,那么我今天就来说下作用域</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    //第一题</div><div class="line">	for(var i=0;i&lt;3;i++)&#123;</div><div class="line">      	var a=2;</div><div class="line">      	console.log(i);</div><div class="line">    &#125;</div><div class="line">    alert(a); //2</div><div class="line">	</div><div class="line">	//第二题</div><div class="line">	var k=5;</div><div class="line">      while(k&gt;0)&#123;</div><div class="line">      	var i=2;</div><div class="line">      	k--;</div><div class="line">      	console.log(k);</div><div class="line">    &#125;</div><div class="line">    alert(i);//2</div><div class="line">	</div><div class="line">	//第三题</div><div class="line">	var k=5</div><div class="line">    if(k&gt;2)&#123;</div><div class="line">        var i=2; </div><div class="line">    &#125;</div><div class="line">    alert(i);//2</div><div class="line">	</div><div class="line">	//第四题</div><div class="line">	function a()&#123;</div><div class="line">       	var i=2;</div><div class="line">    &#125;</div><div class="line">    a();</div><div class="line">    alert(i)//报错</div><div class="line">	</div><div class="line">	//第五题</div><div class="line">	(function()&#123;</div><div class="line">     	var i=2;</div><div class="line">    &#125;)();</div><div class="line">    alert(i);//报错</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p><strong>总结:1,2,3都可以在外面访问到我在他们函数体内部定义的变量,为2,为什么原因是if,while,for等这些语句他们没有<code>块级作用域</code>,而函数类型他们含有作用域,具体什么是块级作用域请看下一篇</strong></p>
+        <p>伸缩布局可以说是css3中最为重要的一个知识点了,可能在PC端用的不多,但是在移动端用的特别的多,我呢也将我自已总结的一些伸缩布局的要点通过代码的形式，给大家展示出来</p>
+<h3 id="伸缩布局-1"><a href="#伸缩布局-1" class="headerlink" title="伸缩布局-1"></a>伸缩布局-1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        *&#123;</div><div class="line">            padding: 0;</div><div class="line">            margin: 0;</div><div class="line">        &#125;</div><div class="line">        .box&#123;</div><div class="line">            width: 1000px;</div><div class="line">            height: 200px;</div><div class="line">            border: 1px solid red;</div><div class="line">            box-sizing: border-box;</div><div class="line">            /* 我现在要在里面加一个属性要他们的元素都在这里面显示 */</div><div class="line">           /*  display:flex;这个属性是css3的他可以将元素显示在一行</div><div class="line">               justify-content: 设置子元素的排列方式他有如下几个属性值：</div><div class="line">                    flex-start：表示的是让子元素从父容器的起始位置开始排列</div><div class="line">                    flex-end:表示的是让子元素从父容器的结束位置开始排列，就是从父元素的右边开始排列;</div><div class="line">                    center:表示的是让子元素从父容器的中间位置开始排列</div><div class="line">                    space-between:左右对齐父容器的开始和结束，中间平均分页，产生相同的间距;</div><div class="line">                    space-around:将多余的空间平均的分页在每一个子元素的两边,也就是在box的前面和后面，加一个相同的间距;</div><div class="line">            */</div><div class="line">            display:flex;</div><div class="line">            justify-content:space-between;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        .first&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 100%;</div><div class="line">            background-color: red;</div><div class="line">        &#125;</div><div class="line">        .second&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 100%;</div><div class="line">            background-color: green;</div><div class="line">        &#125;</div><div class="line">        .third&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 100%;</div><div class="line">            background-color: blue;</div><div class="line">        &#125;</div><div class="line">        .fourth&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 100%;</div><div class="line">            background-color: pink;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!-- 假想：我现在想要将这四个盒子全部显示在box这个盒子的里面，而且要有相同的间距，用我们以前的方法来做很难，而且还要计算他的距离很麻烦，不过css3提供了一些属性 --&gt;</div><div class="line">&lt;div class=&quot;box&quot;&gt;</div><div class="line">    &lt;div class=&quot;first&quot;&gt;1&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;second&quot;&gt;2&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;third&quot;&gt;3&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;fourth&quot;&gt;4&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下</h3><p><img src="/img/ss.png"></p>
 
         
         
@@ -109,7 +109,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
 </div>
 
 
@@ -134,7 +134,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/9/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/11/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/11/">Next<span></span></a>
   </nav>
 
 </div>
@@ -153,7 +153,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
+			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>15</sup></a></li>
 		  
 		
 		  
@@ -161,11 +161,15 @@
 		  
 		
 		  
-			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>7</sup></a></li>
 		  
 		
 		  
 			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -178,7 +182,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>1</sup></a></li>
+				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
 			
 		
 		</ul>

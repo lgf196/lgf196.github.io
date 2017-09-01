@@ -1,0 +1,491 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>jQuery插件开发2 | Welcome to the LGF blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="LGF">
+    
+
+    
+    <meta name="description" content="前面那一篇我们说了类级开发,那么我们今天来说下对象级开发 对象级插件开发123456789101112131415;(function($)&amp;#123;    $.fn.xxxx=function(opt)&amp;#123;  //opt可以接受对象，函数，字符串等参数，用于更新下面的opt属性值和参数值    	var default=&amp;#123;    		//里面是各类参数，和属性值    	&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery插件开发2">
+<meta property="og:url" content="http://yoursite.com/2017/04/22/jQuery2/index.html">
+<meta property="og:site_name" content="Welcome to the LGF blog">
+<meta property="og:description" content="前面那一篇我们说了类级开发,那么我们今天来说下对象级开发 对象级插件开发123456789101112131415;(function($)&amp;#123;    $.fn.xxxx=function(opt)&amp;#123;  //opt可以接受对象，函数，字符串等参数，用于更新下面的opt属性值和参数值    	var default=&amp;#123;    		//里面是各类参数，和属性值    	&amp;#">
+<meta property="og:updated_time" content="2017-09-01T14:35:16.864Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery插件开发2">
+<meta name="twitter:description" content="前面那一篇我们说了类级开发,那么我们今天来说下对象级开发 对象级插件开发123456789101112131415;(function($)&amp;#123;    $.fn.xxxx=function(opt)&amp;#123;  //opt可以接受对象，函数，字符串等参数，用于更新下面的opt属性值和参数值    	var default=&amp;#123;    		//里面是各类参数，和属性值    	&amp;#">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the LGF blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the LGF blog" title="Welcome to the LGF blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the LGF blog">Welcome to the LGF blog</a></h1>
+				<h2 class="blog-motto">Nothing is impossible!</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/22/jQuery2/" title="jQuery插件开发2" itemprop="url">jQuery插件开发2</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-22T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-04-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对象级插件开发"><span class="toc-number">1.</span> <span class="toc-text">对象级插件开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运用上面的步骤来编写一个返回顶部的这么一个插件"><span class="toc-number">2.</span> <span class="toc-text">运用上面的步骤来编写一个返回顶部的这么一个插件</span></a></li></ol>
+		
+		</div>
+		
+		<p>前面那一篇我们说了类级开发,那么我们今天来说下对象级开发</p>
+<h2 id="对象级插件开发"><a href="#对象级插件开发" class="headerlink" title="对象级插件开发"></a>对象级插件开发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">;(function($)&#123;</div><div class="line">    $.fn.xxxx=function(opt)&#123;  //opt可以接受对象，函数，字符串等参数，用于更新下面的opt属性值和参数值</div><div class="line">    	var default=&#123;</div><div class="line">    		//里面是各类参数，和属性值</div><div class="line">    	&#125;</div><div class="line">    	var option=$.extend(default,opt); //这个方法是扩展的意思</div><div class="line">   	                                 </div><div class="line">    	this.each(function()&#123;   //这句话也可以不用写，看个人情况</div><div class="line">    		//用于写功能的代码</div><div class="line">    	&#125;);</div><div class="line">		</div><div class="line">		return this;  //可以进行链式编程</div><div class="line">    &#125;</div><div class="line">&#125;)(jQuery);</div><div class="line">//以上是一个对象级开发的怎么一个步骤</div></pre></td></tr></table></figure>
+<h2 id="运用上面的步骤来编写一个返回顶部的这么一个插件"><a href="#运用上面的步骤来编写一个返回顶部的这么一个插件" class="headerlink" title="运用上面的步骤来编写一个返回顶部的这么一个插件"></a>运用上面的步骤来编写一个返回顶部的这么一个插件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">if(window.jQuery===undefined)&#123;</div><div class="line">    throw new Error(&quot;此插件依赖于jQuery,请引入jQuery库&quot;);</div><div class="line">&#125;</div><div class="line">;(function($)&#123;</div><div class="line">   $.fn.blacktop=function(opt)&#123; </div><div class="line">	   	 var defaults=&#123;   //用于写插件的配置参数</div><div class="line">	        spend:600,</div><div class="line">	        position:&apos;true&apos;,</div><div class="line">	        right:30,</div><div class="line">	       	bottom:30,</div><div class="line">	        autohide:&apos;true&apos;,</div><div class="line">	        offset:$(window).height()</div><div class="line">	   	 &#125;;</div><div class="line">	   	 var option=$.extend(defaults,opt);</div><div class="line">        //this.each(function()&#123;</div><div class="line">                 //var  _this=$(this);  //如果用this.each()的话此时this要写成$(this)</div><div class="line">            var  _this=this;</div><div class="line">             var win = $(window);</div><div class="line">             if(option.autohide)&#123;</div><div class="line">                  _this.css(&#123;</div><div class="line">                    &apos;display&apos;:&apos;none&apos;,</div><div class="line">                    &apos;cursor&apos;:&apos;pointer&apos;</div><div class="line">                &#125;);</div><div class="line">             &#125;</div><div class="line">            if(option.position)&#123;</div><div class="line">                 _this.css(&#123;</div><div class="line">                    &apos;position&apos;: &apos;fixed&apos;,</div><div class="line">                    &apos;right&apos;: option.right+&apos;px&apos;,</div><div class="line">                    &apos;bottom&apos;: option.bottom+&apos;px&apos;,</div><div class="line">                &#125;);</div><div class="line">            &#125;</div><div class="line">             _this.click(function()&#123;</div><div class="line">                $(&apos;html, body&apos;).animate(&#123;scrollTop: 0&#125;, option.spend);</div><div class="line">            &#125;); </div><div class="line">            win.scroll(function()&#123;</div><div class="line">                var scrolling = win.scrollTop();</div><div class="line">                if(option.autohide)&#123;</div><div class="line">                    if(scrolling &gt; option.offset)&#123;</div><div class="line">                        _this.fadeIn(option.spend);</div><div class="line">                    &#125;</div><div class="line">                    else _this.fadeOut(option.spend);</div><div class="line">                &#125;   </div><div class="line">            &#125;); </div><div class="line">         //&#125;);</div><div class="line">        </div><div class="line">         return this;</div><div class="line">   &#125;;</div><div class="line">  //调用: $(&apos;xxx&apos;).blacktop(&#123;可以传你想要更改的参数&#125;).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+<p>希望通过上面的代码,对你们有所帮助</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2137502" charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/04/28/前端热点2/" title="15个有趣的js和css库">
+  <strong>上一篇：</strong><br/>
+  <span>
+  15个有趣的js和css库</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/04/20/jQuery/"  title="jQuery插件开发1">
+ <strong>下一篇：</strong><br/> 
+ <span>jQuery插件开发1
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对象级插件开发"><span class="toc-number">1.</span> <span class="toc-text">对象级插件开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运用上面的步骤来编写一个返回顶部的这么一个插件"><span class="toc-number">2.</span> <span class="toc-text">运用上面的步骤来编写一个返回顶部的这么一个插件</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML-CSS/" title="HTML-CSS">HTML-CSS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com" target="_blank" title="github">github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.cnblogs.com" target="_blank" title="博客园">博客园</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.csdn.net" target="_blank" title="CSDN">CSDN</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.oschina.net" target="_blank" title="开源中国">开源中国</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.css88.com" target="_blank" title="web前端开发">web前端开发</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> If you find a path with no obstacles, it probably doesn’t lead anywhere. <br/>
+			True mastery of any skill takes a lifetime.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="LGF">LGF</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

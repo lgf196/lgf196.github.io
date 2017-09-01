@@ -81,23 +81,21 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/07/10/JavaScript-排序算法/" title="排序算法" itemprop="url">排序算法</a>
+      <a href="/2017/04/08/CSS3-伸缩布局5/" title="伸缩布局5" itemprop="url">伸缩布局5</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-07-10T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-10</time>
+    <time datetime="2017-04-08T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-04-08</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>数组排序算法在工作中用的并不是很多,但是在面试的时候出现的概率非常的高,因此我就写了如下几种方法</p>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr=[1,4,7,3,9,2,0,5,8];</div><div class="line">   for(var i=1;i&lt;arr.length;i++)&#123;</div><div class="line">       for(var j=0,t;j&lt;arr.length-i;j++)&#123;</div><div class="line">           if(arr[j]&gt;arr[j+1])&#123;</div><div class="line">               t=arr[j];</div><div class="line">               arr[j]=arr[j+1];</div><div class="line">               arr[j+1]=t;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">   alert(arr);</div></pre></td></tr></table></figure>
-<h3 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr=[3,1,7,3,9,2,0,5,8];</div><div class="line">       for(var i=0,m;i&lt;arr.length-1;i++)&#123;</div><div class="line">           for(var j=i+1,t;j&lt;arr.length;j++)&#123;</div><div class="line">               if(arr[i]&gt;arr[j])&#123;</div><div class="line">                  t=arr[i];</div><div class="line">                  arr[i]=arr[j];</div><div class="line">                  arr[j]=t;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       alert(arr);</div></pre></td></tr></table></figure>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var arr=[1,5,8,9,4,3,0,5,7,1];</div><div class="line">  for(var i=0,m;i&lt;arr.length-1;i++)&#123;</div><div class="line">      m=i;//假设第一个数的下标最大</div><div class="line">      for(var j=i+1,t;j&lt;arr.length;j++)&#123;</div><div class="line">          if(arr[m]&gt;arr[j])&#123;</div><div class="line">              m=j;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      t=arr[m];</div><div class="line">      arr[m]=arr[i];</div><div class="line">      arr[i]=t;</div><div class="line">  &#125;</div><div class="line">  alert(arr);</div></pre></td></tr></table></figure>
+        <h3 id="伸缩布局5"><a href="#伸缩布局5" class="headerlink" title="伸缩布局5"></a>伸缩布局5</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        img&#123;</div><div class="line">            border:0;</div><div class="line">        &#125;</div><div class="line">        ol, ul ,li&#123;list-style: none;&#125;</div><div class="line">        .box&#123;</div><div class="line">            width:100%;</div><div class="line">            height:500px;</div><div class="line">            background:red;</div><div class="line">            display:flex;</div><div class="line">        &#125;</div><div class="line">         .a&#123;</div><div class="line">            height:500px;</div><div class="line">            background:blue;</div><div class="line">            /*  注意这个flex:1这个属性他可以自动分割宽度，他的默认值是0，计算方法是，用大盒子的总宽度*1/2就是50%，也就是说我的这个盒子的宽度是50%，之所以是1/2原因是他有两个flex:1，被分割了两份*/</div><div class="line">                        flex:1;</div><div class="line">         &#125;</div><div class="line">         .b&#123;</div><div class="line">            height:500px;</div><div class="line">            background:pink;</div><div class="line">            flex:1;</div><div class="line">         &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div class=&quot;box&quot;&gt;</div><div class="line">        &lt;div class=&quot;a&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;b&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下</h3><p><img src="/img/ss5.png"></p>
 
         
         
@@ -110,7 +108,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
 </div>
 
 
@@ -135,7 +133,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/7/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/7/">Next<span></span></a>
   </nav>
 
 </div>
@@ -154,7 +152,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
+			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>15</sup></a></li>
 		  
 		
 		  
@@ -162,11 +160,15 @@
 		  
 		
 		  
-			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>7</sup></a></li>
 		  
 		
 		  
 			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -179,7 +181,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>1</sup></a></li>
+				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
 			
 		
 		</ul>
