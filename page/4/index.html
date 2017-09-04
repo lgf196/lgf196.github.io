@@ -81,22 +81,34 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/12/CSS3-多列布局/" title="多列布局" itemprop="url">多列布局</a>
+      <a href="/2017/04/28/前端热点2/" title="15个有趣的js和css库" itemprop="url">15个有趣的js和css库</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-12T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-04-12</time>
+    <time datetime="2017-04-28T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-04-28</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>css3中出来介绍伸缩布局外,还有一个多列布局的,用的不是很多,但是有的时候还是要用下的</p>
-<h3 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        *&#123;</div><div class="line">            padding: 0;</div><div class="line">            margin: 0;</div><div class="line">        &#125;</div><div class="line">        .wrapper &#123;</div><div class="line">            width: 100%;</div><div class="line">            padding: 20px;</div><div class="line">            box-sizing: border-box;</div><div class="line">            /* 注意css3中出了一些布局方面的属性</div><div class="line">               column-count:3;表示的意思是可以将内容分割成几列，相当于编辑器的分屏功能一样。</div><div class="line">               column-width:200px;表示的是列的宽度，注意他的原则是取大优先的原则</div><div class="line">                column-rule:2px dashed red;表示的是他的边框更border是一个的意思，不同的是他只有一个</div><div class="line">                column-gap:60px;表示的是列的间隙</div><div class="line">                column-span:all;表示的是可以将元素独占一行，注意他只有两个值要摸是1，要摸是all,最常用的是all</div><div class="line">             */</div><div class="line">            column-count:3;</div><div class="line">            column-rule:2px dashed red;</div><div class="line">            column-gap:60px;</div><div class="line">           &#125;</div><div class="line">           h4&#123;</div><div class="line">            column-span:all;</div><div class="line">           &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=&quot;wrapper&quot;&gt;</div><div class="line">    &lt;h4&gt;CSS3简介&lt;/h4&gt;</div><div class="line">    &lt;p&gt;</div><div class="line">        CSS即层叠样式表（Cascading StyleSheet）。 在网页制作时采用层叠样式表技术，可以有效地对页面的布局、字体、颜色、背景和其它效果实现更加精确的控制。 只要对相应的代码做一些简单的修改，就可以改变同一页面的不同部分，或者页数不同的网页的外观和格式。CSS3是CSS技术的升级版本，CSS3语言开发是朝着模块化发展的。以前的规范作为一个模块实在是太庞大而且比较复杂，所以，把它分解为一些小的模块，更多新的模块也被加入进来。这些模块包括： 盒子模型、列表模块、超链接方式 、语言模块 、背景和边框 、文字特效 、多栏布局等。</div><div class="line">    &lt;/p&gt;</div><div class="line">    &lt;p&gt;1、</div><div class="line">        CSS3圆角表格</div><div class="line">        CSS3圆角表格</div><div class="line">        圆角表格，对应属性：border-radius。</div><div class="line">        2、以往对网页上的文字加特效只能用filter这个属性，这次CSS3中专门制订了一个加文字特效的属性，而且不止加阴影这种效果。对应属性：font-effect。</div><div class="line">        3、丰富了对链接下划线的样式，以往的下划线都是直线，这次可不一样了，有波浪线、点线、虚线等等，更可对下划线的颜色和位置进行任意改变。（还有对应顶线和中横线的样式，效果与下划线类似）对应属性：text-underline-style，text-underline-color，text-underline-mode，text-underline-position。</div><div class="line">        4、在文字下点几个点或打个圈以示重点，CSS3也开始加入了这项功能，这应该在某些特定网页上很有用。对应属性：font-emphasize-style和font-emphasize-position。</div><div class="line">        边框</div><div class="line">        border-color:控制边框颜色，并且有了更大的灵活性，可以产生渐变效果</div><div class="line">    &lt;/p&gt;</div><div class="line">    &lt;p&gt;</div><div class="line">        变形(transform)、转换(transition)和动画(animation)</div><div class="line">        transform: rotate | scale | skew | translate |matrix;</div><div class="line">        旋转rotate、扭曲skew、缩放scale和移动translate以及矩阵变形matrix。</div><div class="line">        transition主要包含四个属性值：执行变换的属性：transition-property,变换延续的时间：transition-duration,在延续时间段，变换的速率变化transition-timing-function,变换延迟时间transition-delay。下面分别来看这四个属性值</div><div class="line">        在开始介绍Animation之前我们有必要先来了解一个特殊的东西，那就是&quot;Keyframes&quot;,我们把他叫做“关键帧”，玩过flash的朋友可能对这个东西并不会陌生。下面我们就一起来看看这个“Keyframes”是什么东西。前面我们在使用transition制作一个简单的transition效果时，我们包括了初始属性和最终属性，一个开始执行动作时间和一个延续动作时间以及动作的变换速率，其实这些值都是一个中间值，如果我们要控制的更细一些，比如说我要第一个时间段执行什么动作，第二个时间段执行什么动作（换到flash中说，就是第一帧我要执行什么动作，第二帧我要执行什么动作），这样我们用Transition就很难实现了，此时我们也需要这样的一个“关键帧”来控制。那么CSS3的Animation就是由“keyframes”这个属性来实现这样的效果。下面我们一起先来看看Keyframes:</div><div class="line">        Keyframes具有其自己的语法规则，他的命名是由&quot;@keyframes&quot;开头，后面紧接着是这个“动画的名称”加上一对花括号“&#123;&#125;”，括号中就是一些不同时间段样式规则，有点像我们css的样式写法一样。对于一个&quot;@keyframes&quot;中的样式规则是由多个百分比构成的，如“0%”到&quot;100%&quot;之间，我们可以在这个规则中创建多个百分比，我们分别给每一个百分比中给需要有动画效果的元素加上不同的属性，从而让元素达到一种在不断变化的效果，比如说移动，改变元素颜色，位置，大小，形状等，不过有一点需要注意的是，我们可以使用“fromt”“to”来代表一个动画是从哪开始，到哪结束，也就是说这个 &quot;from&quot;就相当于&quot;0%&quot;而&quot;to&quot;相当于&quot;100%&quot;,值得一说的是，其中&quot;0%&quot;不能像别的属性取值一样把百分比符号省略，我们在这里必须加上百分符号（“%”）如果没有加上的话，我们这个keyframes是无效的，不起任何作用。因为keyframes的单位只接受百分比值。[2]</div><div class="line">    &lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下</h3><p><img src="/img/sl.png"></p>
+        <h2 id="1-Propeller"><a href="#1-Propeller" class="headerlink" title="1.Propeller"></a>1.Propeller</h2><p>Propeller 是基于 <a href="https://link.zhihu.com/?target=https%3A//getbootstrap.com/" target="_blank" rel="external">Bootstrap</a> 与谷歌的 <a href="https://link.zhihu.com/?target=https%3A//design.google.com/" target="_blank" rel="external">Material Design</a> 的 CSS 组件框架。它包含了 25 个响应式组件，同时具备典型的 Material Design 动画。你可以将它作为 Bootstrap 的主题，或者完整的框架以及独立组件进行使用。<br>项目地址:<a href="https://link.zhihu.com/?target=http%3A//propeller.in/index.html" target="_blank" rel="external">Propeller</a></p>
+<h2 id="2-BaguetteBox"><a href="#2-BaguetteBox" class="headerlink" title="2.BaguetteBox"></a>2.BaguetteBox</h2><p>BaguetteBox 是一个利用纯 JavaScript 编写的库，它可用于创建响应式灯箱画廊效果。它是轻量级的，可自定义设置，并支持移动端，同时它还自带了相应的 CSS3 过渡。我们最近利用这个库制作了 <a href="https://link.zhihu.com/?target=http%3A//tutorialzine.com/2017/02/freebie-4-bootstrap-galleries/" target="_blank" rel="external">4 个免费的 Bootstrap Gallery 模板包</a>，我想我们已经喜欢上它了。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//github.com/feimosi/baguetteBox.js" target="_blank" rel="external">BaguetteBox</a></p>
+<h2 id="3-Whitestorm"><a href="#3-Whitestorm" class="headerlink" title="3.Whitestorm"></a>3.Whitestorm</h2><p>Whitestorm 是基于 <a href="https://link.zhihu.com/?target=https%3A//threejs.org/" target="_blank" rel="external">Three.js</a> 引擎用来开发 3D Web APPS 和游戏的框架。它为许多常见的 Three.js 任务提供了简单的封装，使搭建环境、创建对象、添加物件等操作更加的简单。官方也提供了<a href="https://link.zhihu.com/?target=https%3A//github.com/WhitestormJS/whitestorm-app-boilerplate" target="_blank" rel="external">示例项目</a>，以及与 <a href="https://link.zhihu.com/?target=https%3A//github.com/WhitestormJS/react-whs" target="_blank" rel="external">React</a> 集成的工具，便于你迅速的开始工作。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//github.com/WhitestormJS/whitestorm.js" target="_blank" rel="external">Whitestorm</a></p>
+<h2 id="4-Animatelo"><a href="#4-Animatelo" class="headerlink" title="4.Animatelo"></a>4.Animatelo</h2><p>Animatelo 是流行的 <a href="https://link.zhihu.com/?target=https%3A//daneden.github.io/animate.css/" target="_blank" rel="external">Animate.css</a> 库的接口，它利用 <a href="">Web Animation API</a> 替代了 CSS 过渡，并将 Animate.css 库中的所有效果重现了出来。但它的 API 是基于 Javascript 方法的，而不是 CSS 类。同时，它也是轻量级的库，不依赖 jQuery，但在一些老版本的浏览器上或许要使用 polyfill。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//gibbok.github.io/animatelo/" target="_blank" rel="external">Animatelo</a></p>
+<h2 id="5-FuseBox"><a href="#5-FuseBox" class="headerlink" title="5.FuseBox"></a>5.FuseBox</h2><p>FuseBox 是一个用于 JavaScript 和 CSS 的打包程序，并具备用于 TypeScript，Sass 等的附加组件。它的设计理念是简单与性能，也为 <a href="https://link.zhihu.com/?target=https%3A//webpack.github.io/" target="_blank" rel="external">Webpack</a> 提供了可行的替代解决方案。为了让你快速开始，官方提供了 <a href="https://link.zhihu.com/?target=https%3A//github.com/fuse-box/angular2-example" target="_blank" rel="external">Angular 2 + TypeScript</a>，<a href="https://link.zhihu.com/?target=https%3A//github.com/fuse-box/react-example" target="_blank" rel="external">React + Babel</a>，<a href="https://link.zhihu.com/?target=https%3A//github.com/fuse-box/electron-fuse-box-babel-live-reload-boilerplate" target="_blank" rel="external">Electron</a> 和其他版本的快速示例教程。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//github.com/fuse-box/fuse-box" target="_blank" rel="external">FuseBox</a></p>
+<h2 id="6-Yargs"><a href="#6-Yargs" class="headerlink" title="6.Yargs"></a>6.Yargs</h2><p>Yargs 是使用 Node.js 构建功能齐全的命令行应用程序的框架。你可以轻松的配置命令、解析多个参数以及设置快捷操作方式。甚至，它还可以自动生成帮助菜单。<br>项目地址:<a href="https://link.zhihu.com/?target=http%3A//yargs.js.org/" target="_blank" rel="external">Yargs</a></p>
+<h2 id="7-WebGradients"><a href="#7-WebGradients" class="headerlink" title="7.WebGradients"></a>7.WebGradients</h2><p>WebGradients 收集了一系列漂亮的色彩渐变，你可以将它们轻松的应用在任何 HTML 页面上。你可以通过快速预览，或是全屏查看可用的渐变色，然后仅需要一键复制 CSS 属性，即可将它们应用到你的项目中去。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//webgradients.com/" target="_blank" rel="external">WebGradients</a></p>
+<h2 id="8-Sticky-Kit"><a href="#8-Sticky-Kit" class="headerlink" title="8.Sticky-Kit"></a>8.Sticky-Kit</h2><p>Sticky-kit 是一个 jQuery 插件，它可以将元素附加到页面上的某个区域，并使元素保持其边界。这样随着页面的滚动，在父容器中的特定元素将会保持始终可见。<br>项目地址:<a href="https://link.zhihu.com/?target=http%3A//leafo.net/sticky-kit/" target="_blank" rel="external">Sticky-Kit</a></p>
+<h2 id="9-ScrollDir"><a href="#9-ScrollDir" class="headerlink" title="9.ScrollDir"></a>9.ScrollDir</h2><p>ScrollDir 是一款超轻量的，不依赖 JavaScript 的库，用于监测 CSS 中的滚动方向。它可以察看滚动条的移动方向，并根据你选择的元素来切换上/下方向的数据属性。同时，它忽略了小的滚动动作，力求创造一个平稳的体验。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//dollarshaveclub.github.io/scrolldir/" target="_blank" rel="external">ScrollDir</a></p>
+<h2 id="10-Svgo"><a href="#10-Svgo" class="headerlink" title="10.Svgo"></a>10.Svgo</h2><p>这是一个用于优化 SVG 文件的 Node.js 工具，它可以删除那些无用的 SVG 信息，例如编辑器元信息、注释、隐藏元素以及不影响渲染向量的其他属性。同时，它基于插件模式构建，所以你可以自由的选择想要删除的内容。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//github.com/svg/svgo" target="_blank" rel="external">Svgo</a></p>
+<h2 id="11-Store-js"><a href="#11-Store-js" class="headerlink" title="11.Store.js"></a>11.Store.js</h2><p>Store.js 是用于本地存储的跨浏览器解决方案。近期，它的 2.0 版本也已发布，在更新了许多功能的同时，增加了一些额外的功能，例如数组/对象操作以及改进了过期选项.<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//github.com/marcuswestin/store.js" target="_blank" rel="external">Store.js</a></p>
+<h2 id="12-Snarkdown"><a href="#12-Snarkdown" class="headerlink" title="12.Snarkdown"></a>12.Snarkdown</h2><p>Snarkdown 是一个使用 JavaScript 编写的超简单的 Markdown 解析器。诚然，它不是最复杂或功能最全的解析器，但它可能是最容易实现的。Snarkdown 只有 1kb 大小，且只有一种方法，使其成为速成项目的完美选择。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//github.com/developit/snarkdown" target="_blank" rel="external">Snarkdown</a></p>
+<h2 id="13-Unfetch"><a href="#13-Unfetch" class="headerlink" title="13.Unfetch"></a>13.Unfetch</h2><p><a href="https://link.zhihu.com/?target=https%3A//developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank" rel="external">Fetch API</a> 是 XMLHttpRequest 接口的现代重制，它为开发人员提供了一种更好的处理异步请求的方法。虽然，它支持大多数现代浏览器，但是 fetch() 方法在 IE 中仍然不可用。Unfetch 的出现便解决了 fetch() 方法在 IE 中不可用的问题，它提供了完整 fetch API 的子集，且 fetch polyfill 仅有 500 bytes。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//github.com/developit/unfetch" target="_blank" rel="external">Unfetch</a></p>
+<h2 id="14-Scrollanim"><a href="#14-Scrollanim" class="headerlink" title="14.Scrollanim"></a>14.Scrollanim</h2><p>Scrollanim 是用于滚动动画的 Vanilla JavaScript 库。由于内置的 <a href="https://link.zhihu.com/?target=https%3A//daneden.github.io/animate.css/" target="_blank" rel="external">Animate.css</a> 依赖关系，Scrollanim 提供了大量的自定义选项，单独的 HTML 和 JavaScript API 以及超过 50 种流畅的动画效果。<br>项目地址:<a href="https://link.zhihu.com/?target=http%3A//scrollanim.kissui.io/" target="_blank" rel="external">Scrollanim</a></p>
+<h2 id="15-Neurojs"><a href="#15-Neurojs" class="headerlink" title="15.Neurojs"></a>15.Neurojs</h2><p>Neurojs 是一款用于在浏览器中进行深度学习 JavaScript 框架，它具备可以通过加强学习训练的全栈神经网络。例如，该项目就展示了一个很酷的 <a href="https://link.zhihu.com/?target=http%3A//janhuenermann.com/projects/learning-to-drive" target="_blank" rel="external">Demo</a>，其中自动驾驶汽车在 2D 环境中学习导航。<br>项目地址:<a href="https://link.zhihu.com/?target=https%3A//github.com/janhuenermann/neurojs" target="_blank" rel="external">Neurojs</a></p>
 
         
         
@@ -107,11 +119,11 @@
     <footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
-</div>
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/前端热点/">前端热点</a>
+  </div>
 
 </div>
 
@@ -134,7 +146,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
   </nav>
 
 </div>
@@ -165,7 +177,7 @@
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>11</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>14</sup></a></li>
 		  
 		
 		  
@@ -183,6 +195,8 @@
 		
 			
 				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
+			
+		
 			
 		
 		</ul>

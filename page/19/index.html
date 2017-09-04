@@ -81,21 +81,22 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/09/CSS3-风车/" title="css3实现风车效果" itemprop="url">css3实现风车效果</a>
+      <a href="/2017/03/13/HTML5-拖拽3/" title="html5的拖拽3" itemprop="url">html5的拖拽3</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-09T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-09</time>
+    <time datetime="2017-03-13T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-13</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <h3 id="风车"><a href="#风车" class="headerlink" title="风车"></a>风车</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;utf-8&quot; /&gt;</div><div class="line">		&lt;title&gt;&lt;/title&gt;</div><div class="line">		&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">			.wrap&#123;width: 400px;height: 400px;position: relative;animation:rotate 2s linear infinite;&#125;</div><div class="line">			.wrap div&#123;width:200px;height: 200px;position:absolute;&#125;</div><div class="line">			.box1&#123;background: linear-gradient(to top,#dc143c 50%,rgba(0,0,0,0) 50%);top:100px;border-radius:</div><div class="line">			0 0 100px 100px;&#125;</div><div class="line">			.box2&#123;background: linear-gradient(to bottom,#ff4500 50%,rgba(0,0,0,0) 50%);top:100px;border-radius:</div><div class="line">			100px 100px 0 0;right: 0px;&#125;</div><div class="line">			.box3&#123;background: linear-gradient(to right,#00ced1 50%,rgba(0,0,0,0) 50%);border-radius:</div><div class="line">			100px 0 0 100px;left: 100px;&#125;</div><div class="line">			.box4&#123;background: linear-gradient(to left,pink 50%,rgba(0,0,0,0) 50%);border-radius:</div><div class="line">			0 100px 100px 0;left: 100px;bottom: 0;&#125;</div><div class="line">			.gunzi&#123;width: 10px;height: 300px;position: absolute;top:208px;left:204px;background: black;z-index: -1;&#125;</div><div class="line">			@keyframes rotate&#123;from&#123;transform:rotate(0deg);&#125; to&#123;transform:</div><div class="line">			rotate(360deg);&#125;&#125;</div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div class=&quot;wrap&quot;&gt;</div><div class="line">			&lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;</div><div class="line">            &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</div><div class="line">            &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;</div><div class="line">            &lt;div class=&quot;box4&quot;&gt;&lt;/div&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;gunzi&quot;&gt;&lt;/div&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下</h3><p><img src="/img/fengche.png"></p>
+        <p>我们现在来完善上一次的那个拖拽的问题</p>
+<h3 id="拖拽3"><a href="#拖拽3" class="headerlink" title="拖拽3"></a>拖拽3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        .div1&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            border: 1px solid red;</div><div class="line">            position: relative;</div><div class="line">            margin-left:20px;</div><div class="line">            float: left;</div><div class="line">        &#125;</div><div class="line">        .div2&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            border: 1px solid blue;</div><div class="line">            position: relative;</div><div class="line">            margin-left:20px;</div><div class="line">            float: left;</div><div class="line">        &#125;</div><div class="line">        .div3&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            border: 1px solid green;</div><div class="line">            position: relative;</div><div class="line">            margin-left:20px;</div><div class="line">            float: left;</div><div class="line">        &#125;</div><div class="line">        p&#123;</div><div class="line">            background-color: orange;</div><div class="line">            margin-top: 5px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=&quot;div1&quot; id=&quot;div1&quot;&gt;</div><div class="line">    &lt;!--在h5中，如果想拖拽元素，就必须为元素添加draggable=&quot;true&quot;. 图片和超链接默认就可以拖拽--&gt;</div><div class="line">    &lt;p id=&quot;pe&quot; draggable=&quot;true&quot;&gt;试着把我拖过去&lt;/p&gt;</div><div class="line">    &lt;p id=&quot;pe1&quot; draggable=&quot;true&quot;&gt;试着也把我拖过去&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;div2&quot; id=&quot;div2&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;div3&quot; id=&quot;div3&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  /*</div><div class="line">   dataTransfer:来实现数据的存储与获取,他有一下几个属性</div><div class="line">   setDate(format,data);format:数据的类型：text/html   text/uri-list,Data:数据:一般来说是字符串值</div><div class="line">  注意：他只能在ondrop事件中获取</div><div class="line">  getData(&quot;text/html&quot;)是来获取前面setDate()里面的值</div><div class="line">   */</div><div class="line">  document.ondragstart=function(e)&#123;</div><div class="line">    e.dataTransfer.setData(&quot;text/html&quot;,e.target.id);</div><div class="line">  &#125;</div><div class="line">  document.ondragover=function(e)&#123;</div><div class="line">      e.preventDefault();</div><div class="line">  &#125;</div><div class="line">  document.ondrop=function(e)&#123;</div><div class="line">    var id=e.dataTransfer.getData(&quot;text/html&quot;); //用来获取的值</div><div class="line">     e.target.appendChild(document.getElementById(id));</div><div class="line">   &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>总结：通过我们不懈的努力,终于将拖拽的效果做好了,希望对你们有所帮助</p>
 
         
         
@@ -108,7 +109,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
+  <a class="article-category-link" href="/categories/HTML5/">HTML5</a>
 </div>
 
 
@@ -133,7 +134,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/18/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/20/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/20/">Next<span></span></a>
   </nav>
 
 </div>
@@ -164,7 +165,7 @@
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>11</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>14</sup></a></li>
 		  
 		
 		  
@@ -182,6 +183,8 @@
 		
 			
 				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
+			
+		
 			
 		
 		</ul>
