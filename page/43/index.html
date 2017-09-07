@@ -81,51 +81,27 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/05/2017前端最值得学习的前端技术/" title="2017年最值得学习的前端框架和技术" itemprop="url">2017年最值得学习的前端框架和技术</a>
+      <a href="/2017/01/14/HTML-Dom操作/" title="HTM-Dom操作" itemprop="url">HTM-Dom操作</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-05T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-05</time>
+    <time datetime="2017-01-14T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-14</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>JavaScript 的普及造就了一个非常活跃的技术，框架和库的生态系统。 这个生态系统不断涌现多式多样的框架和技术,对许多人来说都是高度的混乱.那么你应该关注什么样的技术呢？你应该在哪里方面投入时间来获得最大收益呢？ 目前公司招聘哪些技术栈呢？ 哪些技术增长潜力最大呢？现在最重要的技术是什么？这篇文章高度概括了你需要知道的内容，你可以通过文章中的链接了解所有关于它的一些信息。</p>
-<h2 id="可选学习标记"><a href="#可选学习标记" class="headerlink" title="可选学习标记"></a>可选学习标记</h2><p>有些东西严格的说是 可选的 ，这意味着，如果您对他们感兴趣，我推荐它们，或者你的工作需要了解它们，但你不应该觉得必须去学习它们。任何标有星号的东西(例如:example<em>)都是可选的。任何没有带`</em>`的东西都应该学习，但是不要觉得要学习一切或知道一切。应该有一个很好的认知，不一定需要成为一名各个领域都出众的专家。</p>
-<h2 id="JavaScript-＆-DOM基础知识"><a href="#JavaScript-＆-DOM基础知识" class="headerlink" title="JavaScript ＆ DOM基础知识"></a>JavaScript ＆ DOM基础知识</h2><p>在尝试以 Javscript 为生，进行工作之前，您应该对 Javascript 的基础知识有深刻的了解：</p>
-<ul>
-<li><a href="https://medium.com/javascript-scene/how-to-learn-es6-47d9a1ac2620" target="_blank" rel="external">ES6</a> 当前最新版本的 JavaScript 是 ES2016（又名 ES7 ），但很多开发人员还没有正确学习 ES6 。是时候学习是 ES6 要点 了： Arrow functions(箭头函数) ，rest(剩余参数) / spread(扩展操作符) ，default parameters(默认参数) ， concise object literals(对象字面量) ，destructuring(解构)，解构等等…</li>
-<li><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36" target="_blank" rel="external">Closures(闭包)</a> 了解 JavaScript 函数作用域的基本特性。</li>
-<li>函数和<a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976" target="_blank" rel="external">pure functions(纯函数))</a> 你可能以为你已经很好地掌握了函数，但是 JavaScript 有一些技巧，您需要了解 纯函数 来掌握函数式编程。</li>
-<li><a href="https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c#.rhe7ap36l" target="_blank" rel="external">Functional programming basics(函数式编程基础) </a> 函数式编程通过组合数学中的函数来生成一个大的程序，避免共享状态和可变数据。多年以来，我还没有看到一个大量使用函数式编程的 JavaScript 应用程序。是时候掌握基本原理了。 (愚人码头注：可以看看知乎上的这个回答：<a href="https://zhihu.com/question/28292740/answer/40336090" target="_blank" rel="external">https://zhihu.com/question/28292740/answer/40336090</a>)</li>
-<li><a href="https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8" target="_blank" rel="external">Partial application(局部应用) 和 Curry(柯里化)</a></li>
-<li>Builtin methods(内置方法) ：学习标准的数据类型 (特别是 arrays ， objects ， strings ， 和 numbers )。</li>
-<li>Callbacks(回调): 回调是一个函数，当另一个函数有结果就绪时立即执行。 就像你说，“做你的工作，做完后打电话给我。”</li>
-<li><p><a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises" target="_blank" rel="external">Promises </a> promise 是处理未来值的一种方式。当函数返回 promise 时，您可以使用 .then() 方法附加回调，这个回调将在 promise resolves时运行。resolved 值被传递到你的回调函数中，例如：<code>doSomething().then(value =&amp;gt; console.log(value));</code><br>;代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">const doSomething = (err) =&gt; new Promise((resolve, reject) =&gt; &#123;</div><div class="line">  if (err) return reject(err);</div><div class="line"> </div><div class="line">  setTimeout(() =&gt; &#123;</div><div class="line">    resolve(42);</div><div class="line">  &#125;, 1000);</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">const log = value =&gt; console.log(value);</div><div class="line"> </div><div class="line">// 使用返回的 promises</div><div class="line">doSomething().then(</div><div class="line">  //当 resolve 时:</div><div class="line">  log, // logs 42</div><div class="line">  // 当 reject 时(resolve 时不会调用)</div><div class="line">  log</div><div class="line">);</div><div class="line"> </div><div class="line">// 记得处理错误哦!</div><div class="line">doSomething(new Error(&apos;oops&apos;))</div><div class="line">  .then(log) // not called this time</div><div class="line">.catch(log); // logs &apos;Error: oops&apos;</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">Ajax &amp; server API calls (Ajax 和 服务器API调用) </a> 那些有趣的应用程序最终需要与网络服务器通信。 你应该知道如何与 API 进行通信。</p>
-</li>
-<li><a href="href=&quot;http://link.zhihu.com/?target=https%3A//medium.com/javascript-scene/introduction-to-node-express-90c431f9e6fd%23.gl2r6gcnn&quot;">Node &amp; Express</a> Node 允许你在服务端运行 JavaScript ，这意味着您的用户可以将数据存储在云中并随时随地访问。而 Express 是 Node 社区最为流行的 Web 框架。</li>
-<li><a href="http://link.zhihu.com/?target=https%3A//lodash.com/" target="_blank" rel="external">Lodash</a> 一个很好用的、模块化的 JavaScript 实用工具函数库，包含功能编程的好东西，你可以通过 <code>lodash/fp</code> 导入 <code>data-last</code> 功能模块。<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2></li>
-<li>Chrome Dev Tools：DOM inspect &amp; JS debugger:最为好的调试工具，虽然 Firefox 也有很多非常酷的工具，你也可以去体验一下。</li>
-<li><a href="https://www.npmjs.com/" target="_blank" rel="external">npm</a> JavaScript 语言公然的开源包仓库库。</li>
-<li><a href="https://babeljs.io/" target="_blank" rel="external">Babel</a> 用于将 ES6 代码转译到 ES5 以使之能够兼容老版本浏览器。</li>
-<li><a href="https://webpack.github.io/" target="_blank" rel="external">Webpack</a>  最流行的标准 Javascript打包工具，通过一个简单的配置文件，就能快速让项目运行。</li>
-<li><a href="http://eslint.org/" target="_blank" rel="external">ESLint</a>  尽早发现语法错误和代码风格问题。除了代码评审和TDD之外，这是你可以做的第三件事，尽量减少代码中的Bug</li>
-<li><a href="https://ternjs.net/" target="_blank" rel="external">Tern.js</a> 标准 JavaScript 类型的推理工具，这是我目前最喜欢的类型相关的 JavaScript 工具 – 不需要编译步骤或注释。我踢掉了其他相关工具，Tern.js 提供了大部分的功能，并且几乎没有为 JS 使用静态类型系统的成本。</li>
-<li><a href="http://jukezhang.com/" target="_blank" rel="external">Yarn</a> 类似于npm，但是安装起来更为可靠快速。<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2>React 是个专注于构建用户界面的 JavaScript 库，由 Facebook 创建。它基于单向数据流的设计思想，也就意味着对于每个更新周期：<br>1.React 接受组件的输入作为 props，并有条件地渲染 DOM 更新，如果数据已经改变了 DOM 的特定部分。在重渲染阶段发生的数据变化并不会立刻触发重渲染，而是在下一个绘制阶段的时候才会进行重渲染。<br>2.事件处理阶段 – 在渲染 DOM 之后，React 侦听和事件，将事件委托给其 DOM 树根（为了更好的性能）的单个事件侦听器。 你可以监听这些事件并更新响应中的数据。<br>3.对于数据的任何变化都会重复步骤1。<br>这种单向数据流与双向数据绑定形成对比，其中对 DOM 的改变可以直接更新数据（例如，如在 Angular 1和 Knockout 的情况下）。 使用双向绑定，在 DOM 渲染过程（称为 Angular 1 中的摘要循环）中对 DOM的 更改可能会在绘制完成之前重新触发绘图阶段，从而导致回流和重绘 – 从而降低性能。React 没有规定数据管理系统，但推荐使用基于 Flux 的方法。 React 的单向数据流方法借鉴了函数式编程和不可变数据结构的思想，改变了我们对前端框架架构的思考方式。<br>有关React＆Flux架构的更多信息，请阅读 <a href="https://medium.com/javascript-scene/the-best-way-to-learn-to-code-is-to-code-learn-app-architecture-by-building-apps-7ec029db6e00" target="_blank" rel="external">“The Best Way to Learn to Code is to Code: Learn App Architecture by Building Apps”。</a></li>
-</ul>
-<h2 id="Angular-2"><a href="#Angular-2" class="headerlink" title="Angular 2*"></a>Angular 2*</h2><p>Angular 2 是 Google 广受欢迎的 Angular 框架的继承者。 因为它疯狂的人气，掌握它会使简历看起来很棒 —— 但我仍旧建议优先学习 React 。</p>
-<ul>
-<li>React 更简单</li>
-<li>React 很受欢迎，许多工作都需要它使用（Angular 2+也是）<br>为此，我推荐学习 React，但我认为 Angular 2+ 严格可选*。 如果你对 Angular 2+ 有强烈的偏好，那么你可以随意选择 React 或者 Angular 2+。 首先学习 Angular 2+，并考虑 React 可选。 这两种情况都会让你受益，并且在你的简历上看起来很不错。无论你选择哪一个，尽量将精力集中学习和使用你所选择的那个，至少6个月 – 1年后，再去学习另一个。 真正掌握它们需要很多实践。</li>
-</ul>
-<h2 id="观察中的框架"><a href="#观察中的框架" class="headerlink" title="观察中的框架"></a>观察中的框架</h2><p>Vue.js <em> 在 GitHub 上有大量的 stars 和 下载。如果继续下去，它将在 2017 年能做得更好，但我认为在未来的一年左右的时间里，我不认为它不会超越 React 或 Angular（两者都快速增长）。建议学习了 React 或 Angular 后学习 Vue.js 。<br>MobX </em> 是一个很棒的数据管理库，已成为 Redux 的流行替代品。它也在快速增长，我预计在 2017 年会更好。对于大多数应用来说，我更喜欢Redux，但在某些情况下，MobX是更好的选择。例如，如果页面上有成千上万个动态 DOM 对象，MobX 可能会表现得更好。另外，如果你的应用程序工作流都很简单，而且你不需要事务性的、确定性的状态，那么你可能就不需要 Redux 了。MobX 无疑是一个更简单的解决方案。建议你在学习了 Redux 之后，再学习 MobX 。<br>原文链接：<a href="https://medium.com/javascript-scene/top-javascript-frameworks-topics-to-learn-in-2017-700a397b711" target="_blank" rel="external">https://medium.com/javascript-scene/top-javascript-frameworks-topics-to-learn-in-2017-700a397b711</a><br>正文完。</p>
+        <p>JavaScript中的Dom操作一直以来都是JavaScript的重点,那么今天我就来写下如何获取节点对象</p>
+<h2 id="共有样式部分"><a href="#共有样式部分" class="headerlink" title="共有样式部分"></a>共有样式部分</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">      &lt;meta charset=&quot;utf-8&quot;/&gt;</div><div class="line">	  &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	     div&#123;width:200px;height:200px;background:red;&#125;</div><div class="line">	  &lt;/style&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">      &lt;div id=&quot;id_div&quot; class=&quot;class_div&quot; name=&quot;name_div&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="getElementById"><a href="#getElementById" class="headerlink" title="getElementById()"></a>getElementById()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementById(&quot;id_div&quot;).onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过id来访问的</div><div class="line">//注意:这个方法是属于document下的方法,只能在document下访问</div></pre></td></tr></table></figure>
+<h2 id="getElementByName"><a href="#getElementByName" class="headerlink" title="getElementByName()"></a>getElementByName()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementByName(&quot;name_div&quot;)[0].onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过neme来访问的</div><div class="line">//注意:1.这个方法是属于document下的方法,只能在document下访问</div><div class="line">       2.这个方法返回的值是一个标签元素数组列表,如果子获取一个元素的话,那么它必须加[0],这是数组的格式,如果不加数组的格式,他是获取不到的</div></pre></td></tr></table></figure>
+<h2 id="getElementsByTagName"><a href="#getElementsByTagName" class="headerlink" title="getElementsByTagName()"></a>getElementsByTagName()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementById(&quot;div&quot;)[0].onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过标签元素名来访问的</div><div class="line">//注意:1.这个方法的父类既可以是document也可以是其他的父类标签元素</div><div class="line">       2.这个方法返回的值是一个标签元素数组列表,如果子获取一个元素的话,那么它必须加[0],这是数组的格式,如果不加数组的格式,他是获取不到的</div></pre></td></tr></table></figure>
+<h2 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName()"></a>getElementsByClassName()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementByName(&quot;class_div&quot;)[0].onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过class来访问的</div><div class="line">//注意:1.这个方法的父类既可以是document也可以是其他的父类标签元素</div><div class="line">       2.这个方法返回的值是一个标签元素数组列表,如果子获取一个元素的话,那么它必须加[0],这是数组的格式,如果不加数组的格式,他是获取不到的</div><div class="line">	   3.这个方法的兼容性非常的差,因此我写一个函数来兼容不支持的游览器代码如下:</div><div class="line">	    function getClass(cName)&#123;</div><div class="line">			if(document.getElementsByClassName) </div><div class="line">			&#123;</div><div class="line">				return document.getElementsByClassName(cName);</div><div class="line">			&#125;</div><div class="line">			else</div><div class="line">			&#123; </div><div class="line">				var allEl=document.getElementsByTagName(&quot;*&quot;); </div><div class="line">				var reg=new RegExp(&quot;\\b&quot;+cName+&quot;\\b&quot;);</div><div class="line">				var arr=[];</div><div class="line">				for(var i=0;i&lt;allEl.length;i++)&#123;</div><div class="line">					if(reg.test(allEl[i].className))&#123;</div><div class="line">						arr.push(allEl[i]);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">					return arr;</div><div class="line">			&#125;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h2 id="querySelector"><a href="#querySelector" class="headerlink" title="querySelector()"></a>querySelector()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementById(&quot;#id_div&quot;).onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他可以通过id,class,name,标签名,属性选择器,以及伪类选择器等,来获取标签</div><div class="line">//css3中新出的选择器也可以用在这里,他的原理更jQuery选择器的原理是一样的,并且兼容性非常好</div></pre></td></tr></table></figure>
+<p><strong>总结:前面各个方法中用的最多的是getElementById()和getElementsByTagName(),但是现在用的最多的是querySelector(),因为最后一个实在是太好用了,他可以更jQuery一样轻松的获取元素</strong></p>
 
         
         
@@ -136,11 +112,11 @@
     <footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+</div>
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/前端热点/">前端热点</a>
-  </div>
 
 </div>
 
@@ -163,7 +139,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/42/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="page-number current">43</span><a class="page-number" href="/page/44/">44</a><a class="page-number" href="/page/45/">45</a><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/44/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/42/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="page-number current">43</span><a class="page-number" href="/page/44/">44</a><a class="page-number" href="/page/45/">45</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/44/">Next<span></span></a>
   </nav>
 
 </div>
@@ -194,7 +170,7 @@
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>14</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>17</sup></a></li>
 		  
 		
 		  
@@ -212,8 +188,6 @@
 		
 			
 				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
-			
-		
 			
 		
 		</ul>

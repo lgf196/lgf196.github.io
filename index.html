@@ -81,24 +81,22 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/05/15/JavaScript-判断一个对象是不是数组对象/" title="判断一个对象是不是数组对象" itemprop="url">判断一个对象是不是数组对象</a>
+      <a href="/2017/06/01/JavaScript-extend/" title="extend" itemprop="url">extend</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-15T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-05-15</time>
+    <time datetime="2017-06-01T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-06-01</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>今天小编我看到了一道面试题，判断一个对象是不是数组对象,我仔细看了一下,我结果只用一种做法写了出来,然后看了下他们的答案,然后我通过自已的总结,总计了一下几种方法</p>
-<h2 id="1-验证原型对象"><a href="#1-验证原型对象" class="headerlink" title="1.验证原型对象"></a>1.验证原型对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line"> 1-1.Object.getPrototypeOf(a)==Array.prototype</div><div class="line"> 1-2.var bool=father.isPrototypeOf(child); //判断father是否是child的父对象,推荐使用第二种</div><div class="line">    console.log(Object.getPrototypeOf(a)==Array.prototype);</div><div class="line">    console.log(Array.prototype.isPrototypeOf(a));</div></pre></td></tr></table></figure>
-<h2 id="2-验证构造函数"><a href="#2-验证构造函数" class="headerlink" title="2.验证构造函数"></a>2.验证构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line">2-1.a.constructor==Array</div><div class="line">2-2.a instanceof Array   //推荐使用第二种*/</div><div class="line">   console.log(a.constructor==Array);</div><div class="line">   console.log(a instanceof Array);</div></pre></td></tr></table></figure>
-<h2 id="3-tostring"><a href="#3-tostring" class="headerlink" title="3.tostring"></a>3.tostring</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line">console.log(Object.prototype.toString.call(a)==&quot;[object Array]&quot;); //true</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>前面的三种方法建议使用最后一种方法,最后一种方法他更加的严格和准确</p>
+        <p>extend相信会玩jQuery的人一定知道，他是个什么意思说白了他就是一个扩展函数,一般用来开发插件的,不知道的可以去<a href="http://lgf196.top/2017/04/22/jQuery2/" target="_blank" rel="external">jquery插件开发2</a>这篇文章看下,今天我们也来自已写一个extend这样的一个方法,来实现原生js的插件开发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">      function Show()&#123;&#125;</div><div class="line">      Show.prototype.extend=function()&#123;</div><div class="line">          if(arguments.length===1)&#123;</div><div class="line">              for(var k in arguments[0])&#123;</div><div class="line">                this[k]=arguments[0][k];</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">          else&#123;</div><div class="line">               for(var k in arguments[1])&#123;</div><div class="line">                arguments[0][k]=arguments[1][k];</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">         return this; //这你必须要return this进行链式编程</div><div class="line">      &#125;</div><div class="line">      var show=new Show();</div><div class="line">      var w=&#123; </div><div class="line">          name:&quot;li&quot;,</div><div class="line">          age:22,</div><div class="line">          fun:function()&#123;</div><div class="line">              alert(this.age);</div><div class="line">          &#125;</div><div class="line">      &#125;;</div><div class="line">//后面的对象参数可以更改w里面的参数</div><div class="line">     var extenses=show.extend(w, &#123;name:&quot;wuc&quot;,men:&quot;sex&#125;);</div><div class="line">  //第一种写法</div><div class="line">     for(var i in w)&#123;</div><div class="line">       Show.prototype[i]=w[i];//父元素实现继承</div><div class="line">     &#125;	   </div><div class="line">  //第二种写法</div><div class="line">  // Show.prototype.extend(w); //混合式继承</div><div class="line">   extenses.name; //wuc</div></pre></td></tr></table></figure>
+<p>如果要运用原生开发插件的话,那么希望这里的代码对你们有帮助</p>
 
         
         
@@ -136,7 +134,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -167,7 +165,7 @@
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>14</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>17</sup></a></li>
 		  
 		
 		  
@@ -185,8 +183,6 @@
 		
 			
 				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
-			
-		
 			
 		
 		</ul>

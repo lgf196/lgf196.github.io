@@ -81,27 +81,31 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/14/HTML-Dom操作/" title="HTM-Dom操作" itemprop="url">HTM-Dom操作</a>
+      <a href="/2017/01/26/HTML-border/" title="border的使用" itemprop="url">border的使用</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-14T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-14</time>
+    <time datetime="2017-01-26T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-26</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>JavaScript中的Dom操作一直以来都是JavaScript的重点,那么今天我就来写下如何获取节点对象</p>
-<h2 id="共有样式部分"><a href="#共有样式部分" class="headerlink" title="共有样式部分"></a>共有样式部分</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">      &lt;meta charset=&quot;utf-8&quot;/&gt;</div><div class="line">	  &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	     div&#123;width:200px;height:200px;background:red;&#125;</div><div class="line">	  &lt;/style&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">      &lt;div id=&quot;id_div&quot; class=&quot;class_div&quot; name=&quot;name_div&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="getElementById"><a href="#getElementById" class="headerlink" title="getElementById()"></a>getElementById()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementById(&quot;id_div&quot;).onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过id来访问的</div><div class="line">//注意:这个方法是属于document下的方法,只能在document下访问</div></pre></td></tr></table></figure>
-<h2 id="getElementByName"><a href="#getElementByName" class="headerlink" title="getElementByName()"></a>getElementByName()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementByName(&quot;name_div&quot;)[0].onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过neme来访问的</div><div class="line">//注意:1.这个方法是属于document下的方法,只能在document下访问</div><div class="line">       2.这个方法返回的值是一个标签元素数组列表,如果子获取一个元素的话,那么它必须加[0],这是数组的格式,如果不加数组的格式,他是获取不到的</div></pre></td></tr></table></figure>
-<h2 id="getElementsByTagName"><a href="#getElementsByTagName" class="headerlink" title="getElementsByTagName()"></a>getElementsByTagName()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementById(&quot;div&quot;)[0].onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过标签元素名来访问的</div><div class="line">//注意:1.这个方法的父类既可以是document也可以是其他的父类标签元素</div><div class="line">       2.这个方法返回的值是一个标签元素数组列表,如果子获取一个元素的话,那么它必须加[0],这是数组的格式,如果不加数组的格式,他是获取不到的</div></pre></td></tr></table></figure>
-<h2 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName()"></a>getElementsByClassName()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementByName(&quot;class_div&quot;)[0].onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他是通过class来访问的</div><div class="line">//注意:1.这个方法的父类既可以是document也可以是其他的父类标签元素</div><div class="line">       2.这个方法返回的值是一个标签元素数组列表,如果子获取一个元素的话,那么它必须加[0],这是数组的格式,如果不加数组的格式,他是获取不到的</div><div class="line">	   3.这个方法的兼容性非常的差,因此我写一个函数来兼容不支持的游览器代码如下:</div><div class="line">	    function getClass(cName)&#123;</div><div class="line">			if(document.getElementsByClassName) </div><div class="line">			&#123;</div><div class="line">				return document.getElementsByClassName(cName);</div><div class="line">			&#125;</div><div class="line">			else</div><div class="line">			&#123; </div><div class="line">				var allEl=document.getElementsByTagName(&quot;*&quot;); </div><div class="line">				var reg=new RegExp(&quot;\\b&quot;+cName+&quot;\\b&quot;);</div><div class="line">				var arr=[];</div><div class="line">				for(var i=0;i&lt;allEl.length;i++)&#123;</div><div class="line">					if(reg.test(allEl[i].className))&#123;</div><div class="line">						arr.push(allEl[i]);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">					return arr;</div><div class="line">			&#125;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<h2 id="querySelector"><a href="#querySelector" class="headerlink" title="querySelector()"></a>querySelector()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	  document.getElementById(&quot;#id_div&quot;).onclick=function()&#123;</div><div class="line">		    alert(&quot;hello welcome&quot;);</div><div class="line">	  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">//如果当我点击他的时候,他会弹出hello welcome,说明我获取到了这个元素标签,他可以通过id,class,name,标签名,属性选择器,以及伪类选择器等,来获取标签</div><div class="line">//css3中新出的选择器也可以用在这里,他的原理更jQuery选择器的原理是一样的,并且兼容性非常好</div></pre></td></tr></table></figure>
-<p><strong>总结:前面各个方法中用的最多的是getElementById()和getElementsByTagName(),但是现在用的最多的是querySelector(),因为最后一个实在是太好用了,他可以更jQuery一样轻松的获取元素</strong></p>
+        <p>在网页中border这个属性,用的是非常的多,我今天就来讲下这个属性</p>
+<h3 id="整体代码"><a href="#整体代码" class="headerlink" title="整体代码"></a>整体代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">	&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        div&#123;</div><div class="line">            width:0px;</div><div class="line">            height:0px;</div><div class="line">            border:100px solid;</div><div class="line">            border-color: red green pink darkgray;</div><div class="line">            margin-bottom:40px;</div><div class="line">        &#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>我们可以通过这个样式图为参考来做下面的效果,效果图如下:<br><img src="/img/border.png"></p>
+<h3 id="倒三角"><a href="#倒三角" class="headerlink" title="倒三角"></a>倒三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: red transparent transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/down.png"></p>
+<h3 id="正三角"><a href="#正三角" class="headerlink" title="正三角"></a>正三角</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	width:0px;</div><div class="line">	height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: transparent transparent red transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/top.png"></p>
+<h3 id="左三角"><a href="#左三角" class="headerlink" title="左三角"></a>左三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: transparent red transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/left.png"></p>
+<h3 id="直角"><a href="#直角" class="headerlink" title="直角"></a>直角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color:red red transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/right-angle.png"></p>
+<p><strong>总结:通过前面的代码我们可以知道,我们主要是通过更改border-color来实现的,如果我想是上三角,就只需给上三角加颜色,其他的设置为transparent,而且border还可以做很多的效果,这里我就不依依说明,其他他们的原理更上面的代码原理差不多</strong></p>
 
         
         
@@ -114,7 +118,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  <a class="article-category-link" href="/categories/HTML-CSS/">HTML-CSS</a>
 </div>
 
 
@@ -139,7 +143,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/39/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/41/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/39/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/41/">Next<span></span></a>
   </nav>
 
 </div>
@@ -170,7 +174,7 @@
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>14</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>17</sup></a></li>
 		  
 		
 		  
@@ -188,8 +192,6 @@
 		
 			
 				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
-			
-		
 			
 		
 		</ul>

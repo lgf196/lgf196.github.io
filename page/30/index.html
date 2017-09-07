@@ -81,21 +81,23 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/18/JavaScript-运动框架/" title="运动框架" itemprop="url">运动框架</a>
+      <a href="/2017/03/03/border-radius/" title="border-radius" itemprop="url">border-radius</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-18T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-02-18</time>
+    <time datetime="2017-03-03T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-03</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>在JavaScript中如果想写个动画的效果,如果用原生的JavaScript来写,估计代码量特别的大,而且有点难度,那么我今天就写个常用的运动框架,并且功能还是蛮强大的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">function getstyle(obj,user)&#123;  //获取css里面的元素属性值</div><div class="line">      if (obj.currentStyle) &#123;</div><div class="line">        return obj.currentStyle[user];</div><div class="line">      &#125;</div><div class="line">      else&#123;</div><div class="line">        return getComputedStyle(obj,false)[user];</div><div class="line">      &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function move(obj,json,fun)&#123;  //运动函数</div><div class="line">      clearInterval(obj.timer);</div><div class="line">      obj.timer=setInterval(function()&#123;</div><div class="line">        var stop=true;//用来假设所有参数都到了</div><div class="line">        for(var add in json)&#123;</div><div class="line">          var cur=0;</div><div class="line">          if(add==&apos;opacity&apos;)&#123;</div><div class="line">            cur=parseFloat(getstyle(obj,add))*100;</div><div class="line">          &#125;</div><div class="line">          else&#123;</div><div class="line">            var cur=parseInt(getstyle(obj,add));</div><div class="line">          &#125;</div><div class="line">          var spend=(json[add]-cur)/15;</div><div class="line">          spend=spend&gt;0?Math.ceil(spend):Math.floor(spend);</div><div class="line">           if(cur!=json[add]) stop=false;//用来判断</div><div class="line">            if(add==&apos;opacity&apos;)&#123;  </div><div class="line">              cur+=spend; </div><div class="line">              obj.style.opacity=cur/100;</div><div class="line">              obj.style.filter=&apos;alpha(opacity:&quot;+cur+&quot;)&apos;;  //透明的的</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">            obj.style[add]=cur+spend+&apos;px&apos;;</div><div class="line">            &#125;</div><div class="line">          </div><div class="line">        &#125;</div><div class="line">        if(stop)&#123;  </div><div class="line">          clearInterval(obj.timer);</div><div class="line">            if(fun)fun();</div><div class="line">        &#125;</div><div class="line">      &#125;,10);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>border-radius这个属性叫做边框圆角,他用的非常的多，在好多的网站中，都有他的身影,可想它是非常的重要的</p>
+<h3 id="border-radius"><a href="#border-radius" class="headerlink" title="border-radius"></a>border-radius</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;</div><div class="line">       *&#123;</div><div class="line">           margin: 0;</div><div class="line">           padding: 0;</div><div class="line">       &#125;</div><div class="line">       img&#123;</div><div class="line">           border:0;</div><div class="line">       &#125;</div><div class="line">       ol, ul ,li&#123;list-style: none;&#125;</div><div class="line">       div&#123;</div><div class="line">         text-align:center;</div><div class="line">         line-height:100px;</div><div class="line">		 float:left;</div><div class="line">         margin-left:5px;</div><div class="line">       &#125;</div><div class="line">       .a&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">        border-top-left-radius:30px;</div><div class="line">       &#125;</div><div class="line">       .b&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">        border-top-right-radius:30px;</div><div class="line">       &#125;</div><div class="line">       .c&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">        border-bottom-right-radius:30px;</div><div class="line">       &#125;</div><div class="line">       .d&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">        border-bottom-left-radius:30px;</div><div class="line">       &#125;</div><div class="line">    .e&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">       border-radius:30px 30px 30px 30px;</div><div class="line">       &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">     &lt;!--  border-radius:左上角 右上角 右下角 左下角; --&gt;</div><div class="line"> &lt;!--  设置两个值是：左上/右下  左下/右上</div><div class="line"> 设置三个值：左上 右上/左下 右下 --&gt;</div><div class="line">   &lt;div class=&quot;a&quot;&gt;左上角&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;b&quot;&gt;右上角&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;c&quot;&gt;右下角&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;d&quot;&gt;左下角&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;e&quot;&gt;简写&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下</h3><p><img src="/img/border-radius.png"></p>
+<p style="color:red">注意:border-radius它必须要在高配版的游览器下才有用,像IE9以下的他不识别的,如果想要变成一个圆的话,就设置成50%</p>
 
         
         
@@ -108,7 +110,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
 </div>
 
 
@@ -133,7 +135,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/29/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/31/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/29/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/31/">Next<span></span></a>
   </nav>
 
 </div>
@@ -164,7 +166,7 @@
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>14</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>17</sup></a></li>
 		  
 		
 		  
@@ -182,8 +184,6 @@
 		
 			
 				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
-			
-		
 			
 		
 		</ul>

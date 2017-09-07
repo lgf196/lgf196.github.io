@@ -81,192 +81,22 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/20/HTML5-播发器/" title="html5播放器" itemprop="url">html5播放器</a>
+      <a href="/2017/03/28/CSS3-中常见的特效/" title="css3中常见的特效" itemprop="url">css3中常见的特效</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-20T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-20</time>
+    <time datetime="2017-03-28T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-28</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>在很多的网站中都有视频播放的功能,并且它的那个播放器有的是他们自已单独开发的,那么我今天就自已写了一个自制播放器,功能该有的还是有的</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/font-awesome.css&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/css.css&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h3 class=&quot;playerTitle&quot;&gt;视频播放器&lt;/h3&gt;
-&lt;div class=&quot;player&quot;&gt;
-    &lt;video src=&quot;mp4/chrome.mp4&quot;&gt;&lt;/video&gt;
-    &lt;div class=&quot;slide&quot;&gt;
-        &lt;div class=&quot;slide-creat&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;controls&quot;&gt;
-        &lt;a href=&quot;javascript:;&quot; class=&quot;switch fa fa-play&quot;&gt;&lt;/a&gt;
-        &lt;a href=&quot;javascript:;&quot; class=&quot;expand fa fa-expand&quot;&gt;&lt;/a&gt;
-        &lt;！--注意这里是模仿进度条的--&gt;
-        &lt;div class=&quot;progress&quot;&gt;
-            &lt;div class=&quot;bar&quot;&gt;&lt;/div&gt;
-            &lt;div class=&quot;loaded&quot;&gt;&lt;/div&gt;
-            &lt;div class=&quot;elapse&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;time&quot;&gt;
-            &lt;span class=&quot;currentTime&quot;&gt;00:00:00&lt;/span&gt;
-
-            &lt;span class=&quot;totalTime&quot;&gt;00:00:00&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;sound&quot;&gt;
-             &lt;div class=&quot;sound-hide&quot;&gt;&lt;/div&gt;
-            &lt;div class=&quot;sound-sound&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-var video=document.querySelector(&quot;video&quot;);
-var swt= document.querySelector(&quot;.switch&quot;);
-//让视频的声音默认为0.3
- video.volume=0.3;
-
- swt.onclick=function(){
-     video.paused===true?video.play():video.pause();
-     toggleon();
- }
-
-//全屏功能
-document.querySelector(&quot;.expand&quot;).onclick=function(e){
-    if(video.requestFullScreen){
-        video.requestFullScreen();
-    }
-    else if(video.webkitRequestFullScreen){
-         video.webkitRequestFullScreen();
-    }
-    else if(video.mozRequestFullScreen){
-        video.mozRequestFullScreen();
-    }
-    else if(video.msRequestFullScreen){
-        video.msRequestFullScreen();
-    }
-    e.preventDefault(); //阻止视频变大不能看其他的东西的方法
-}
-
-//动态的计算总时间,当浏览器可以播放音频/视频时
-video.oncanplay=function(){
-    setTimeout(function(){
-         video.style.display=&quot;block&quot;;
-         //获取时间的总长度
-         var addtime=video.duration; //注意他返回的是总时间秒为单位的
-        document.querySelector(&quot;.totalTime&quot;).innerText=publictime(addtime);
-    },2000);
-}
-
-//播放的动态时间也跟着变化
-video.ontimeupdate=function(){
-    var curent=video.currentTime;//返回的是当前的播放的秒数
-    document.querySelector(&quot;.currentTime&quot;).innerText=publictime(curent);
-    //时间更下面的width一起动态的运动起来
-    document.querySelector(&quot;.elapse&quot;).style.width=(curent/video.duration)*100+&quot;%&quot;;
-}
-
-//公用按钮切换函数
-function toggleon(){
-    for(var i=0;i&lt;swt.classList.length;i++){
-        if(swt.classList[i]===&quot;fa-play&quot;){
-           swt.classList.remove(&quot;fa-play&quot;);
-           swt.classList.add(&quot;fa-pause&quot;);
-        }
-        else if(swt.classList[i]===&quot;fa-pause&quot;){
-           swt.classList.remove(&quot;fa-pause&quot;);
-           swt.classList.add(&quot;fa-play&quot;);
-        }
-    }
-}
-
-//时间的公用部分
-function publictime(time){
-    var hour=Math.floor(time/3600);  //计算小时
-        hour=hour&lt;10?&quot;0&quot;+hour:hour;
-    var minute=Math.floor(time/60%60); //计算分钟
-        minute=minute&lt;10?&quot;0&quot;+minute:minute;
-    var second=Math.floor(time%60);  //计算秒数
-        second=second&lt;10?&quot;0&quot;+second:second;
-   return hour+&quot;:&quot;+minute+&quot;:&quot;+second;
-}
-
-
-//点击透明的进度条进行快进播放
-document.querySelector(&quot;.bar&quot;).onclick=function(e){
-  var remove=e.offsetX/this.offsetWidth;
-  var cur=remove*video.duration;
-  video.currentTime=cur;
-}
-
-//当播放结束的时候就将值变为默认的
-video.onended=function(){
-    video.currentTime=0;
-  swt.classList.remove(&quot;fa-pause&quot;);
-    swt.classList.add(&quot;fa-play&quot;);
-}
-
-//点击视频是也可以播放
-video.onclick=function(){
- video.paused===true?video.play():video.pause();
-  toggleon();
-}
-
-//控制视频的声音大小
-document.querySelector(&quot;.sound-hide&quot;).onclick=function(e){
-   document.querySelector(&quot;.sound-sound&quot;).style.width=e.offsetX+&quot;px&quot;;
-   var width=document.querySelector(&quot;.sound&quot;).offsetWidth;
-    video.volume=e.offsetX/width;
-}
-
-//动画函数
-function animate(obj, target,property) {
-        clearInterval(obj.timer);
-        obj.timer = setInterval(function () {
-            var leader = obj.offsetWidth;
-            var step = 10;
-            step = leader &lt; target ? step : -step;
-            if (Math.abs(leader - target) &gt;= Math.abs(step)) {
-                leader = leader + step;
-                obj.style[property]= leader + &quot;px&quot;;
-            } else {
-                obj.style[property] = target + &quot;px&quot;;
-                clearInterval(obj.timer);
-            }
-        }, 15);
-}
-
-//点击slide-creat按钮然他做动画
-document.querySelector(&quot;.slide-creat&quot;).onclick=function(){
-    var slide=document.querySelector(&quot;.slide&quot;);
-    if(slide.offsetWidth===0){
-        animate(slide,200,&quot;width&quot;);
-         this.style.left=&quot;-30px&quot;;
-        this.style.borderColor=&quot;transparent transparent transparent gray&quot;;
-    }
-    else{
-         this.style.left=&quot;-60px&quot;;
-        this.style.borderColor=&quot;transparent gray transparent transparent&quot;;
-         animate(slide,0,&quot;width&quot;);
-    }
-
-}
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下:"></a>效果图如下:</h3><p><img src="/img/play.png"></p>
-<p>总结：前面的代码有几个事件函数他是HTML5中的音频事件的，如果不懂得话,可以去w3c查看下</p>
-
+        <h3 id="翻转效果"><a href="#翻转效果" class="headerlink" title="翻转效果"></a>翻转效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        img&#123;</div><div class="line">            border:0;</div><div class="line">        &#125;</div><div class="line">        ol, ul ,li&#123;list-style: none;&#125;</div><div class="line">        .aa&#123;</div><div class="line"></div><div class="line">            width: 291px;</div><div class="line">            height: 251px;</div><div class="line">            position: relative;</div><div class="line">         -webkit-perspective: 350px;</div><div class="line">             margin:100px auto;</div><div class="line">        &#125;</div><div class="line">        .aa img&#123;</div><div class="line">            position: absolute;</div><div class="line">            left: 0;</div><div class="line">            top: 0;</div><div class="line">           /*  定义元素在不面对屏幕时是否可见。 */</div><div class="line">            -webkit-backface-visibility: hidden;</div><div class="line">            transition: all 0.5s ease-in 0s;</div><div class="line">        &#125;</div><div class="line">        .aa&gt;img:nth-of-type(2)&#123;</div><div class="line">            transform:rotateX(-180deg);</div><div class="line">        &#125;</div><div class="line">         .aa:hover img:nth-of-type(1)&#123;</div><div class="line">              transform:rotateX(180deg);</div><div class="line">         &#125;</div><div class="line">          .aa:hover img:nth-of-type(2)&#123;</div><div class="line">              transform:rotateX(0deg);</div><div class="line">         &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">   &lt;div class=&quot;aa&quot;&gt;</div><div class="line">       &lt;img src=&quot;image/try1.jpg&quot; alt=&quot;&quot; /&gt;</div><div class="line">       &lt;img src=&quot;image/try2.jpg&quot; alt=&quot;&quot; /&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="底部旋转效果"><a href="#底部旋转效果" class="headerlink" title="底部旋转效果"></a>底部旋转效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        *&#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">        &#125;</div><div class="line">        img&#123;</div><div class="line">            border:0;</div><div class="line">        &#125;</div><div class="line">        ol, ul ,li&#123;list-style: none;&#125;</div><div class="line">        .content&#123;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            background:blue;</div><div class="line">            margin:100px auto;</div><div class="line">            position:relative;</div><div class="line">            overflow:hidden;</div><div class="line">        &#125;</div><div class="line">        .hide&#123;</div><div class="line">            transition:transform .5s linear;</div><div class="line">            position:absolute;</div><div class="line">            bottom:0px;</div><div class="line">            left:0px;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">            background:rgba(0, 0, 0, 0.2);</div><div class="line">           transform:rotate(90deg);</div><div class="line">           transform-origin:left bottom</div><div class="line">        &#125;</div><div class="line">         .content:hover .hide&#123;</div><div class="line">            transform:rotate(0deg);</div><div class="line">         &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div class=&quot;content&quot;&gt;</div><div class="line">        &lt;div class=&quot;hide&quot;&gt;我是透明的div&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p style="color:green">以上的效果图我就不展示了,如果你们感兴趣的话,可以自已复制代码看下效果</p>
         
         
         <p class="article-more-link">
@@ -278,7 +108,7 @@ document.querySelector(&quot;.slide-creat&quot;).onclick=function(){
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/HTML5/">HTML5</a>
+  <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
 </div>
 
 
@@ -303,7 +133,7 @@ document.querySelector(&quot;.slide-creat&quot;).onclick=function(){
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/16/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/18/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/16/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/18/">Next<span></span></a>
   </nav>
 
 </div>
@@ -334,7 +164,7 @@ document.querySelector(&quot;.slide-creat&quot;).onclick=function(){
 		  
 		
 		  
-			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>14</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>17</sup></a></li>
 		  
 		
 		  
@@ -352,8 +182,6 @@ document.querySelector(&quot;.slide-creat&quot;).onclick=function(){
 		
 			
 				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
-			
-		
 			
 		
 		</ul>
