@@ -81,22 +81,24 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/11/JavaScript-统计字符出现的次数/" title="统计字符出现的次数" itemprop="url">统计字符出现的次数</a>
+      <a href="/2017/03/03/border-radius/" title="border-radius" itemprop="url">border-radius</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-11T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-02-11</time>
+    <time datetime="2017-03-03T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-03</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>统计一个数组中元素出现的次数这种算法一般用在测试上面,当然有的公司喜欢拿来当做面试题,因此我就写一下这个算法</p>
-<h3 id="统计数组中字符出现的次数"><a href="#统计数组中字符出现的次数" class="headerlink" title="统计数组中字符出现的次数"></a>统计数组中字符出现的次数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var arr=[&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;b&quot;,&quot;b&quot;,&quot;f&quot;];</div><div class="line">   var json=&#123;&#125;;//用来存每个元素出现的次数</div><div class="line">   for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">       if(json[arr[i]])&#123; //这里运用了关联数组的写法,不要认为对象只能json.xx这样写,其实对象也可以用关联数组的形式来写</div><div class="line">           json[arr[i]]+=1;</div><div class="line">       &#125;</div><div class="line">       else&#123;</div><div class="line">           json[arr[i]]=1;//如果没有找到,就为1,切将属性和值添加到对象中去</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">   //console.log(json);</div><div class="line">   for(key in json)&#123;</div><div class="line">       console.log(key+&quot;:出现的次数为:&quot;+json[key]);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<h3 id="统计字符串中出现字符的次数"><a href="#统计字符串中出现字符的次数" class="headerlink" title="统计字符串中出现字符的次数"></a>统计字符串中出现字符的次数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var str=&apos;abcehusjacex&apos;;</div><div class="line">  var json=&#123;&#125;;//用来存每个元素出现的次数</div><div class="line">  for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">var charAt=str.charAt(i);//返回的是string类型</div><div class="line">      if(json[charAt])&#123; //这里运用了关联数组的写法,不要认为对象只能json.xx这样写,其实对象也可以用关联数组的形式来写</div><div class="line">          json[charAt]+=1;</div><div class="line">      &#125;</div><div class="line">      else&#123;</div><div class="line">          json[charAt]=1;//如果没有找到,就为1,切将属性和值添加到对象中去</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  //console.log(json);</div><div class="line">  for(key in json)&#123;</div><div class="line">      console.log(key+&quot;:出现的次数为:&quot;+json[key]);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+        <p>border-radius这个属性叫做边框圆角,他用的非常的多，在好多的网站中，都有他的身影,可想它是非常的重要的</p>
+<h3 id="border-radius"><a href="#border-radius" class="headerlink" title="border-radius"></a>border-radius</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;</div><div class="line">       *&#123;</div><div class="line">           margin: 0;</div><div class="line">           padding: 0;</div><div class="line">       &#125;</div><div class="line">       img&#123;</div><div class="line">           border:0;</div><div class="line">       &#125;</div><div class="line">       ol, ul ,li&#123;list-style: none;&#125;</div><div class="line">       div&#123;</div><div class="line">         text-align:center;</div><div class="line">         line-height:100px;</div><div class="line">		 float:left;</div><div class="line">         margin-left:5px;</div><div class="line">       &#125;</div><div class="line">       .a&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">        border-top-left-radius:30px;</div><div class="line">       &#125;</div><div class="line">       .b&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">        border-top-right-radius:30px;</div><div class="line">       &#125;</div><div class="line">       .c&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">        border-bottom-right-radius:30px;</div><div class="line">       &#125;</div><div class="line">       .d&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">        border-bottom-left-radius:30px;</div><div class="line">       &#125;</div><div class="line">    .e&#123;</div><div class="line">        width:100px;</div><div class="line">        height: 100px;</div><div class="line">        background: red;</div><div class="line">        margin:10px 10px;</div><div class="line">       border-radius:30px 30px 30px 30px;</div><div class="line">       &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">     &lt;!--  border-radius:左上角 右上角 右下角 左下角; --&gt;</div><div class="line"> &lt;!--  设置两个值是：左上/右下  左下/右上</div><div class="line"> 设置三个值：左上 右上/左下 右下 --&gt;</div><div class="line">   &lt;div class=&quot;a&quot;&gt;左上角&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;b&quot;&gt;右上角&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;c&quot;&gt;右下角&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;d&quot;&gt;左下角&lt;/div&gt;</div><div class="line">   &lt;div class=&quot;e&quot;&gt;简写&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下</h3><p><img src="/img/border-radius.png"></p>
+<p style="color:red">注意:border-radius它必须要在高配版的游览器下才有用,像IE9以下的他不识别的,如果想要变成一个圆的话,就设置成50%</p>
+
         
         
         <p class="article-more-link">
@@ -108,7 +110,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
 </div>
 
 
@@ -133,7 +135,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/33/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/35/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/33/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/35/">Next<span></span></a>
   </nav>
 
 </div>
@@ -169,6 +171,10 @@
 		
 		  
 			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/plugIn/" title="plugIn">plugIn<sup>4</sup></a></li>
 		  
 		
 		</ul>

@@ -81,31 +81,23 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/26/HTML-border/" title="border的使用" itemprop="url">border的使用</a>
+      <a href="/2017/02/06/JavaScript-排序算法/" title="排序算法" itemprop="url">排序算法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-26T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-26</time>
+    <time datetime="2017-02-06T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-02-06</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>在网页中border这个属性,用的是非常的多,我今天就来讲下这个属性</p>
-<h3 id="整体代码"><a href="#整体代码" class="headerlink" title="整体代码"></a>整体代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">	&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        div&#123;</div><div class="line">            width:0px;</div><div class="line">            height:0px;</div><div class="line">            border:100px solid;</div><div class="line">            border-color: red green pink darkgray;</div><div class="line">            margin-bottom:40px;</div><div class="line">        &#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>我们可以通过这个样式图为参考来做下面的效果,效果图如下:<br><img src="/img/border.png"></p>
-<h3 id="倒三角"><a href="#倒三角" class="headerlink" title="倒三角"></a>倒三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: red transparent transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/down.png"></p>
-<h3 id="正三角"><a href="#正三角" class="headerlink" title="正三角"></a>正三角</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	width:0px;</div><div class="line">	height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: transparent transparent red transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/top.png"></p>
-<h3 id="左三角"><a href="#左三角" class="headerlink" title="左三角"></a>左三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: transparent red transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/left.png"></p>
-<h3 id="直角"><a href="#直角" class="headerlink" title="直角"></a>直角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color:red red transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/right-angle.png"></p>
-<p><strong>总结:通过前面的代码我们可以知道,我们主要是通过更改border-color来实现的,如果我想是上三角,就只需给上三角加颜色,其他的设置为transparent,而且border还可以做很多的效果,这里我就不依依说明,其他他们的原理更上面的代码原理差不多</strong></p>
+        <p>排序算法在工作中用的并不是很多,但是在面试的时候出现的概率非常的高,因此我就写了如下几种方法</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr=[1,4,7,3,9,2,0,5,8];</div><div class="line"> for(var i=1;i&lt;arr.length;i++)&#123;</div><div class="line">     for(var j=0,t;j&lt;arr.length-i;j++)&#123;</div><div class="line">         if(arr[j]&gt;arr[j+1])&#123;</div><div class="line">             t=arr[j];</div><div class="line">             arr[j]=arr[j+1];</div><div class="line">             arr[j+1]=t;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> alert(arr);</div></pre></td></tr></table></figure>
+<h3 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr=[3,1,7,3,9,2,0,5,8];</div><div class="line">      for(var i=0,m;i&lt;arr.length-1;i++)&#123;</div><div class="line">          for(var j=i+1,t;j&lt;arr.length;j++)&#123;</div><div class="line">              if(arr[i]&gt;arr[j])&#123;</div><div class="line">                 t=arr[i];</div><div class="line">                 arr[i]=arr[j];</div><div class="line">                 arr[j]=t;</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      alert(arr);</div></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var arr=[1,5,8,9,4,3,0,5,7,1];</div><div class="line">for(var i=0,m;i&lt;arr.length-1;i++)&#123;</div><div class="line">    m=i;//假设第一个数最大</div><div class="line">    for(var j=i+1,t;j&lt;arr.length;j++)&#123;</div><div class="line">        if(arr[m]&gt;arr[j])&#123;</div><div class="line">            m=j;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    t=arr[m];</div><div class="line">    arr[m]=arr[i];</div><div class="line">    arr[i]=t;</div><div class="line">&#125;</div><div class="line">alert(arr);</div></pre></td></tr></table></figure>
 
         
         
@@ -118,7 +110,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/HTML-CSS/">HTML-CSS</a>
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 </div>
 
 
@@ -143,7 +135,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/39/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/41/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/39/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/41/">Next<span></span></a>
   </nav>
 
 </div>
@@ -179,6 +171,10 @@
 		
 		  
 			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/plugIn/" title="plugIn">plugIn<sup>4</sup></a></li>
 		  
 		
 		</ul>
