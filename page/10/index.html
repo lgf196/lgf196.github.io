@@ -81,23 +81,24 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/05/02/JavaScript-DOM2/" title="DOM2" itemprop="url">DOM2</a>
+      <a href="/2017/05/15/JavaScript-判断一个对象是不是数组对象/" title="判断一个对象是不是数组对象" itemprop="url">判断一个对象是不是数组对象</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-02T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-05-02</time>
+    <time datetime="2017-05-15T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-05-15</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>我们以前都是运用dom来操作元素的,但是现在DOM2的出现是非常好的,并且在开发中用的最多的也是Dom2这种写法</p>
-<h2 id="DOM写法"><a href="#DOM写法" class="headerlink" title="DOM写法"></a>DOM写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xxx.onclick=function()&#123;</div><div class="line"> alert(&quot;我是通过DOM来实现操作的&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="DOM2写法"><a href="#DOM2写法" class="headerlink" title="DOM2写法"></a>DOM2写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//注意由于DOM2在底版的游览器他是不支持的,因此我来做下兼容</div><div class="line">var Listener=&#123;</div><div class="line">        addListener:function(element,type,fun)&#123;//element:对象，type:事件类型,fun:要执行的函数</div><div class="line">            if(element.addEventListener)&#123;  //dom2</div><div class="line">                element.addEventListener(type,fun,false);</div><div class="line">            &#125;else if(element.attachEvent)&#123; //IE</div><div class="line">                element.attachEvent(&quot;on&quot;+type,fun);</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">                element[&quot;on&quot;+type]=fun;//dom</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        deListener:function(element,type,fun)&#123; //删除</div><div class="line">            if(element.removeEventListener)&#123;</div><div class="line">                element.removeEventListener(type,fun,false);</div><div class="line">            &#125;else if(element.detachEvent)&#123;</div><div class="line">                element.detachEvent(&quot;on&quot;+type,fun);</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">                element[&quot;on&quot;+type]=null; //这里运用关联数组的写法</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为什么不用第一种的写法,原因是,如果我要在那个元素上面添加两个函数的话，那么我最后的函数会覆盖我前面的函数,这是不好的,而且这样写不够有语法规范，第二种写法很好的解决了第一种写法的诟病，也是我们开发中运用的最多的</p>
+        <p>今天小编我看到了一道面试题，判断一个对象是不是数组对象,我仔细看了一下,我结果只用一种做法写了出来,然后看了下他们的答案,然后我通过自已的总结,总计了一下几种方法</p>
+<h2 id="1-验证原型对象"><a href="#1-验证原型对象" class="headerlink" title="1.验证原型对象"></a>1.验证原型对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line"> 1-1.Object.getPrototypeOf(a)==Array.prototype</div><div class="line"> 1-2.var bool=father.isPrototypeOf(child); //判断father是否是child的父对象,推荐使用第二种</div><div class="line">    console.log(Object.getPrototypeOf(a)==Array.prototype);</div><div class="line">    console.log(Array.prototype.isPrototypeOf(a));</div></pre></td></tr></table></figure>
+<h2 id="2-验证构造函数"><a href="#2-验证构造函数" class="headerlink" title="2.验证构造函数"></a>2.验证构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line">2-1.a.constructor==Array</div><div class="line">2-2.a instanceof Array   //推荐使用第二种*/</div><div class="line">   console.log(a.constructor==Array);</div><div class="line">   console.log(a instanceof Array);</div></pre></td></tr></table></figure>
+<h2 id="3-tostring"><a href="#3-tostring" class="headerlink" title="3.tostring"></a>3.tostring</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line">console.log(Object.prototype.toString.call(a)==&quot;[object Array]&quot;); //true</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>前面的三种方法建议使用最后一种方法,最后一种方法他更加的严格和准确</p>
 
         
         
@@ -135,7 +136,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/9/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/11/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/11/">Next<span></span></a>
   </nav>
 
 </div>
@@ -171,6 +172,10 @@
 		
 		  
 			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mobile/" title="mobile">mobile<sup>2</sup></a></li>
 		  
 		
 		  

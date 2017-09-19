@@ -81,22 +81,33 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/06/20/plugIn3/" title="fadebanner" itemprop="url">fadebanner</a>
+      <a href="/2017/07/01/mobile-媒体查询/" title="媒体查询" itemprop="url">媒体查询</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-06-20T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-06-20</time>
+    <time datetime="2017-07-01T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-01</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">***</div><div class="line">auther:LGF;</div><div class="line">date:2017-06-15;</div><div class="line">blog:lgf196.top;</div><div class="line">plug-in:fadebanner;</div><div class="line">direction:只需引用到项目中即可,用法:$(&apos;xxx&apos;).fadebanner(&#123;属性：值&#125;);</div><div class="line">attention：liimgeles,bigul,focuseles,outerdiv,leftbtn,rightbtn这几个属性必须要写不能省略</div><div class="line">***</div><div class="line">*/</div><div class="line"></div><div class="line">if(window.jQuery===undefined)&#123;</div><div class="line">    throw new Error(&quot;此插件依赖于jQuery,请引入jQuery库&quot;);</div><div class="line">&#125;</div><div class="line">;(function($)&#123;</div><div class="line">   $.fn.fadebanner=function(opt)&#123;</div><div class="line">	   	 var defaults=&#123;</div><div class="line">	   	 	animatetime:400,</div><div class="line">            playtime:4000,     //表示自动播放动画的时间间隔</div><div class="line">	        liimgeles:&apos;&apos;,      //全部img的li</div><div class="line">            focuseles:&apos;&apos;,      //全部的小焦点</div><div class="line">            createli:&apos;&apos;,      //创建小焦点的标签</div><div class="line">            bigfocusul:&apos;&apos;,    //包含所有小焦点的父盒子</div><div class="line">            focusclass:&apos;&apos;,     //小焦点的class</div><div class="line">	        outerdiv:&apos;&apos;,      //包含整个banner区的大盒子</div><div class="line">	        bind:&apos;click&apos;,     //事件类型</div><div class="line">            leftbtn:&apos;&apos;,      //左按钮</div><div class="line">            rightbtn:&apos;&apos;      //右按钮</div><div class="line">	   	 &#125;;</div><div class="line"></div><div class="line">         var option,index=0,moveindex=0,timer=null; //集体定义变量  </div><div class="line">         option=$.extend(defaults,opt);</div><div class="line">         this.each(function()&#123;</div><div class="line">		         if($(option.bigfocusul).children().length===0)&#123; //如果有小焦点我就不创建</div><div class="line">		            for (var i = 0; i &lt;$(option.liimgeles).children().length; i++) &#123;</div><div class="line">		                var li = $(option.createli);</div><div class="line">		                $(option.bigfocusul).append(li);</div><div class="line">		            &#125;</div><div class="line">		             $(option.bigfocusul).children().first().addClass(option.focusclass);</div><div class="line">		         &#125;</div><div class="line"></div><div class="line">		       $(option.focuseles).bind(option.bind,function()&#123;</div><div class="line">		            index=$(this).index();</div><div class="line">		            moveindex=index;</div><div class="line">		            move();</div><div class="line">		       &#125;)</div><div class="line"></div><div class="line">		     $(option.rightbtn).click(function()&#123;</div><div class="line">		     	if(moveindex===$(option.liimgeles).length-1)&#123;</div><div class="line"></div><div class="line">			            moveindex=0;</div><div class="line">		        &#125;</div><div class="line">		         else&#123;</div><div class="line">		         	 moveindex++;</div><div class="line">		         &#125;</div><div class="line">		         	move();</div><div class="line"></div><div class="line">		     &#125;);</div><div class="line"></div><div class="line">		     //左箭头</div><div class="line">		     $(option.leftbtn).click(function()&#123;</div><div class="line">		     	if(moveindex===0)&#123;</div><div class="line">			         moveindex=$(option.liimgeles).length-1;</div><div class="line">		        &#125;</div><div class="line">		         else&#123;</div><div class="line">		         	moveindex--;</div><div class="line">		         &#125;</div><div class="line"></div><div class="line">		          	move();</div><div class="line"></div><div class="line">		     &#125;);</div><div class="line"></div><div class="line"></div><div class="line">		     timer=setInterval(function()&#123;$(option.rightbtn).click()&#125;,option.playtime);</div><div class="line"></div><div class="line"></div><div class="line">		    $(option.outerdiv).hover(function() &#123;</div><div class="line">		        clearInterval(timer);</div><div class="line">		    &#125;, function() &#123;</div><div class="line">		        timer=setInterval(function()&#123;$(option.rightbtn).click()&#125;,option.playtime);</div><div class="line">		    &#125;);</div><div class="line"></div><div class="line"></div><div class="line">		     function move()&#123;</div><div class="line">		         $(option.focuseles).eq(moveindex).addClass(option.focusclass).siblings().removeClass(option.focusclass);</div><div class="line">		        $(option.liimgeles).eq(moveindex).stop(true,true).fadeIn(option.animatetime).siblings().stop(true,true).fadeOut(option.animatetime);</div><div class="line">		     &#125;</div><div class="line"></div><div class="line">         &#125;);</div><div class="line"></div><div class="line">     return this;</div><div class="line">   &#125;;</div><div class="line">&#125;)(jQuery);</div></pre></td></tr></table></figure>
-<h3 id="模板图如下"><a href="#模板图如下" class="headerlink" title="模板图如下"></a>模板图如下</h3><p><img src="/img/fadebanner.png"></p>
-<p style="color:red">提示：只需将代码引入项目中即可,代码没有压缩，可以自行压缩</p>
+        <p>基本上现在用手机上网的人是电脑上网的人的几百倍多，因为手机上网方便，而电脑不方便,因此我们现在来聊下移动端的一些事，那么今天我们就从媒体查询来聊吧</p>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;meta name=&quot;viewport&quot;</div><div class="line">          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        body&#123;</div><div class="line">            background-color: black;</div><div class="line">        &#125;</div><div class="line">        @media screen and (min-width: 768px)&#123;</div><div class="line">           body&#123;</div><div class="line">               background-color: green;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       @media screen and (min-width: 992px)&#123;</div><div class="line">           body&#123;</div><div class="line">               background-color: blue;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       @media screen and (min-width: 1200px)&#123;</div><div class="line">           body&#123;</div><div class="line">               background-color: pink;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="通过上面的代码我们不难得出以下结论："><a href="#通过上面的代码我们不难得出以下结论：" class="headerlink" title="通过上面的代码我们不难得出以下结论："></a>通过上面的代码我们不难得出以下结论：</h2><ul>
+<li>1.如果是判断最小值 (min-width)，那么就应该从小到大写</li>
+<li>2.如果是判断最大值 (max-width)，那么就应该从大到小写</li>
+<li>3.<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">可以通过加上面这句代码实现在不同移动端设备的显示</li>
+<li>4.viewport：表示的是视口</li>
+<li>5.content:表示的是视口内容的意思</li>
+<li>6.width : viewport的宽度</li>
+<li>7.device-width:设备的宽度</li>
+<li>8.maximum-scale=1：表示的是用户最大的缩放值</li>
+<li>9.user-scalable：表示的是用户是否缩放，一般是不忍许用户缩放的</li>
+</ul>
+
         
         
         <p class="article-more-link">
@@ -108,7 +119,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/plugIn/">plugIn</a>
+  <a class="article-category-link" href="/categories/mobile/">mobile</a>
 </div>
 
 
@@ -133,7 +144,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
@@ -169,6 +180,10 @@
 		
 		  
 			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mobile/" title="mobile">mobile<sup>2</sup></a></li>
 		  
 		
 		  
