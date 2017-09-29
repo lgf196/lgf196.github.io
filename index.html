@@ -81,23 +81,29 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/07/04/mobile-rem/" title="rem" itemprop="url">rem</a>
+      <a href="/2017/07/25/config-vue/" title="vue" itemprop="url">vue</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-07-04T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-04</time>
+    <time datetime="2017-07-25T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-25</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>网页布局一般有,固定布局，流线型布局，居中布局，伸缩布局，rem布局，我们今天来聊下rem布局,rem布局一般是用在移动端的，PC端用的少,而且rem是css3出的新特性，一般在做移动端的时候他是首选的,因为移动端要兼容不同手机的尺寸</p>
-<h2 id="css兼容写法"><a href="#css兼容写法" class="headerlink" title="css兼容写法"></a>css兼容写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">@media screen and (min-width: 320px)&#123;</div><div class="line">          html&#123;</div><div class="line">             /* 注意这里是1rem===16px并且他是按照20份进行计算的，如果不是按照20份进行划分的话，就不要这样写 */</div><div class="line">              font-size: 16px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 360px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size: 18px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 375px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size: 18.75px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 414px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size: 20.7px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 440px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size: 22px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 480px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size: 24px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 520px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size: 26px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 560px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size: 28px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 600px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size: 30px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      @media screen and (min-width: 640px)&#123;</div><div class="line">          html&#123;</div><div class="line">              font-size:32px;</div><div class="line">          &#125;</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
-<h2 id="js兼容写法"><a href="#js兼容写法" class="headerlink" title="js兼容写法"></a>js兼容写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&apos;use strict&apos;;</div><div class="line">//注意它这是按照我css的媒体查询一样的写法，都是按照16px等</div><div class="line">;(function(doc, win, undefined) &#123;</div><div class="line">    var docEl = doc.documentElement,</div><div class="line">        resizeEvt = &apos;orientationchange&apos; in win ? &apos;orientationchange&apos; : &apos;resize&apos;,</div><div class="line">        recalc = function() &#123;</div><div class="line">            var clientWidth = docEl.clientWidth;</div><div class="line">            if (clientWidth === undefined) return;</div><div class="line">            docEl.style.fontSize = 16 * (clientWidth / 320) + &apos;px&apos;;</div><div class="line">        &#125;;</div><div class="line">    if (doc.addEventListener === undefined) return;</div><div class="line">    win.addEventListener(resizeEvt, recalc, false);</div><div class="line">    doc.addEventListener(&apos;DOMContentLoaded&apos;, recalc, false)</div><div class="line">&#125;)(document, window);</div></pre></td></tr></table></figure>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">   width:10/32rem;</div><div class="line">   /*注意一定要除以32原因是我按照640的图纸，分成20等分，一等分占32px,也就是说1/32=rem/10,1rem=32像素，那么10像素不就是占10/32*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>我们今天来聊下vue,总所周知vue是一位中国的人开发的,并且现在的vue是前端开发中可以说是相当的重要的,基本上可以做PC和移动端，不过vue在移动端用的特别的多,并且vue是中国的使用远远要高于react，angular，那么今天我就来介绍下他的运行环境</p>
+<h2 id="vue的安装"><a href="#vue的安装" class="headerlink" title="vue的安装"></a>vue的安装</h2><ul>
+<li>1.要使用vue来开发，首先要有环境，这个环境要借助于node，所以要先安装node，借助于node里面的npm来安装需要的依赖等等。但是如果在cmd中直接使用npm来安装的一些工具的话会比较慢，所以我们使用淘宝的npm镜像：在命令板中输入:<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>,即可安装npm镜像，以后再用到npm的地方直接用cnpm来代替就好了</li>
+<li>2.输入<code>cnpm --version</code>来检测是否安装了cnpm</li>
+<li>3.输入<code>cnpm install vue-cli -g</code>来安装vue的全局vue-cli脚手架<br><img src="/img/config-img/vue.png"></li>
+<li>4.输入<code>vue --version</code>来检测是否安装成功</li>
+<li>5.安装完脚手架以后开始，开始创建一个新项目，在命令板中输入<code>vue init webpack vuedemo</code>(最后这个是我创建的项目名),此时一个新的项目文件夹就创建完成，这个项目文件是在使用了脚手架vue-cli的前提下创建的<br><img src="/img/config-img/vue2.png"><br><img src="/img/config-img/vue3.png"></li>
+<li>6.因为各个模板间都是相互依赖的，所以要安装依赖，在命令行输入<code>cnpm install</code> ,你会发现在已经创建的项目结构里面会多出一个node_modules的文件夹，里面就是刚才安装的所有依赖。<code>注意:这个必须是在我下载的那个项目文件里面打开命令板，是我最开始的那个父文件夹</code><br><img src="/img/config-img/vue4.png"></li>
+<li>7.准备工作做好以后，测试一下项目里面默认的app.vue模块能否跑起来，这是需要先安装一下服务器环境，在命令行中输入 <code>cnpm run dev</code> 回车即可 ，然后会看到localhost:8080，在游览器的地址栏中输入就可以看到项目的效果，如果下载的是最新版的vue的话,他会自动打开游览器的<br><img src="/img/config-img/vue5.png"></li>
+</ul>
 
         
         
@@ -110,7 +116,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/mobile/">mobile</a>
+  <a class="article-category-link" href="/categories/config/">config</a>
 </div>
 
 
@@ -135,7 +141,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -167,6 +173,10 @@
 		
 		  
 			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/config/" title="config">config<sup>4</sup></a></li>
 		  
 		
 		  

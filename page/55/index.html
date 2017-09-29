@@ -81,26 +81,48 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/02/HTML-清除默认样式/" title="HTML-清除默认样式" itemprop="url">HTML-清除默认样式</a>
+      <a href="/2017/01/06/JavaScript-调试技能/" title="前端工程师必备调试技能" itemprop="url">前端工程师必备调试技能</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-02T09:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-02</time>
+    <time datetime="2017-01-06T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-06</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>在前端开发:首先要做的一件事情就是清除默认样式,为什么要清除默认样式呢,原因很简单,能尽量减少各浏览器之间的兼容性问题!因此我也将国类几个大型网站的css初始样式,在这里介绍下,代码如下:</p>
-<h3 id="腾讯初始样式"><a href="#腾讯初始样式" class="headerlink" title="腾讯初始样式:"></a>腾讯初始样式:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select&#123;margin:0;padding:0&#125; </div><div class="line">body&#123;font:12px <span class="string">"宋体"</span>,<span class="string">"Arial Narrow"</span>,HELVETICA;background:<span class="comment">#fff;-webkit-text-size-adjust:100%;&#125; </span></div><div class="line">a&#123;color:<span class="comment">#2d374b;text-decoration:none&#125; </span></div><div class="line">a:hover&#123;color:<span class="comment">#cd0200;text-decoration:underline&#125; </span></div><div class="line">em&#123;font-style:normal&#125; </div><div class="line">li&#123;list-style:none&#125; </div><div class="line">img&#123;border:0;vertical-align:middle&#125; </div><div class="line">table&#123;border-collapse:collapse;border-spacing:0&#125; </div><div class="line">p&#123;word-wrap:<span class="built_in">break</span>-word&#125;</div></pre></td></tr></table></figure>
-<h3 id="新浪官网样式初始化"><a href="#新浪官网样式初始化" class="headerlink" title="新浪官网样式初始化:"></a>新浪官网样式初始化:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div&#123;margin:0;padding:0;border:0;&#125; </div><div class="line">body&#123;background:<span class="comment">#fff;color:#333;font-size:12px; margin-top:5px;font-family:"SimSun","宋体","Arial Narrow";&#125; </span></div><div class="line">ul,ol&#123;list-style-type:none;&#125; </div><div class="line">select,input,img,select&#123;vertical-align:middle;&#125; </div><div class="line">a&#123;text-decoration:none;&#125; </div><div class="line">a:link&#123;color:<span class="comment">#009;&#125; </span></div><div class="line">a:visited&#123;color:<span class="comment">#800080;&#125; </span></div><div class="line">a:hover,a:active,a:focus&#123;color:<span class="comment">#c00;text-decoration:underline;&#125;</span></div></pre></td></tr></table></figure>
-<h3 id="淘宝官网样式初始化"><a href="#淘宝官网样式初始化" class="headerlink" title="淘宝官网样式初始化:"></a>淘宝官网样式初始化:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td &#123; margin:0; padding:0; &#125; </div><div class="line">body, button, input, select, textarea &#123; font:12px/1.5tahoma, arial, \5b8b\4f53; &#125; </div><div class="line">h1, h2, h3, h4, h5, h6&#123; font-size:100%; &#125; </div><div class="line">address, cite, dfn, em, var &#123; font-style:normal; &#125; </div><div class="line">code, kbd, pre, samp &#123; font-family:couriernew, courier, monospace; &#125; </div><div class="line">small&#123; font-size:12px; &#125; </div><div class="line">ul, ol &#123; list-style:none; &#125; </div><div class="line">a &#123; text-decoration:none; &#125; </div><div class="line">a:hover &#123; text-decoration:underline; &#125; </div><div class="line">sup &#123; vertical-align:text-top; &#125; </div><div class="line">sub&#123; vertical-align:text-bottom; &#125; </div><div class="line">legend &#123; color:<span class="comment">#000; &#125; </span></div><div class="line">fieldset, img &#123; border:0; &#125; </div><div class="line">button, input, select, textarea &#123; font-size:100%; &#125; </div><div class="line">table &#123; border-collapse:collapse; border-spacing:0; &#125;</div></pre></td></tr></table></figure>
-<h3 id="网易官网样式初始化"><a href="#网易官网样式初始化" class="headerlink" title="网易官网样式初始化:"></a>网易官网样式初始化:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">html &#123;overflow-y:scroll;&#125; </div><div class="line">body &#123;margin:0; padding:29px00; font:12px<span class="string">"\5B8B\4F53"</span>,sans-serif;background:<span class="comment">#ffffff;&#125; </span></div><div class="line">div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p&#123;padding:0; margin:0;&#125; </div><div class="line">table,td,tr,th&#123;font-size:12px;&#125; </div><div class="line">li&#123;list-style-type:none;&#125; </div><div class="line">img&#123;vertical-align:top;border:0;&#125; </div><div class="line">ol,ul &#123;list-style:none;&#125; </div><div class="line">h1,h2,h3,h4,h5,h6&#123;font-size:12px; font-weight:normal;&#125; </div><div class="line">address,cite,code,em,th &#123;font-weight:normal; font-style:normal;&#125;</div></pre></td></tr></table></figure>
-<p>总结:上面几个网站的初始样式,大家可以随机选择他们的样式用到自已的项目中去,因此小编我呢,也将自已的css初始化代码写出来代码如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td &#123; margin:0; padding:0; &#125; </div><div class="line">body, button, input, select, textarea &#123; font:14px <span class="string">"微软雅黑"</span>,tahoma, arial, \5b8b\4f53; &#125; </div><div class="line">h1, h2, h3, h4, h5, h6&#123; font-size:100%; &#125; </div><div class="line">address, cite, dfn, em, var &#123; font-style:normal; &#125; </div><div class="line">code, kbd, pre, samp &#123; font-family:couriernew, courier, monospace; &#125; </div><div class="line">small&#123; font-size:12px; &#125; </div><div class="line">ul, ol &#123; list-style:none; &#125; </div><div class="line">a&#123; text-decoration:none;color:<span class="comment">#999;&#125; </span></div><div class="line">a:hover &#123; text-decoration:none; &#125; </div><div class="line">sup &#123; vertical-align:text-top; &#125; </div><div class="line">sub&#123; vertical-align:text-bottom; &#125; </div><div class="line">legend &#123; color:<span class="comment">#000; &#125; </span></div><div class="line">fieldset, img &#123; border:0; &#125; </div><div class="line">button, input, select, textarea &#123; font-size:100%;outline:none;&#125; </div><div class="line">table &#123; border-collapse:collapse; border-spacing:0; &#125;</div><div class="line">.clearfix&#123;*zoom:1;&#125;</div><div class="line">.clearfix:after&#123;display:block; overflow:hidden; clear:both; height:0; visibility:hidden; content:<span class="string">"."</span>;&#125;</div><div class="line">img&#123;border:0;&#125;</div></pre></td></tr></table></figure></p>
-
+        <p>作为一名合格的web前端开发工程师,调试程序的技能必不可少,那么我今天在这你介绍一些适合,刚刚入行的前端开发人员的一些方法.</p>
+<h2 id="要会使用console对象"><a href="#要会使用console对象" class="headerlink" title="要会使用console对象"></a>要会使用console对象</h2><p>console对象有很多的方法,这里我就不依依介绍了,我就介绍几个工作中非常实用的几个方法</p>
+<ul>
+<li><p><strong>console.log()</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)&#123;</div><div class="line">    console.log(i);//1,2,3,4,5</div><div class="line">&#125;</div><div class="line">//从上面的程序可以看出来:console.log()就是可以将数值在控制台中显示出来,可以看到你想要的结果</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>console.count()</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> function login()&#123; console.count(&quot;cev&quot;);&#125;</div><div class="line"> login();//1</div><div class="line"> login();//2</div><div class="line"> login();//3</div><div class="line"> login();//4</div><div class="line">//从上面的程序可以看出来:console.count()的作用就是统计一个函数调用的次数</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>console.group()</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> console.group(&quot;我是第一组&quot;);</div><div class="line">    console.log(&quot;1&quot;);</div><div class="line">    console.log(&quot;2&quot;);</div><div class="line">    console.log(&quot;3&quot;);</div><div class="line">    onsole.groupEnd();</div><div class="line">    console.group(&quot;我是第二组&quot;);</div><div class="line">    console.log(&quot;1&quot;);</div><div class="line">    console.log(&quot;2&quot;);</div><div class="line">    console.log(&quot;3&quot;);</div><div class="line">    console.groupEnd();</div><div class="line">//从上面的程序可以看出来:console.group()就是分组的意思,注意它必须配合 console.groupEnd()一起使用</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>console.dir()</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> console.dir(document)//它可以将document所有的方法显示出来</div><div class="line">//从上面的程序可以看出来:console.dir()这个方法非常的强大,他可以将一个对象的全部方法显示出来</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>console.time()</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.time();</div><div class="line">    for(var i=0,j=0; i&lt;100000;i++)&#123;j++;&#125;</div><div class="line">console.timeEnd()</div><div class="line">//从上面的程序可以看出来:console.time()这个方法它可以检测网页的运行的速度,一般要配合console.timeEnd()使用</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>console对象还有一些方法,这里就不都说了,想要了解它,其他的方法请用如下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for(var i in console)&#123;</div><div class="line">        document.write(i+&quot;-&gt;&gt;&quot;+console[i]+&quot;&lt;br&gt;&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="要记住Error对象的六大错误语法"><a href="#要记住Error对象的六大错误语法" class="headerlink" title="要记住Error对象的六大错误语法"></a>要记住Error对象的六大错误语法</h2><ul>
+<li><strong>SyntaxError:如果在控制台中出现了这个单词表示:语法错误</strong></li>
+<li><strong>ReferenceError:如果在控制台中出现了这个单词表示:引用错误 要找的变量为找到</strong></li>
+<li><strong>TypeError:如果在控制台中出现了这个单词表示:类型错误,一般包括(错误的使用了类型,错误的调用了类型的方法)</strong></li>
+<li><strong>RangeError:果在控制台中出现了这个单词表示:范围错误</strong></li>
+<li><strong>UrlError:用的少,这里就不介绍了</strong></li>
+<li><strong>EvalError:用的少,这里就不介绍了</strong></li>
+</ul>
+<h2 id="要会使用try-catch-err-语句"><a href="#要会使用try-catch-err-语句" class="headerlink" title="要会使用try{}catch(err){}语句"></a>要会使用try{}catch(err){}语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">这个语句表示捕获异常的意思</div><div class="line"> var a=parseFloat(prompt(&quot;请输入小数&quot;));//输入12.56</div><div class="line"> var b=parseInt(prompt(&quot;请输入数字&quot;));//输入-1</div><div class="line"> //当我输入-1时,我下面的try语句已近捕获到了错误的信息</div><div class="line">   try&#123; </div><div class="line">       var fixd=a.toFixed(b);</div><div class="line">       document.write(fixd);</div><div class="line">   &#125;catch(err)&#123;  //这里将错误的信息显示出来</div><div class="line">       alert(err); //错误的信息为范围错误信息</div><div class="line">   &#125;</div><div class="line">   //前面虽然报错了,但是并不会影响我下面的程序运行,如果我不用try语句,他们他就报错，然后后面的语句就不执行了,短路了</div><div class="line">  document.write(&quot;我的程序是正常运行的&quot;);</div><div class="line">  </div><div class="line">  注意:try语句最好用在,你不知道错误的情况下,如果你知道你的错误情况,就不要用try,用if语句代替.</div></pre></td></tr></table></figure>
         
         
         <p class="article-more-link">
@@ -112,7 +134,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/HTML-CSS/">HTML-CSS</a>
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 </div>
 
 
@@ -137,7 +159,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/54/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="page-number" href="/page/54/">54</a><span class="page-number current">55</span>
+    <a class="extend prev" rel="prev" href="/page/54/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="page-number" href="/page/54/">54</a><span class="page-number current">55</span><a class="page-number" href="/page/56/">56</a><a class="page-number" href="/page/57/">57</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="extend next" rel="next" href="/page/56/">Next<span></span></a>
   </nav>
 
 </div>
@@ -169,6 +191,10 @@
 		
 		  
 			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/config/" title="config">config<sup>4</sup></a></li>
 		  
 		
 		  

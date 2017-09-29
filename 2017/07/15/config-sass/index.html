@@ -1,0 +1,519 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>sass | Welcome to the LGF blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name="baidu-site-verification" content="105SmRFycF" />
+    
+    <meta name="author" content="LGF">
+    
+
+    
+    <meta name="description" content="前面我们介绍了less的安装,编译,语法,那么我们现在来看下sass，基本上如果你会less，学sass会很快的，他们的语法差不多的，唯一不同的是sass的编译环境要难点 sass的安装 1.首先我们需要在电脑里安装 Ruby ，大家可以到 Ruby 的官网下载对应需要的 Ruby 安装包，网址:Ruby下载网址。 2.Ruby 安装包下载好后，只要按照正常软件的安装步骤进行安装 即可。注意事项在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass">
+<meta property="og:url" content="http://yoursite.com/2017/07/15/config-sass/index.html">
+<meta property="og:site_name" content="Welcome to the LGF blog">
+<meta property="og:description" content="前面我们介绍了less的安装,编译,语法,那么我们现在来看下sass，基本上如果你会less，学sass会很快的，他们的语法差不多的，唯一不同的是sass的编译环境要难点 sass的安装 1.首先我们需要在电脑里安装 Ruby ，大家可以到 Ruby 的官网下载对应需要的 Ruby 安装包，网址:Ruby下载网址。 2.Ruby 安装包下载好后，只要按照正常软件的安装步骤进行安装 即可。注意事项在">
+<meta property="og:updated_time" content="2017-09-29T08:41:04.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass">
+<meta name="twitter:description" content="前面我们介绍了less的安装,编译,语法,那么我们现在来看下sass，基本上如果你会less，学sass会很快的，他们的语法差不多的，唯一不同的是sass的编译环境要难点 sass的安装 1.首先我们需要在电脑里安装 Ruby ，大家可以到 Ruby 的官网下载对应需要的 Ruby 安装包，网址:Ruby下载网址。 2.Ruby 安装包下载好后，只要按照正常软件的安装步骤进行安装 即可。注意事项在">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the LGF blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the LGF blog" title="Welcome to the LGF blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the LGF blog">Welcome to the LGF blog</a></h1>
+				<h2 class="blog-motto">Nothing is impossible!</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= 12726743557589033936 ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/07/15/config-sass/" title="sass" itemprop="url">sass</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-15T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-15</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sass的安装"><span class="toc-number">1.</span> <span class="toc-text">sass的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译"><span class="toc-number">2.</span> <span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sass的语法"><span class="toc-number">3.</span> <span class="toc-text">sass的语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转义成相对应的css文件"><span class="toc-number">4.</span> <span class="toc-text">转义成相对应的css文件</span></a></li></ol>
+		
+		</div>
+		
+		<p>前面我们介绍了less的安装,编译,语法,那么我们现在来看下sass，基本上如果你会less，学sass会很快的，他们的语法差不多的，唯一不同的是sass的编译环境要难点</p>
+<h2 id="sass的安装"><a href="#sass的安装" class="headerlink" title="sass的安装"></a>sass的安装</h2><ul>
+<li>1.首先我们需要在电脑里安装 Ruby ，大家可以到 Ruby 的官网下载对应需要的 Ruby 安装包，网址:<a href="http://rubyinstaller.org/downloads" target="_blank" rel="external">Ruby下载网址</a>。</li>
+<li>2.Ruby 安装包下载好后，只要按照正常软件的安装步骤进行安装 即可。<code>注意事项</code>在安装过程中，我们必须要勾选第二个选项也就是叫Add ruby executables。</li>
+<li>3.安装完成后，右击电脑左下角,找到安装ruby的文件夹,1然后点击Start command prompt with ruby进入命名板中去</li>
+<li>4.输入命令“ruby -v”，如果安装成功，则会显示相应的ruby的版本，否则建议您去官网重新下载</li>
+<li>5.安装好“Ruby”之后，<a href="https://rubygems.org/gems/sass" target="_blank" rel="external">sass的下载</a>上面把“Sass安装包”下载下来。我们可以在这个网页右栏找到“下载”这两个字，点击即可下载：</li>
+<li>6.打开Ruby命令板也就是第三步，输入这个指令gem install &lt;这里把Sass安装包拖进来&gt; ,把Sass安装包拖到命令指定位置会生成指定路径，然后点击“Enter回车”即可安装</li>
+<li>7.上面的步骤都完成后，我们需要检查Sass是否安装成功。检查的方法很简单，我们在命令板输入sass -v指令，按回车后，如果显示“Sass 3.4.22 <selective steve="">”的字样就说明Sass安装成功,那个是我安装的版本号，现在应该已经有更新的版本了</selective></li>
+<li>8.Sass版本会不断更新，不过更新Sass并不需要像其他软件那样每次更新都需要卸载，然后再重装。在Sass中，每次更新版本，我们只需要在命令版输入：gem update sass然后回车这个指令即可更新你的sass的版本</li>
+<li>9.在使用Sass的过程中，有时候我们会碰到一些无法解决的问题，这个时候就需要卸载Sass再重新安装Sass了。在Sass中，每次卸载，我们也只需要一个指令就能解决：gem uninstall sass输入命令，按回车后，就能卸载Sass了。不过一般情况下，我们是用不着卸载这个指令的。</li>
+</ul>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
+<li>第一种方法:可以运用koala这个软件来转义,<code>注意：千万不要中文命名文件的名字,这样可能编译出错</code></li>
+<li>第二种方法:可以运用webstore编辑器就可以转义，不过要更改下File Watchers里面的配置文件，点击添加scss，然后我们会看到有个Program的这个配置项，然后点击更改，给改为E:\Ruby24-x64\bin\scss.bat，这个是我ruby安装的路径</li>
+</ul>
+<h2 id="sass的语法"><a href="#sass的语法" class="headerlink" title="sass的语法"></a>sass的语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$nav-color: #F90;</div><div class="line">nav &#123;</div><div class="line">  $width: 100px;</div><div class="line">  width: $width;</div><div class="line">  color: $nav-color;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="转义成相对应的css文件"><a href="#转义成相对应的css文件" class="headerlink" title="转义成相对应的css文件"></a>转义成相对应的css文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">nav &#123;</div><div class="line">  width: 100px;</div><div class="line">  color: #F90;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p style="color:red">注意：sass的变量是用$开头的更jQuery和PHP是一样的,而less使用@来定义变量的这个要区分开来</p>
+
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/config/">config</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2137502" charset="utf-8"></script>      
+
+	 </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/07/20/config-bower/" title="bower">
+  <strong>上一篇：</strong><br/>
+  <span>
+  bower</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/07/10/config-less/"  title="less">
+ <strong>下一篇：</strong><br/> 
+ <span>less
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sass的安装"><span class="toc-number">1.</span> <span class="toc-text">sass的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译"><span class="toc-number">2.</span> <span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sass的语法"><span class="toc-number">3.</span> <span class="toc-text">sass的语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转义成相对应的css文件"><span class="toc-number">4.</span> <span class="toc-text">转义成相对应的css文件</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/CSS3/" title="CSS3">CSS3<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML-CSS/" title="HTML-CSS">HTML-CSS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>17</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/config/" title="config">config<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mobile/" title="mobile">mobile<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/plugIn/" title="plugIn">plugIn<sup>4</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/前端热点/" title="前端热点">前端热点<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com" target="_blank" title="github">github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.cnblogs.com" target="_blank" title="博客园">博客园</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.csdn.net" target="_blank" title="CSDN">CSDN</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.oschina.net" target="_blank" title="开源中国">开源中国</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.css88.com" target="_blank" title="web前端开发">web前端开发</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> If you find a path with no obstacles, it probably doesn’t lead anywhere. <br/>
+			True mastery of any skill takes a lifetime.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="LGF">LGF</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
