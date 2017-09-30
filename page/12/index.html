@@ -81,24 +81,22 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/05/28/JavaScript-json的转化/" title="json的转化" itemprop="url">json的转化</a>
+      <a href="/2017/06/01/JavaScript-extend/" title="extend" itemprop="url">extend</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-28T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-05-28</time>
+    <time datetime="2017-06-01T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-06-01</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>json这个东西相信只要是做开发的都知道他是一个什么东西,而且json的重要性没话说,基本上前端开发大部分的时间都是在处理json的,而且后台传给我们的数据大部分都是以json的格式的,当然也有一些是XML的数据,但是我们用的最多的就是json的格式的,但是后台传给我们的json的文件,我们要进行处理一下，不能直接的拿来用的,这也是我今天来写这边文章的主要话题</p>
-<h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//这是一个字符串的格式，我们要进行转换成对象的格式</div><div class="line"> var obj=&apos;&#123;&quot;name&quot;:&quot;liguofeng&quot;,&quot;age&quot;:18&#125;&apos;; </div><div class="line"> var ev=eval(&quot;(&quot;+obj+&quot;)&quot;);</div><div class="line"> //主要里面一定要在家一个括号进行转义,防止有的游览器无法识别的原因,注意这里面一定只能是双引号的,不能是单引号的否则就会报错</div><div class="line"> console.log(ev);//object</div></pre></td></tr></table></figure>
-<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj=&apos;&#123;&quot;name&quot;:&quot;liguofeng&quot;,&quot;age&quot;:18&#125;&apos;; </div><div class="line">var ob=(new Function(&apos;return&apos;+obj))(); //运用了自调用函数的写法</div><div class="line">//注意这种写法,千万不要换行,否则出错</div><div class="line">console.log(ob);//object</div></pre></td></tr></table></figure>
-<h3 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse()"></a>JSON.parse()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj=&apos;&#123;&quot;name&quot;:&quot;liguofeng&quot;,&quot;age&quot;:18&#125;&apos;; </div><div class="line">var ob=JSON.parse(obj); //这个是es5中的方法</div><div class="line">//注意这种转换的方式必须是严格的json的格式,如果键值对和键名没有用双引号或者单引号扩起的话,他是转化不了的</div><div class="line">console.log(ob);//object</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>前面几种转换的方法,第一种是最不好的,而且基本上开发的时候很少运用这种来转,原因是它不安全,最后一种用的是最多的,也是最安全的</p>
+        <p>extend相信会玩jQuery的人一定知道，他是个什么意思说白了他就是一个扩展函数,一般用来开发插件的,不知道的可以去<a href="http://lgf196.top/2017/04/22/jQuery2/" target="_blank" rel="external">jquery插件开发2</a>这篇文章看下,今天我们也来自已写一个extend这样的一个方法,来实现原生js的插件开发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">      function Show()&#123;&#125;</div><div class="line">      Show.prototype.extend=function()&#123;</div><div class="line">          if(arguments.length===1)&#123;</div><div class="line">              for(var k in arguments[0])&#123;</div><div class="line">                this[k]=arguments[0][k];</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">          else&#123;</div><div class="line">               for(var k in arguments[1])&#123;</div><div class="line">                arguments[0][k]=arguments[1][k];</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">         return this; //这你必须要return this进行链式编程</div><div class="line">      &#125;</div><div class="line">      var show=new Show();</div><div class="line">      var w=&#123; </div><div class="line">          name:&quot;li&quot;,</div><div class="line">          age:22,</div><div class="line">          fun:function()&#123;</div><div class="line">              alert(this.age);</div><div class="line">          &#125;</div><div class="line">      &#125;;</div><div class="line">//后面的对象参数可以更改w里面的参数</div><div class="line">     var extenses=show.extend(w, &#123;name:&quot;wuc&quot;,men:&quot;sex&#125;);</div><div class="line">  //第一种写法</div><div class="line">     for(var i in w)&#123;</div><div class="line">       Show.prototype[i]=w[i];//父元素实现继承</div><div class="line">     &#125;	   </div><div class="line">  //第二种写法</div><div class="line">  // Show.prototype.extend(w); //混合式继承</div><div class="line">   extenses.name; //wuc</div></pre></td></tr></table></figure>
+<p>如果要运用原生开发插件的话,那么希望这里的代码对你们有帮助</p>
 
         
         
@@ -136,7 +134,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/11/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="extend next" rel="next" href="/page/13/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="extend next" rel="next" href="/page/13/">Next<span></span></a>
   </nav>
 
 </div>
@@ -184,6 +182,10 @@
 		
 		  
 			<li><a href="/categories/plugIn/" title="plugIn">plugIn<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/project/" title="project">project<sup>1</sup></a></li>
 		  
 		
 		</ul>

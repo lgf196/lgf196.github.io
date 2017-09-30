@@ -81,23 +81,21 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/05/02/JavaScript-DOM2/" title="DOM2" itemprop="url">DOM2</a>
+      <a href="/2017/05/05/JavaScript-检测游览器版本/" title="检测游览器版本" itemprop="url">检测游览器版本</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-02T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-05-02</time>
+    <time datetime="2017-05-05T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-05-05</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>我们以前都是运用dom来操作元素的,但是现在DOM2的出现是非常好的,并且在开发中用的最多的也是Dom2这种写法</p>
-<h2 id="DOM写法"><a href="#DOM写法" class="headerlink" title="DOM写法"></a>DOM写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xxx.onclick=function()&#123;</div><div class="line"> alert(&quot;我是通过DOM来实现操作的&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="DOM2写法"><a href="#DOM2写法" class="headerlink" title="DOM2写法"></a>DOM2写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//注意由于DOM2在底版的游览器他是不支持的,因此我来做下兼容</div><div class="line">var Listener=&#123;</div><div class="line">        addListener:function(element,type,fun)&#123;//element:对象，type:事件类型,fun:要执行的函数</div><div class="line">            if(element.addEventListener)&#123;  //dom2</div><div class="line">                element.addEventListener(type,fun,false);</div><div class="line">            &#125;else if(element.attachEvent)&#123; //IE</div><div class="line">                element.attachEvent(&quot;on&quot;+type,fun);</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">                element[&quot;on&quot;+type]=fun;//dom</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        deListener:function(element,type,fun)&#123; //删除</div><div class="line">            if(element.removeEventListener)&#123;</div><div class="line">                element.removeEventListener(type,fun,false);</div><div class="line">            &#125;else if(element.detachEvent)&#123;</div><div class="line">                element.detachEvent(&quot;on&quot;+type,fun);</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">                element[&quot;on&quot;+type]=null; //这里运用关联数组的写法</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为什么不用第一种的写法,原因是,如果我要在那个元素上面添加两个函数的话，那么我最后的函数会覆盖我前面的函数,这是不好的,而且这样写不够有语法规范，第二种写法很好的解决了第一种写法的诟病，也是我们开发中运用的最多的</p>
+        <p>有时候我们需要取到游览器的版本来进行一些相应的处理,并且在好多的网站用的特别的多,我呢自已也顺便写了一个,更那些大牛写的还是有点差距的,仅供个人查考</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var Sys = &#123;&#125;;</div><div class="line">       var ua = navigator.userAgent.toLowerCase();</div><div class="line">       if (window.ActiveXObject) //IE独有的属性</div><div class="line">           Sys.ie = ua.match(/msie ([\d.]+)/)[1];</div><div class="line">       else if (ua.indexOf(&apos;firefox&apos;)&gt;-1)   </div><div class="line">           Sys.firefox = ua.match(/firefox\/([\d.]+)/)[1];</div><div class="line">       else if (window.MessageEvent &amp;&amp; !document.getBoxObjectFor &amp;&amp; ua.indexOf(&apos;chrome&apos;) &gt; -1)</div><div class="line">           Sys.chrome = ua.match(/chrome\/([\d.]+)/)[1];</div><div class="line"></div><div class="line">       else if (window.opera)</div><div class="line">           Sys.opera = ua.match(/opera.([\d.]+)/)[1];</div><div class="line">       else if (window.openDatabase)</div><div class="line">           Sys.safari = ua.match(/version\/([\d.]+)/)[1];</div><div class="line">       </div><div class="line">       //以下进行测试</div><div class="line">       if(parseInt(Sys.ie)&lt;9||parseInt(Sys.ie)==9)&#123;</div><div class="line">            window.location.href=&quot;baidu.com&quot;;          </div><div class="line">       &#125; </div><div class="line">       if(Sys.firefox) document.write(&apos;Firefox: &apos;+Sys.firefox);</div><div class="line">       if(Sys.chrome) document.write(&apos;Chrome: &apos;+Sys.chrome+&quot;&lt;br&gt;&quot;);</div><div class="line">       if(Sys.opera) document.write(&apos;Opera: &apos;+Sys.opera);</div><div class="line">       if(Sys.safari) document.write(&apos;Safari: &apos;+Sys.safari);</div></pre></td></tr></table></figure>
 
         
         
@@ -135,7 +133,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/15/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><a class="extend next" rel="next" href="/page/17/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="extend next" rel="next" href="/page/17/">Next<span></span></a>
   </nav>
 
 </div>
@@ -183,6 +181,10 @@
 		
 		  
 			<li><a href="/categories/plugIn/" title="plugIn">plugIn<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/project/" title="project">project<sup>1</sup></a></li>
 		  
 		
 		</ul>
