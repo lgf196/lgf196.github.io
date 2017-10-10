@@ -81,25 +81,23 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/03/JavaScript-求最大值算法/" title="求最大值算法" itemprop="url">求最大值算法</a>
+      <a href="/2017/02/09/JavaScript-数组翻转算法/" title="数组翻转算法" itemprop="url">数组翻转算法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-03T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-02-03</time>
+    <time datetime="2017-02-09T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-02-09</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>求一个数组的最大值算法在工作中用的也不是非常的多,但是在面试的时候出现的概率是非常的高的,因此我就写了如下几种方法</p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Array.prototype.max=function()&#123;</div><div class="line">     var max=this[0];</div><div class="line">     var len=this.length;</div><div class="line">     for(var i=1;i&lt;len;i++)&#123;</div><div class="line">         if(this[i]&gt;max)&#123;</div><div class="line">             max=this[i];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">     return max;</div><div class="line"> &#125;;</div><div class="line"> alert(&quot;最大值为：&quot;+[2,9,0,6,8,28,7].max());</div></pre></td></tr></table></figure>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Array.prototype.max=function()&#123;</div><div class="line">    return Math.max.apply(&#123;&#125;,this);</div><div class="line">&#125;;</div><div class="line">alert(&quot;最大值为：&quot;+[2,9,0,6,8,28,7].max());</div></pre></td></tr></table></figure>
-<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Array.prototype.max=function()&#123;</div><div class="line">       return this.reduce(function (pre,cur) &#123; //reduce()是es5数组方法</div><div class="line">           return pre&gt;cur?pre:cur;</div><div class="line">	&#125;);</div><div class="line">   &#125;;</div><div class="line">   alert(&quot;最大值为：&quot;+[2,9,0,6,8,28,7].max());</div></pre></td></tr></table></figure>
-<h3 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function sorr(a,b) &#123;</div><div class="line">       return a-b;</div><div class="line">   &#125;;</div><div class="line">   var arr=[2,9,0,6,8,28,7];</div><div class="line">   var sor=arr.sort(sorr);</div><div class="line">   alert(&quot;最大值为：&quot;+sor[sor.length-1]);</div></pre></td></tr></table></figure>
-<h3 id="方法五"><a href="#方法五" class="headerlink" title="方法五"></a>方法五</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr=[2,9,0,6,8,28,7];</div><div class="line">   alert(&quot;最大值为：&quot;+Math.max(...arr));//这是es6新出的写法</div></pre></td></tr></table></figure>
+        <p>数组翻转算法在工作中用的并不是很多,但是在面试的时候出现的概率非常的高,因此我就写了如下几种方法</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Array.prototype.reverse1=function()&#123;</div><div class="line">          for(var i=0,arr2=[];i&lt;this.length;i++)&#123;</div><div class="line">              arr2.push(this[this.length-1-i]);</div><div class="line">          &#125;</div><div class="line">          return arr2;</div><div class="line">&#125;;</div><div class="line">alert([1,2,3,4,5].reverse1());</div></pre></td></tr></table></figure>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Array.prototype.reverse2=function()&#123;</div><div class="line">          for(var i=0;i&lt;this.length/2;i++)&#123;//除2可以解决我从复比较的问题</div><div class="line">             var tem=this[i];</div><div class="line">             this[i]=this[this.length-1-i];//将最后的元素更当前元素进行交换</div><div class="line">              this[this.length-1-i]=tem;</div><div class="line">	   &#125;</div><div class="line">            return this;</div><div class="line">&#125;;</div><div class="line">       alert([1,2,3,4,5].reverse2());</div></pre></td></tr></table></figure>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Array.prototype.reverse3=function () &#123;</div><div class="line">          this.reverse();//运用数组自带的API</div><div class="line">          return this;</div><div class="line">   &#125;;</div><div class="line">       alert([1,2,3,4,5].reverse3());</div></pre></td></tr></table></figure>
         
         
         <p class="article-more-link">
@@ -136,7 +134,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/47/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="page-number current">48</span><a class="page-number" href="/page/49/">49</a><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="extend next" rel="next" href="/page/49/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/47/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="page-number current">48</span><a class="page-number" href="/page/49/">49</a><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/49/">Next<span></span></a>
   </nav>
 
 </div>
@@ -171,7 +169,7 @@
 		  
 		
 		  
-			<li><a href="/categories/config/" title="config">config<sup>4</sup></a></li>
+			<li><a href="/categories/config/" title="config">config<sup>6</sup></a></li>
 		  
 		
 		  
@@ -296,13 +294,7 @@
 			
 		
 
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
-		
-		<a href="/about" target="_blank" title="LGF">LGF</a>
-		
-		
-		</p>
+
 </div>
 </footer>
     <script src="/js/jquery-2.0.3.min.js"></script>

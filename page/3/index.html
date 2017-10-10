@@ -81,33 +81,23 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/07/20/config-bower/" title="bower" itemprop="url">bower</a>
+      <a href="/2017/08/02/project-jd/" title="京东商城项目" itemprop="url">京东商城项目</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-07-20T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-20</time>
+    <time datetime="2017-08-02T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-08-02</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>前面我们介绍了sass的安装,编译,语法,那么我们现在来看下bower，bower是一个专门下载前端开发中的一些文件的,对我们的开发非常的有用,他更npm是一样的</p>
-<h2 id="bower的安装"><a href="#bower的安装" class="headerlink" title="bower的安装"></a>bower的安装</h2><ul>
-<li>1.首先你要下载<a href="http://nodejs.cn/" target="_blank" rel="external">node</a>和<a href="https://git-scm.com/" target="_blank" rel="external">git</a></li>
-<li>2.直接window+r调出命令框，然后输入cmd</li>
-<li>3.输入：<code>npm install bower -g</code>然后回车</li>
-<li>4.前面如果不出意外的话，会安装成功，接着在命令框中输入：<code>bower --version</code>他可以检测bower的版本<br><img src="/img/config-img/bower1.png"></li>
-<li>5.输入：<code>bower install xxx --save</code>,注意xxx是你要下载的文件的名字，比如我下载的是animate.css，那么xxx就要改成animate.css，然后按下回车马上就行下载，我下载好的文件路径在C:\Users\john\bower_components这里面，–save表示的是联他的配置文件也下载<br><img src="/img/config-img/bower12.png"></li>
-<li>6.如果你想删除这个下载的文件，就得输入这个命令：bower uninstall xxx,这样我下载的文件就会没有</li>
-<li>7.如果你想查看你想要下的文件的一些信息，可以输入这个命令：<code>bower info xxx</code><br><img src="/img/config-img/bower3.png"></li>
-<li>8.还有一个很重要的功能，就是包的查找，比如我想要安装vue的某个插件，但是记不住名字了，就可以直接在命令行输入：<code>bower search vue</code><br><img src="/img/config-img/bower4.png"></li>
-<li>9.如果你不想下载的东西在c盘下，就可以切换命令行,在你想要下载到那个指定的文件夹里面，shift+鼠标右键会出现一个是否在当前文件夹打开,点击它，这样就切换路径了,此时我下载的东西在d盘中的bower_download_plugin这个文件夹下</li>
-<li>10.如果想要更改下载框架的版本可以输入：<code>bower init</code>注意前提是你必须下载了这个框架，然后更具需求填写信息,如果前面的填完后，会自动生成bower.json这个文件,修改这个文件里面的dependencies这个信息，将版本改成你想要的版本，然后保存，接着在命令板中输入bower update这个命令就行更新你修改的内容，然后他会自动下载你规定的版本，然后覆盖以前的版本<br><img src="/img/config-img/bower5.png"></li>
-<li>11.其实前面的10步更改太麻烦了，可以这样写<code>bower install jquery#1.9.0</code>在后面加上#然后加上你想要的版本号</li>
-</ul>
+        <p>正好今天有点时间,我把我以前自学前端做过的一个京东项目整理了一下,打算共享出来，因为有很多的人都想学前端开发，但是用没有什么项目可以查考学习</p>
+<h2 id="项目的结构"><a href="#项目的结构" class="headerlink" title="项目的结构"></a>项目的结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">------首页------index.html-----</div><div class="line">                |</div><div class="line">                | 				</div><div class="line">----------------登录---login.html--- </div><div class="line">                | </div><div class="line">----------------注册---signin.html--- </div><div class="line">                |</div><div class="line">----------------汽车页面---car.html--- </div><div class="line">                |</div><div class="line">----------------清洁用品页面---cleaning _supplies.html---</div><div class="line">                | </div><div class="line">----------------电脑---computer.html--- </div><div class="line">                |</div><div class="line">----------------鞋装页面---footwear.html---</div><div class="line">                | </div><div class="line">----------------家电页面---home _appliances.html---</div><div class="line">				| </div><div class="line">----------------手机页面---mobile_phone_demo.html---</div><div class="line">                | </div><div class="line">----------------调查页面---survey.html---  </div><div class="line">                | </div><div class="line">----------------家具页面---home_decoration.html--- </div><div class="line">上面是总个京东项目的流程</div></pre></td></tr></table></figure>
+<h2 id="项目部分效果图"><a href="#项目部分效果图" class="headerlink" title="项目部分效果图"></a>项目部分效果图</h2><p><img src="/img/project/project.png"><br><img src="/img/project/project2.png"></p>
+<h2 id="项目下载地址"><a href="#项目下载地址" class="headerlink" title="项目下载地址"></a>项目下载地址</h2><p><a href="https://github.com/lgf196/jd-project" target="_blank" rel="external">京东项目下载,点击我吧!</a></p>
 
         
         
@@ -120,7 +110,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/config/">config</a>
+  <a class="article-category-link" href="/categories/project/">project</a>
 </div>
 
 
@@ -145,7 +135,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
   </nav>
 
 </div>
@@ -180,7 +170,7 @@
 		  
 		
 		  
-			<li><a href="/categories/config/" title="config">config<sup>4</sup></a></li>
+			<li><a href="/categories/config/" title="config">config<sup>6</sup></a></li>
 		  
 		
 		  
@@ -305,13 +295,7 @@
 			
 		
 
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
-		
-		<a href="/about" target="_blank" title="LGF">LGF</a>
-		
-		
-		</p>
+
 </div>
 </footer>
     <script src="/js/jquery-2.0.3.min.js"></script>

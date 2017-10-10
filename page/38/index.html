@@ -81,22 +81,22 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/08/CSS3-background/" title="background" itemprop="url">background</a>
+      <a href="/2017/03/09/HTML5-全屏接口/" title="html5的全屏接口" itemprop="url">html5的全屏接口</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-08T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-08</time>
+    <time datetime="2017-03-09T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-09</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>在开发中background用的可以说是超多的,那么我今天就来介绍一下他的一些用法,以及一些兼容的处理方法</p>
-<h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">	&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">       div&#123;</div><div class="line">       	width: 100px;</div><div class="line">       	height: 100px;</div><div class="line">       	background: gray;</div><div class="line">       /* 	这个如果IE不兼容，他将执行这条语句，如果它支持下面的语句，就执行下面的语句，由于层级的关系，下面的语句会覆盖前面的颜色，所以这样我就兼容了不同的版本 ，这句话一定要写在这个前面*/</div><div class="line">       	background: rgba(0,0,0,0.1);/* 但是这个底版IE不兼容 */</div><div class="line">       &#125;</div><div class="line">       .div2&#123;</div><div class="line">          width: 100px;</div><div class="line">          height: 100px;</div><div class="line">          opacity:0.3;/* 注意：这个属性他会联同盒子里面的内容也变成半透明的，并且底版的IE比兼容 */</div><div class="line">          filter: alpha(opacity=20);/* 兼容底版的IE写法，并且他是IE独有的 */</div><div class="line">       &#125;</div><div class="line">	   .div3&#123;</div><div class="line">	      margin:200px auto;</div><div class="line">            width:100px;</div><div class="line">            height: 100px;</div><div class="line">           /*  hsla(颜色值(0-360),饱和度(0%-100%),明度(0%-100%),透明度)</div><div class="line">           注意：明度默认是50%，一般建议保留50的值 */</div><div class="line">           background-color:hsla(231,0%,100%,.3);</div><div class="line">	   &#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div&gt;我是背景半透明的&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;div2&quot;&gt;我是盒子半透明效果&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;div3&quot;&gt;hsla&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>总结:通过上面的代码,我们应该知道了background的使用的吧,并且他里面的那两个属性用的特别的多,希望通过上面的演示,你对background的重新认识</p>
+        <p>HTML5的来袭无疑是有着重大的意义的,并且HTML5带来了很多的好用的方法和属性,他可以让我们的页面,更加的生动活泼,那么我今天就来介绍HTML5新增的全屏接口方法的使用</p>
+<h3 id="全屏接口"><a href="#全屏接口" class="headerlink" title="全屏接口"></a>全屏接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body style=&quot;margin: 100px;&quot;&gt;</div><div class="line">	&lt;div class=&quot;main&quot;&gt;</div><div class="line">	      &lt;img src=&quot;../image/move.jpg&quot;&gt;</div><div class="line">	      &lt;br&gt;</div><div class="line">	      &lt;button&gt;开启全屏&lt;/button&gt;</div><div class="line">	      &lt;button&gt;退出全屏&lt;/button&gt;</div><div class="line">	      &lt;button&gt;是否全屏&lt;/button&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	var bigdiv=document.querySelector(&quot;.main&quot;);</div><div class="line">       //requestFullScreen():表示的是开启全屏的状态</div><div class="line">       //cancelFullScreen():表示的是退出的全屏的状态</div><div class="line">       //FullScreenElement():表示的是否是开启全屏的状态</div><div class="line">    document.querySelectorAll(&quot;button&quot;)[0].onclick=function()&#123;</div><div class="line">      	//注意这个方法是有兼容的问题的，要在前面加上每个游览器的前缀,ie9是不支持的</div><div class="line">         if (bigdiv.requestFullScreen) &#123;</div><div class="line">         	bigdiv.requestFullScreen();</div><div class="line">         &#125;</div><div class="line">         else if(bigdiv.webkitRequestFullScreen) &#123;</div><div class="line">             bigdiv.webkitRequestFullScreen();</div><div class="line">         &#125;</div><div class="line">         else if(bigdiv.mozRequestFullScreen)&#123;</div><div class="line">             bigdiv.mozRequestFullScreen();</div><div class="line">         &#125;</div><div class="line">         else if(bigdiv.msRequestFullScreen)&#123;</div><div class="line">             bigdiv.msRequestFullScreen();</div><div class="line">         &#125;</div><div class="line">    &#125; </div><div class="line"></div><div class="line">    document.querySelectorAll(&quot;button&quot;)[1].onclick=function()&#123;</div><div class="line">       //注意cancelFullScreen()它是在document下才有效果的</div><div class="line">         if (document.cancelFullScreen) &#123;</div><div class="line">         	document.cancelFullScreen();</div><div class="line">         &#125;</div><div class="line">         else if(document.webkitCancelFullScreen) &#123;</div><div class="line">            document.webkitCancelFullScreen();</div><div class="line">         &#125;</div><div class="line">         else if(document.mozCancelFullScreen)&#123;</div><div class="line">             document.mozCancelFullScreen();</div><div class="line">         &#125;</div><div class="line">         else if(document.msCancelFullScreen)&#123;</div><div class="line">             document.msCancelFullScreen()</div><div class="line">         &#125;</div><div class="line">    &#125;              </div><div class="line">      document.querySelectorAll(&quot;button&quot;)[2].onclick=function()&#123;</div><div class="line">        //注意FullScreenElement()也是在document下的</div><div class="line">        if(document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement||document.msFullscreenElement)&#123;</div><div class="line">              alert(true);</div><div class="line">              //注意这里只有在moz下进行了骆驼是的写法</div><div class="line">        &#125;</div><div class="line">        else&#123;</div><div class="line">        	alert(false);</div><div class="line">        &#125;</div><div class="line">    &#125;           </div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>上面一些不明白的注意点,小编我都注释了,希望对你们有帮助</p>
 
         
         
@@ -109,7 +109,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
+  <a class="article-category-link" href="/categories/HTML5/">HTML5</a>
 </div>
 
 
@@ -134,7 +134,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/37/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="page-number current">38</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="extend next" rel="next" href="/page/39/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/37/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="page-number current">38</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/39/">Next<span></span></a>
   </nav>
 
 </div>
@@ -169,7 +169,7 @@
 		  
 		
 		  
-			<li><a href="/categories/config/" title="config">config<sup>4</sup></a></li>
+			<li><a href="/categories/config/" title="config">config<sup>6</sup></a></li>
 		  
 		
 		  
@@ -294,13 +294,7 @@
 			
 		
 
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
-		
-		<a href="/about" target="_blank" title="LGF">LGF</a>
-		
-		
-		</p>
+
 </div>
 </footer>
     <script src="/js/jquery-2.0.3.min.js"></script>
