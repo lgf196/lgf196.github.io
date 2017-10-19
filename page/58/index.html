@@ -81,48 +81,25 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/06/JavaScript-调试技能/" title="前端工程师必备调试技能" itemprop="url">前端工程师必备调试技能</a>
+      <a href="/2017/01/13/HTML-Dom操作之查找/" title="HTML-Dom操作之查找" itemprop="url">HTML-Dom操作之查找</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-06T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-06</time>
+    <time datetime="2017-01-12T16:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-13</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>作为一名合格的web前端开发工程师,调试程序的技能必不可少,那么我今天在这你介绍一些适合,刚刚入行的前端开发人员的一些方法.</p>
-<h2 id="要会使用console对象"><a href="#要会使用console对象" class="headerlink" title="要会使用console对象"></a>要会使用console对象</h2><p>console对象有很多的方法,这里我就不依依介绍了,我就介绍几个工作中非常实用的几个方法</p>
-<ul>
-<li><p><strong>console.log()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;5;i++)&#123;</div><div class="line">    console.log(i);//1,2,3,4,5</div><div class="line">&#125;</div><div class="line">//从上面的程序可以看出来:console.log()就是可以将数值在控制台中显示出来,可以看到你想要的结果</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.count()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> function login()&#123; console.count(&quot;cev&quot;);&#125;</div><div class="line"> login();//1</div><div class="line"> login();//2</div><div class="line"> login();//3</div><div class="line"> login();//4</div><div class="line">//从上面的程序可以看出来:console.count()的作用就是统计一个函数调用的次数</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.group()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> console.group(&quot;我是第一组&quot;);</div><div class="line">    console.log(&quot;1&quot;);</div><div class="line">    console.log(&quot;2&quot;);</div><div class="line">    console.log(&quot;3&quot;);</div><div class="line">    onsole.groupEnd();</div><div class="line">    console.group(&quot;我是第二组&quot;);</div><div class="line">    console.log(&quot;1&quot;);</div><div class="line">    console.log(&quot;2&quot;);</div><div class="line">    console.log(&quot;3&quot;);</div><div class="line">    console.groupEnd();</div><div class="line">//从上面的程序可以看出来:console.group()就是分组的意思,注意它必须配合 console.groupEnd()一起使用</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.dir()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> console.dir(document)//它可以将document所有的方法显示出来</div><div class="line">//从上面的程序可以看出来:console.dir()这个方法非常的强大,他可以将一个对象的全部方法显示出来</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>console.time()</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.time();</div><div class="line">    for(var i=0,j=0; i&lt;100000;i++)&#123;j++;&#125;</div><div class="line">console.timeEnd()</div><div class="line">//从上面的程序可以看出来:console.time()这个方法它可以检测网页的运行的速度,一般要配合console.timeEnd()使用</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>console对象还有一些方法,这里就不都说了,想要了解它,其他的方法请用如下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for(var i in console)&#123;</div><div class="line">        document.write(i+&quot;-&gt;&gt;&quot;+console[i]+&quot;&lt;br&gt;&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<h2 id="要记住Error对象的六大错误语法"><a href="#要记住Error对象的六大错误语法" class="headerlink" title="要记住Error对象的六大错误语法"></a>要记住Error对象的六大错误语法</h2><ul>
-<li><strong>SyntaxError:如果在控制台中出现了这个单词表示:语法错误</strong></li>
-<li><strong>ReferenceError:如果在控制台中出现了这个单词表示:引用错误 要找的变量为找到</strong></li>
-<li><strong>TypeError:如果在控制台中出现了这个单词表示:类型错误,一般包括(错误的使用了类型,错误的调用了类型的方法)</strong></li>
-<li><strong>RangeError:果在控制台中出现了这个单词表示:范围错误</strong></li>
-<li><strong>UrlError:用的少,这里就不介绍了</strong></li>
-<li><strong>EvalError:用的少,这里就不介绍了</strong></li>
-</ul>
-<h2 id="要会使用try-catch-err-语句"><a href="#要会使用try-catch-err-语句" class="headerlink" title="要会使用try{}catch(err){}语句"></a>要会使用try{}catch(err){}语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">这个语句表示捕获异常的意思</div><div class="line"> var a=parseFloat(prompt(&quot;请输入小数&quot;));//输入12.56</div><div class="line"> var b=parseInt(prompt(&quot;请输入数字&quot;));//输入-1</div><div class="line"> //当我输入-1时,我下面的try语句已近捕获到了错误的信息</div><div class="line">   try&#123; </div><div class="line">       var fixd=a.toFixed(b);</div><div class="line">       document.write(fixd);</div><div class="line">   &#125;catch(err)&#123;  //这里将错误的信息显示出来</div><div class="line">       alert(err); //错误的信息为范围错误信息</div><div class="line">   &#125;</div><div class="line">   //前面虽然报错了,但是并不会影响我下面的程序运行,如果我不用try语句,他们他就报错，然后后面的语句就不执行了,短路了</div><div class="line">  document.write(&quot;我的程序是正常运行的&quot;);</div><div class="line">  </div><div class="line">  注意:try语句最好用在,你不知道错误的情况下,如果你知道你的错误情况,就不要用try,用if语句代替.</div></pre></td></tr></table></figure>
+        <p>前面一篇我们说了如何获取节点元素,那么我们这篇说的是,如何查找节点,查找节点也是非常的重要的</p>
+<h2 id="公共样式代码"><a href="#公共样式代码" class="headerlink" title="公共样式代码"></a>公共样式代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;span id=&quot;span&quot;&gt;我是span标签&lt;/span&gt;</div><div class="line">	&lt;p&gt;我是p标签&lt;/p&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="节点查找"><a href="#节点查找" class="headerlink" title="节点查找"></a>节点查找</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	//var span=document.body.firstChild;</div><div class="line">	//注意:前面这样写是找找不到的,找到的是空格</div><div class="line">	//var len=document.body.childNodes.length;</div><div class="line">	//len的长度为6,原因是他将空格也一同算近去了,所以长度为6,这也是我前面为什么获取不到的原因</div><div class="line">	var span2=document.body.firstChild.nextSibling;</div><div class="line">	console.log(span2)//这样是可以获取到span标签的</div><div class="line">	var span3=document.body.childNodes[1];</div><div class="line">	console.log(span3)//这样是可以获取到span标签的</div><div class="line">	//前面的span2,span3他们都能获取到元素,但是这样做太不友好了,原因是含有空格,要想获取我想要的元素我还必须知道哪些是空格,太麻烦了,因此演变出了节点元素</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="节点元素查找"><a href="#节点元素查找" class="headerlink" title="节点元素查找"></a>节点元素查找</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	//var len=document.body.children.length;</div><div class="line">	//len返回的长度为3, 他只计算节点元素,不是节点</div><div class="line">	var span=document.body.firstElementChild;</div><div class="line">	console.log(span);//他可以获取到span元素标签</div><div class="line">	var span2=document.body.children[0];//可以获取到span标签元素</div><div class="line">	</div><div class="line">	/*</div><div class="line">	注意:children,firstElementChild,parentElement,lastElementChild,previousElementSibling,nextElementSibling等</div><div class="line">	这些元素是可以直接获取节点元素的,他和前面的节点查找有区别,节点查找,是找的是节点树上的节点,包括空格,而节点元素查找</div><div class="line">	则可以不用看空格,直接找节点元素</div><div class="line">	*/</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><strong>总结:节点查找,节点元素查找,这两种关键是看你怎么运用,哪些场景适合他们,关键还是看个人,一般来说,节点元素查找用的多点</strong></p>
+
         
         
         <p class="article-more-link">
@@ -159,7 +136,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/57/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="page-number" href="/page/57/">57</a><span class="page-number current">58</span><a class="page-number" href="/page/59/">59</a><a class="page-number" href="/page/60/">60</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/59/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/57/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="page-number" href="/page/57/">57</a><span class="page-number current">58</span><a class="page-number" href="/page/59/">59</a><a class="page-number" href="/page/60/">60</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><a class="extend next" rel="next" href="/page/59/">Next<span></span></a>
   </nav>
 
 </div>
@@ -208,6 +185,10 @@
 		
 		  
 			<li><a href="/categories/project/" title="project">project<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
 		  
 		
 		</ul>

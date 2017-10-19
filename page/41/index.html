@@ -81,23 +81,22 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/06/before/" title="伪元素的使用" itemprop="url">伪元素的使用</a>
+      <a href="/2017/03/08/CSS3-background/" title="background" itemprop="url">background</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-06T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-06</time>
+    <time datetime="2017-03-08T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-03-08</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>今天我们来聊一下,css3中最重要的一个属性,那便是伪类元素的使用，它们应用的特别的多,今天我们就来讲下他们之间两个最为重要的两个伪类元素，那边是before和after</p>
-<h3 id="before-after"><a href="#before-after" class="headerlink" title="before,after"></a>before,after</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">       div&#123;  height: 300px;</div><div class="line">           width: 300px;</div><div class="line">           background:red;</div><div class="line">       &#125;</div><div class="line">       div:before&#123;</div><div class="line">             content: &apos;我是通过before来加入的&apos;;</div><div class="line">             height:200px;</div><div class="line">             width: 200px;</div><div class="line">             background:pink;</div><div class="line">             display: block;</div><div class="line">         &#125;</div><div class="line">       div:after&#123;</div><div class="line">           content: &apos;我是通过after来加入的&apos;;</div><div class="line">           height:100px;</div><div class="line">           width: 100px;</div><div class="line">           background:deeppink;</div><div class="line">           display: block;</div><div class="line">       &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div&gt;我是div&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下</h3><p><img src="/img/before.png"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>1.after,before他们里面都有一个content这个属性,如果你不想要写东西的话,可以content:””;这么来写，但是你千万不要将content这个属性给省略掉了,不写这是不好的,可能在有些游览器中直接出错<br>2.after,before里面可以写css中的很多属性，这个看个人的需求<br>3.在css3中after,before是::before,::after这么来写的，这个也是可以的,不过这样写的话，在底版的游览器里面，他可能自动将他们转化为了:before,:after这种写法</p>
+        <p>在开发中background用的可以说是超多的,那么我今天就来介绍一下他的一些用法,以及一些兼容的处理方法</p>
+<h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">	&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">       div&#123;</div><div class="line">       	width: 100px;</div><div class="line">       	height: 100px;</div><div class="line">       	background: gray;</div><div class="line">       /* 	这个如果IE不兼容，他将执行这条语句，如果它支持下面的语句，就执行下面的语句，由于层级的关系，下面的语句会覆盖前面的颜色，所以这样我就兼容了不同的版本 ，这句话一定要写在这个前面*/</div><div class="line">       	background: rgba(0,0,0,0.1);/* 但是这个底版IE不兼容 */</div><div class="line">       &#125;</div><div class="line">       .div2&#123;</div><div class="line">          width: 100px;</div><div class="line">          height: 100px;</div><div class="line">          opacity:0.3;/* 注意：这个属性他会联同盒子里面的内容也变成半透明的，并且底版的IE比兼容 */</div><div class="line">          filter: alpha(opacity=20);/* 兼容底版的IE写法，并且他是IE独有的 */</div><div class="line">       &#125;</div><div class="line">	   .div3&#123;</div><div class="line">	      margin:200px auto;</div><div class="line">            width:100px;</div><div class="line">            height: 100px;</div><div class="line">           /*  hsla(颜色值(0-360),饱和度(0%-100%),明度(0%-100%),透明度)</div><div class="line">           注意：明度默认是50%，一般建议保留50的值 */</div><div class="line">           background-color:hsla(231,0%,100%,.3);</div><div class="line">	   &#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div&gt;我是背景半透明的&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;div2&quot;&gt;我是盒子半透明效果&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;div3&quot;&gt;hsla&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>总结:通过上面的代码,我们应该知道了background的使用的吧,并且他里面的那两个属性用的特别的多,希望通过上面的演示,你对background的重新认识</p>
 
         
         
@@ -135,7 +134,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/40/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/42/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/40/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><a class="extend next" rel="next" href="/page/42/">Next<span></span></a>
   </nav>
 
 </div>
@@ -184,6 +183,10 @@
 		
 		  
 			<li><a href="/categories/project/" title="project">project<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
 		  
 		
 		</ul>

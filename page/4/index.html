@@ -81,29 +81,23 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/07/25/config-vue/" title="vue" itemprop="url">vue</a>
+      <a href="/2017/08/02/project-jd/" title="京东商城项目" itemprop="url">京东商城项目</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-07-25T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-07-25</time>
+    <time datetime="2017-08-02T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-08-02</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>我们今天来聊下vue,总所周知vue是一位中国的人开发的,并且现在的vue是前端开发中可以说是相当的重要的,基本上可以做PC和移动端，不过vue在移动端用的特别的多,并且vue是中国的使用远远要高于react，angular，那么今天我就来介绍下他的运行环境</p>
-<h2 id="vue的安装"><a href="#vue的安装" class="headerlink" title="vue的安装"></a>vue的安装</h2><ul>
-<li>1.要使用vue来开发，首先要有环境，这个环境要借助于node，所以要先安装node，借助于node里面的npm来安装需要的依赖等等。但是如果在cmd中直接使用npm来安装的一些工具的话会比较慢，所以我们使用淘宝的npm镜像：在命令板中输入:<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>,即可安装npm镜像，以后再用到npm的地方直接用cnpm来代替就好了</li>
-<li>2.输入<code>cnpm --version</code>来检测是否安装了cnpm</li>
-<li>3.输入<code>cnpm install vue-cli -g</code>来安装vue的全局vue-cli脚手架<br><img src="/img/config-img/vue.png"></li>
-<li>4.输入<code>vue --version</code>来检测是否安装成功</li>
-<li>5.安装完脚手架以后开始，开始创建一个新项目，在命令板中输入<code>vue init webpack vuedemo</code>(最后这个是我创建的项目名),此时一个新的项目文件夹就创建完成，这个项目文件是在使用了脚手架vue-cli的前提下创建的<br><img src="/img/config-img/vue2.png"><br><img src="/img/config-img/vue3.png"></li>
-<li>6.因为各个模板间都是相互依赖的，所以要安装依赖，在命令行输入<code>cnpm install</code> ,你会发现在已经创建的项目结构里面会多出一个node_modules的文件夹，里面就是刚才安装的所有依赖。<code>注意:这个必须是在我下载的那个项目文件里面打开命令板，是我最开始的那个父文件夹</code><br><img src="/img/config-img/vue4.png"></li>
-<li>7.准备工作做好以后，测试一下项目里面默认的app.vue模块能否跑起来，这是需要先安装一下服务器环境，在命令行中输入 <code>cnpm run dev</code> 回车即可 ，然后会看到localhost:8080，在游览器的地址栏中输入就可以看到项目的效果，如果下载的是最新版的vue的话,他会自动打开游览器的<br><img src="/img/config-img/vue5.png"></li>
-</ul>
+        <p>正好今天有点时间,我把我以前自学前端做过的一个京东项目整理了一下,打算共享出来，因为有很多的人都想学前端开发，但是用没有什么项目可以查考学习</p>
+<h2 id="项目的结构"><a href="#项目的结构" class="headerlink" title="项目的结构"></a>项目的结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">------首页------index.html-----</div><div class="line">                |</div><div class="line">                | 				</div><div class="line">----------------登录---login.html--- </div><div class="line">                | </div><div class="line">----------------注册---signin.html--- </div><div class="line">                |</div><div class="line">----------------汽车页面---car.html--- </div><div class="line">                |</div><div class="line">----------------清洁用品页面---cleaning _supplies.html---</div><div class="line">                | </div><div class="line">----------------电脑---computer.html--- </div><div class="line">                |</div><div class="line">----------------鞋装页面---footwear.html---</div><div class="line">                | </div><div class="line">----------------家电页面---home _appliances.html---</div><div class="line">				| </div><div class="line">----------------手机页面---mobile_phone_demo.html---</div><div class="line">                | </div><div class="line">----------------调查页面---survey.html---  </div><div class="line">                | </div><div class="line">----------------家具页面---home_decoration.html--- </div><div class="line">上面是总个京东项目的流程</div></pre></td></tr></table></figure>
+<h2 id="项目部分效果图"><a href="#项目部分效果图" class="headerlink" title="项目部分效果图"></a>项目部分效果图</h2><p><img src="/img/project/project.png"><br><img src="/img/project/project2.png"></p>
+<h2 id="项目下载地址"><a href="#项目下载地址" class="headerlink" title="项目下载地址"></a>项目下载地址</h2><p><a href="https://github.com/lgf196/jd-project" target="_blank" rel="external">京东项目下载,点击我吧!</a></p>
 
         
         
@@ -116,7 +110,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/config/">config</a>
+  <a class="article-category-link" href="/categories/project/">project</a>
 </div>
 
 
@@ -141,7 +135,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
   </nav>
 
 </div>
@@ -190,6 +184,10 @@
 		
 		  
 			<li><a href="/categories/project/" title="project">project<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
 		  
 		
 		</ul>

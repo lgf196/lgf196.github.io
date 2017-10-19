@@ -81,21 +81,24 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/05/05/JavaScript-检测游览器版本/" title="检测游览器版本" itemprop="url">检测游览器版本</a>
+      <a href="/2017/05/15/JavaScript-判断一个对象是不是数组对象/" title="判断一个对象是不是数组对象" itemprop="url">判断一个对象是不是数组对象</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-05T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-05-05</time>
+    <time datetime="2017-05-15T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-05-15</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>有时候我们需要取到游览器的版本来进行一些相应的处理,并且在好多的网站用的特别的多,我呢自已也顺便写了一个,更那些大牛写的还是有点差距的,仅供个人查考</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var Sys = &#123;&#125;;</div><div class="line">       var ua = navigator.userAgent.toLowerCase();</div><div class="line">       if (window.ActiveXObject) //IE独有的属性</div><div class="line">           Sys.ie = ua.match(/msie ([\d.]+)/)[1];</div><div class="line">       else if (ua.indexOf(&apos;firefox&apos;)&gt;-1)   </div><div class="line">           Sys.firefox = ua.match(/firefox\/([\d.]+)/)[1];</div><div class="line">       else if (window.MessageEvent &amp;&amp; !document.getBoxObjectFor &amp;&amp; ua.indexOf(&apos;chrome&apos;) &gt; -1)</div><div class="line">           Sys.chrome = ua.match(/chrome\/([\d.]+)/)[1];</div><div class="line"></div><div class="line">       else if (window.opera)</div><div class="line">           Sys.opera = ua.match(/opera.([\d.]+)/)[1];</div><div class="line">       else if (window.openDatabase)</div><div class="line">           Sys.safari = ua.match(/version\/([\d.]+)/)[1];</div><div class="line">       </div><div class="line">       //以下进行测试</div><div class="line">       if(parseInt(Sys.ie)&lt;9||parseInt(Sys.ie)==9)&#123;</div><div class="line">            window.location.href=&quot;baidu.com&quot;;          </div><div class="line">       &#125; </div><div class="line">       if(Sys.firefox) document.write(&apos;Firefox: &apos;+Sys.firefox);</div><div class="line">       if(Sys.chrome) document.write(&apos;Chrome: &apos;+Sys.chrome+&quot;&lt;br&gt;&quot;);</div><div class="line">       if(Sys.opera) document.write(&apos;Opera: &apos;+Sys.opera);</div><div class="line">       if(Sys.safari) document.write(&apos;Safari: &apos;+Sys.safari);</div></pre></td></tr></table></figure>
+        <p>今天小编我看到了一道面试题，判断一个对象是不是数组对象,我仔细看了一下,我结果只用一种做法写了出来,然后看了下他们的答案,然后我通过自已的总结,总计了一下几种方法</p>
+<h2 id="1-验证原型对象"><a href="#1-验证原型对象" class="headerlink" title="1.验证原型对象"></a>1.验证原型对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line"> 1-1.Object.getPrototypeOf(a)==Array.prototype</div><div class="line"> 1-2.var bool=father.isPrototypeOf(child); //判断father是否是child的父对象,推荐使用第二种</div><div class="line">    console.log(Object.getPrototypeOf(a)==Array.prototype);</div><div class="line">    console.log(Array.prototype.isPrototypeOf(a));</div></pre></td></tr></table></figure>
+<h2 id="2-验证构造函数"><a href="#2-验证构造函数" class="headerlink" title="2.验证构造函数"></a>2.验证构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line">2-1.a.constructor==Array</div><div class="line">2-2.a instanceof Array   //推荐使用第二种*/</div><div class="line">   console.log(a.constructor==Array);</div><div class="line">   console.log(a instanceof Array);</div></pre></td></tr></table></figure>
+<h2 id="3-tostring"><a href="#3-tostring" class="headerlink" title="3.tostring"></a>3.tostring</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4];</div><div class="line">console.log(Object.prototype.toString.call(a)==&quot;[object Array]&quot;); //true</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>前面的三种方法建议使用最后一种方法,最后一种方法他更加的严格和准确</p>
 
         
         
@@ -133,7 +136,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/17/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/19/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><a class="extend next" rel="next" href="/page/19/">Next<span></span></a>
   </nav>
 
 </div>
@@ -182,6 +185,10 @@
 		
 		  
 			<li><a href="/categories/project/" title="project">project<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
 		  
 		
 		</ul>

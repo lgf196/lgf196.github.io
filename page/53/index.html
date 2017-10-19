@@ -81,31 +81,30 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/26/HTML-border/" title="border的使用" itemprop="url">border的使用</a>
+      <a href="/2017/01/29/HTML-小图标/" title="logo小图标" itemprop="url">logo小图标</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-26T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-26</time>
+    <time datetime="2017-01-29T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-29</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>在网页中border这个属性,用的是非常的多,我今天就来讲下这个属性</p>
-<h3 id="整体代码"><a href="#整体代码" class="headerlink" title="整体代码"></a>整体代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">	&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        div&#123;</div><div class="line">            width:0px;</div><div class="line">            height:0px;</div><div class="line">            border:100px solid;</div><div class="line">            border-color: red green pink darkgray;</div><div class="line">            margin-bottom:40px;</div><div class="line">        &#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>我们可以通过这个样式图为参考来做下面的效果,效果图如下:<br><img src="/img/border.png"></p>
-<h3 id="倒三角"><a href="#倒三角" class="headerlink" title="倒三角"></a>倒三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: red transparent transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/down.png"></p>
-<h3 id="正三角"><a href="#正三角" class="headerlink" title="正三角"></a>正三角</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	width:0px;</div><div class="line">	height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: transparent transparent red transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/top.png"></p>
-<h3 id="左三角"><a href="#左三角" class="headerlink" title="左三角"></a>左三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: transparent red transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/left.png"></p>
-<h3 id="直角"><a href="#直角" class="headerlink" title="直角"></a>直角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color:red red transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p><img src="/img/right-angle.png"></p>
-<p><strong>总结:通过前面的代码我们可以知道,我们主要是通过更改border-color来实现的,如果我想是上三角,就只需给上三角加颜色,其他的设置为transparent,而且border还可以做很多的效果,这里我就不依依说明,其他他们的原理更上面的代码原理差不多</strong></p>
+        <p>基本上每个网站都有自已网站的logo小图标,那么今天我来说下logo小图标以及如何优化logo区</p>
+<h2 id="logo小图标"><a href="#logo小图标" class="headerlink" title="logo小图标"></a>logo小图标</h2><p><strong>1.如何生成小图标</strong><br>自己或者网页美工制作小图标,也可以去别的网站截图<br><strong>2.转化logo小图标,使其变成favicon.ico格式</strong><br>利用 <a href="http://www.bitbug.net/" target="_blank" rel="external">http://www.bitbug.net/</a>进行转换生成的是favicon.ico 的小图标<br><strong>3.使用小图标</strong><br>在页面的head标签下加<code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot; /&gt;</code><br>//注意:这你的路径要写正确,一般这个小图标都是更index.html,js文件夹是同级别的<br><strong>以上步骤全部完成后的结果为,看下图:</strong><br><img src="/img/logoprituce.png"></p>
+<h2 id="logo区的优化"><a href="#logo区的优化" class="headerlink" title="logo区的优化"></a>logo区的优化</h2><ul>
+<li>一般情况下，logo给的是背景图片</li>
+<li>我们继续在h1 里面放一个链接a 要和 logo盒子一样大。</li>
+<li>注意 a链接 里面要放上网站标题。（是为了优化）</li>
+<li>链接里面的文字对用户体验不好，这里不需要看见,做法:利用text-indent:-2000em</li>
+<li>给链接添加 title 提示文本 增强用户体验。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;foundleft floatL&quot;&gt;</div><div class="line">	&lt;h1&gt;</div><div class="line">		&lt;a href=&quot;#&quot;&gt;</div><div class="line">		  	欢迎来到京东</div><div class="line">		&lt;/a&gt;</div><div class="line">	&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">.foundleft a&#123;display: block;height: 172px;text-indent: -100000px;&#125;</div><div class="line">//按照上面代码的格式写,记住div加的是背景图用background加,不要用img加</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>以上步骤完成后的结果为,看下图:</strong><br><img src="/img/jd.png"></p>
 
         
         
@@ -143,7 +142,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/52/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="page-number" href="/page/52/">52</a><span class="page-number current">53</span><a class="page-number" href="/page/54/">54</a><a class="page-number" href="/page/55/">55</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/54/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/52/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="page-number" href="/page/52/">52</a><span class="page-number current">53</span><a class="page-number" href="/page/54/">54</a><a class="page-number" href="/page/55/">55</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><a class="extend next" rel="next" href="/page/54/">Next<span></span></a>
   </nav>
 
 </div>
@@ -192,6 +191,10 @@
 		
 		  
 			<li><a href="/categories/project/" title="project">project<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
 		  
 		
 		</ul>

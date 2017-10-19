@@ -81,22 +81,31 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/22/JavaScript-作用域/" title="作用域" itemprop="url">作用域</a>
+      <a href="/2017/01/26/HTML-border/" title="border的使用" itemprop="url">border的使用</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LGF" target="_blank" itemprop="author">LGF</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-22T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-22</time>
+    <time datetime="2017-01-26T15:04:33.000Z" itemprop="datePublished"> 发表于 2017-01-26</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>作用域在JavaScript中是重点,但同时也是难点,难,难在他很随意,那么我今天就来说下作用域</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    //第一题</div><div class="line">	for(var i=0;i&lt;3;i++)&#123;</div><div class="line">      	var a=2;</div><div class="line">      	console.log(i);</div><div class="line">    &#125;</div><div class="line">    alert(a); //2</div><div class="line">	</div><div class="line">	//第二题</div><div class="line">	var k=5;</div><div class="line">      while(k&gt;0)&#123;</div><div class="line">      	var i=2;</div><div class="line">      	k--;</div><div class="line">      	console.log(k);</div><div class="line">    &#125;</div><div class="line">    alert(i);//2</div><div class="line">	</div><div class="line">	//第三题</div><div class="line">	var k=5</div><div class="line">    if(k&gt;2)&#123;</div><div class="line">        var i=2; </div><div class="line">    &#125;</div><div class="line">    alert(i);//2</div><div class="line">	</div><div class="line">	//第四题</div><div class="line">	function a()&#123;</div><div class="line">       	var i=2;</div><div class="line">    &#125;</div><div class="line">    a();</div><div class="line">    alert(i)//报错</div><div class="line">	</div><div class="line">	//第五题</div><div class="line">	(function()&#123;</div><div class="line">     	var i=2;</div><div class="line">    &#125;)();</div><div class="line">    alert(i);//报错</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p><strong>总结:1,2,3都可以在外面访问到我在他们函数体内部定义的变量,为2,为什么原因是if,while,for等这些语句他们没有<code>块级作用域</code>,而函数类型他们含有作用域,具体什么是块级作用域请看下一篇</strong></p>
+        <p>在网页中border这个属性,用的是非常的多,我今天就来讲下这个属性</p>
+<h3 id="整体代码"><a href="#整体代码" class="headerlink" title="整体代码"></a>整体代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">	&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        div&#123;</div><div class="line">            width:0px;</div><div class="line">            height:0px;</div><div class="line">            border:100px solid;</div><div class="line">            border-color: red green pink darkgray;</div><div class="line">            margin-bottom:40px;</div><div class="line">        &#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>我们可以通过这个样式图为参考来做下面的效果,效果图如下:<br><img src="/img/border.png"></p>
+<h3 id="倒三角"><a href="#倒三角" class="headerlink" title="倒三角"></a>倒三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: red transparent transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/down.png"></p>
+<h3 id="正三角"><a href="#正三角" class="headerlink" title="正三角"></a>正三角</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	width:0px;</div><div class="line">	height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: transparent transparent red transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/top.png"></p>
+<h3 id="左三角"><a href="#左三角" class="headerlink" title="左三角"></a>左三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color: transparent red transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/left.png"></p>
+<h3 id="直角"><a href="#直角" class="headerlink" title="直角"></a>直角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">       width:0px;</div><div class="line">       height:0px;</div><div class="line">       border:100px solid;</div><div class="line">       border-color:red red transparent transparent;</div><div class="line">	//注意:transparent表示透明</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/right-angle.png"></p>
+<p><strong>总结:通过前面的代码我们可以知道,我们主要是通过更改border-color来实现的,如果我想是上三角,就只需给上三角加颜色,其他的设置为transparent,而且border还可以做很多的效果,这里我就不依依说明,其他他们的原理更上面的代码原理差不多</strong></p>
 
         
         
@@ -109,7 +118,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  <a class="article-category-link" href="/categories/HTML-CSS/">HTML-CSS</a>
 </div>
 
 
@@ -134,7 +143,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/53/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="page-number" href="/page/53/">53</a><span class="page-number current">54</span><a class="page-number" href="/page/55/">55</a><a class="page-number" href="/page/56/">56</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/55/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/53/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="page-number" href="/page/53/">53</a><span class="page-number current">54</span><a class="page-number" href="/page/55/">55</a><a class="page-number" href="/page/56/">56</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><a class="extend next" rel="next" href="/page/55/">Next<span></span></a>
   </nav>
 
 </div>
@@ -183,6 +192,10 @@
 		
 		  
 			<li><a href="/categories/project/" title="project">project<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
 		  
 		
 		</ul>
